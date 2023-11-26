@@ -3,47 +3,108 @@
 <?php
 // Inicia la sesión
 include("../../bd.php");
+$estadoGeneral111 = empty($estadoGeneral111) ? '' : $estadoGeneral111;
+$estadoGeneral112 = empty($estadoGeneral112) ? '' : $estadoGeneral112;
+$estadoGeneral113 = empty($estadoGeneral113) ? '' : $estadoGeneral113;
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Evaluar y almacenar las opciones seleccionadas según el botón presionado
     if (isset($_POST['111'])) {
-        $_SESSION['opcionesSeleccionadas111'] = $_POST['check111'] ?? [];
-    } elseif (isset($_POST['112'])) {
+       
+		$_SESSION['opcionesSeleccionadas111'] = $_POST['check111'] ?? [];
+		// Evaluar el estado general del formulario
+		$estadoGeneral111 = 'rezago';  // Inicialmente, asume que no hay checkboxes seleccionados
+		// Verifica si hay opciones seleccionadas para el conjunto 1
+		$opcionesSeleccionadas111 = isset($_SESSION['opcionesSeleccionadas111']) ? $_SESSION['opcionesSeleccionadas111'] : [];
+		if (count($opcionesSeleccionadas111) === 4) {
+			$estadoGeneral111 = 'optimo';  // Todos los checkboxes del conjunto 1 están seleccionados
+		} elseif (count($opcionesSeleccionadas111) > 0) {
+			$estadoGeneral111 = 'proceso';  // Al menos 1 checkbox del conjunto 1 está seleccionado
+		}
+		$_SESSION['estadoGeneral111'] = $estadoGeneral111;  // Almacena el estado general en la sesión
+    
+		$alert111='';
+		if ($estadoGeneral111 === "optimo"): 
+			$alert111='<div class="alert alert-success" role="alert">
+				¡Óptimo!
+				</div>';
+		elseif ($estadoGeneral111 === "proceso"): 
+			$alert111='<div class="alert alert-warning" role="alert">
+				En proceso
+			</div>';
+		elseif ($estadoGeneral111 === "rezago"): 
+			$alert111='<div class="alert alert-danger" role="alert">
+				¡Rezago!
+			</div>';
+			 elseif ($estadoGeneral111 === ""): 
+		 endif; 
+
+		
+
+	} elseif (isset($_POST['112'])) {
         $_SESSION['opcionesSeleccionadas112'] = $_POST['check112'] ?? [];
+
+				//112
+		$estadoGeneral112 = 'rezago';  
+		$opcionesSeleccionadas112 = isset($_SESSION['opcionesSeleccionadas112']) ? $_SESSION['opcionesSeleccionadas112'] : [];
+		if (count($opcionesSeleccionadas112) === 4) {
+			$estadoGeneral112 = 'optimo';  
+		} elseif (count($opcionesSeleccionadas112) > 0) {
+			$estadoGeneral112 = 'proceso';  
+		}
+		$_SESSION['estadoGeneral112'] = $estadoGeneral112;
+
+		$alert112='';
+		if ($estadoGeneral112 === "optimo"): 
+			$alert112='<div class="alert alert-success" role="alert">
+				¡Óptimo!
+				</div>';
+		elseif ($estadoGeneral112 === "proceso"): 
+			$alert112='<div class="alert alert-warning" role="alert">
+				En proceso
+			</div>';
+		elseif ($estadoGeneral112 === "rezago"): 
+			$alert112='<div class="alert alert-danger" role="alert">
+				¡Rezago!
+			</div>';
+			 elseif ($estadoGeneral112 === ""): 
+		 endif;  
+
     } elseif (isset($_POST['113'])) {
         $_SESSION['opcionesSeleccionadas113'] = $_POST['check113'] ?? [];
+
+		 //113
+		 $estadoGeneral113 = 'rezago';  
+		 $opcionesSeleccionadas113 = isset($_SESSION['opcionesSeleccionadas113']) ? $_SESSION['opcionesSeleccionadas113'] : [];
+		 if (count($opcionesSeleccionadas113) === 2) {
+			 $estadoGeneral113 = 'optimo'; 
+		 } elseif (count($opcionesSeleccionadas113) > 0) {
+			 $estadoGeneral113 = 'proceso'; 
+		 }
+		 $_SESSION['estadoGeneral113'] = $estadoGeneral113;
+		 
+		 $alert113='';
+		if ($estadoGeneral113 === "optimo"): 
+			$alert113='<div class="alert alert-success" role="alert">
+				¡Óptimo!
+				</div>';
+		elseif ($estadoGeneral113 === "proceso"): 
+			$alert113='<div class="alert alert-warning" role="alert">
+				En proceso
+			</div>';
+		elseif ($estadoGeneral113 === "rezago"): 
+			$alert113='<div class="alert alert-danger" role="alert">
+				¡Rezago!
+			</div>';
+			 elseif ($estadoGeneral113 === ""): 
+		 endif; 
     }
-  // Evaluar el estado general del formulario
-  $estadoGeneral111 = 'rezago';  // Inicialmente, asume que no hay checkboxes seleccionados
-  // Verifica si hay opciones seleccionadas para el conjunto 1
-  $opcionesSeleccionadas111 = isset($_SESSION['opcionesSeleccionadas111']) ? $_SESSION['opcionesSeleccionadas111'] : [];
-  if (count($opcionesSeleccionadas111) === 4) {
-	  $estadoGeneral111 = 'optimo';  // Todos los checkboxes del conjunto 1 están seleccionados
-  } elseif (count($opcionesSeleccionadas111) > 0) {
-	  $estadoGeneral111 = 'proceso';  // Al menos 1 checkbox del conjunto 1 está seleccionado
-  }
-  $_SESSION['estadoGeneral111'] = $estadoGeneral111;  // Almacena el estado general en la sesión
+  
 
-  //112
-  $estadoGeneral112 = 'rezago';  
-   $opcionesSeleccionadas112 = isset($_SESSION['opcionesSeleccionadas112']) ? $_SESSION['opcionesSeleccionadas112'] : [];
-   if (count($opcionesSeleccionadas112) === 4) {
-	   $estadoGeneral112 = 'optimo';  
-   } elseif (count($opcionesSeleccionadas112) > 0) {
-	   $estadoGeneral112 = 'proceso';  
-   }
-   $_SESSION['estadoGeneral112'] = $estadoGeneral112; 
 
-   //113
-   $estadoGeneral113 = 'rezago';  
-  $opcionesSeleccionadas113 = isset($_SESSION['opcionesSeleccionadas113']) ? $_SESSION['opcionesSeleccionadas113'] : [];
-  if (count($opcionesSeleccionadas113) === 2) {
-	  $estadoGeneral113 = 'optimo'; 
-  } elseif (count($opcionesSeleccionadas113) > 0) {
-	  $estadoGeneral113 = 'proceso'; 
-  }
-  $_SESSION['estadoGeneral113'] = $estadoGeneral113; 
+
+  
   
   //114
  // Obtén los valores de los campos de texto
@@ -207,24 +268,9 @@ if ($numUnidadesPromedio114 != 0) {
 							<button type="submit" name="111" value="Agregar111" class="btn btn-success">Guardar</button>
 							
 						</div>
-
-							<div>
-							<?php if ($_SESSION["estadoGeneral111"] === "optimo"): ?>
-								<div class="alert alert-success" role="alert">
-									¡Óptimo!
-								</div>
-							<?php elseif ($_SESSION["estadoGeneral111"] === "proceso"): ?>
-								<div class="alert alert-warning" role="alert">
-									En proceso
-								</div>
-							<?php else: ?>
-								<div class="alert alert-danger" role="alert">
-									¡Rezago!
-								</div>
-							<?php endif; ?>
-
-							</div>
-
+				
+						<?php echo isset($alert111) ? $alert111 : ''; ?>
+							
 						<h6 class="display-15">1.1.2 Manuales de Organización</h6></p>
 						<hr class="my-2">
 						<label>
@@ -243,21 +289,7 @@ if ($numUnidadesPromedio114 != 0) {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="112" value="Agregar112" class="btn btn-success">Guardar</button>
 						</div>
-						<div>
-						<?php if ($_SESSION["estadoGeneral112"] === "optimo"): ?>
-								<div class="alert alert-success" role="alert">
-									¡Óptimo!
-								</div>
-							<?php elseif ($_SESSION["estadoGeneral112"] === "proceso"): ?>
-								<div class="alert alert-warning" role="alert">
-									En proceso
-								</div>
-							<?php else: ?>
-								<div class="alert alert-danger" role="alert">
-									¡Rezago!
-								</div>
-							<?php endif; ?>
-						</div>
+						<?php echo isset($alert112) ? $alert112 : ''; ?>
 
 						<h6 class="display-15">1.1.3 Tabulador de sueldos o documentos con la estructura salarial del personal de
                         la administración pública municipal</h6></p>
@@ -271,19 +303,7 @@ if ($numUnidadesPromedio114 != 0) {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="113" value="Agregar113" class="btn btn-success">Guardar</button>
 						</div>
-						<?php if ($_SESSION["estadoGeneral113"] === "optimo"): ?>
-								<div class="alert alert-success" role="alert">
-									¡Óptimo!
-								</div>
-							<?php elseif ($_SESSION["estadoGeneral113"] === "proceso"): ?>
-								<div class="alert alert-warning" role="alert">
-									En proceso
-								</div>
-							<?php else: ?>
-								<div class="alert alert-danger" role="alert">
-									¡Rezago!
-								</div>
-							<?php endif; ?>
+						<?php echo isset($alert113) ? $alert113 : ''; ?>
 
 						
 					</div>
@@ -291,6 +311,7 @@ if ($numUnidadesPromedio114 != 0) {
 			</div>
 		</div>
 	</div>
+	
 
 	<!--Indicadores de desempeño -->
 
