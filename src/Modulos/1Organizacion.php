@@ -6,6 +6,10 @@ include("../../bd.php");
 $estadoGeneral111 = empty($estadoGeneral111) ? '' : $estadoGeneral111;
 $estadoGeneral112 = empty($estadoGeneral112) ? '' : $estadoGeneral112;
 $estadoGeneral113 = empty($estadoGeneral113) ? '' : $estadoGeneral113;
+$estadoGeneral114 = empty($estadoGeneral114) ? '' : $estadoGeneral114;
+$estadoGeneral115 = empty($estadoGeneral115) ? '' : $estadoGeneral115;
+$estadoGeneral116 = empty($estadoGeneral116) ? '' : $estadoGeneral116;
+$estadoGeneral117 = empty($estadoGeneral117) ? '' : $estadoGeneral117;
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -82,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		 } elseif (count($opcionesSeleccionadas113) > 0) {
 			 $estadoGeneral113 = 'proceso'; 
 		 }
+		 
 		 $_SESSION['estadoGeneral113'] = $estadoGeneral113;
 		 
 		 $alert113='';
@@ -99,117 +104,224 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			</div>';
 			 elseif ($estadoGeneral113 === ""): 
 		 endif; 
-    }
-  
+    }  elseif (isset($_POST['114'])) {
+			
+				//114
+			// Obtén los valores de los campos de texto
+			$numUnidades114 = isset($_POST['txtNombre1141']) ? (int)$_POST['txtNombre1141'] : 0;
+			$numUnidadesPromedio114 = isset($_POST['txtNombre1142']) ? (int)$_POST['txtNombre1142'] : 0;
+
+			// Verifica si el denominador es 0 antes de realizar la división
+			if ($numUnidadesPromedio114 != 0) {
+					// Calcula el porcentaje
+					$porcentaje114 = ($numUnidades114 / $numUnidadesPromedio114) * 100;
+
+					// Evalúa el porcentaje y determina el estado
+					if ($porcentaje114 <= 100) {
+							$estado114 = 'Optimo';
+					} elseif ($porcentaje114 > 100 && $porcentaje114 <= 115) {
+							$estado114 = 'En Proceso';
+					} else {
+							$estado114 = 'Rezago';
+					}
+
+					// Almacena el estado en la sesión
+					$_SESSION['estadoPorcentaje114'] = $estado114;
+					$estadoGeneral114 = $estado114;
+			} else {
+					// Manejar el caso donde el denominador es 0 (división por 0)
+					$_SESSION['estadoPorcentaje114'] = 'Error: División por 0';
+					$estadoGeneral114 = 'Error: División por 0';
+					
+			}
+
+					$alert114='';
+					if ($estadoGeneral114 === 'Optimo') {
+
+						$alert114 = '<div class="alert alert-success" role="alert">
+														¡Optimo! El porcentaje es menor a 100.
+												</div>';
+					} elseif ($estadoGeneral114 === 'En Proceso')  {
+							$alert114 = '<div class="alert alert-warning" role="alert">
+															En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
+													</div>';
+					} elseif ($estadoGeneral114 === 'Error: División por 0') {
+							$alert114 = '<div class="alert alert-danger" role="alert">
+															Error: Se ha ingresado 0 en la división.
+													</div>';
+					}  elseif ($estadoGeneral114 === '') {
+
+					
+					} else {
+							$alert114 = '<div class="alert alert-danger" role="alert">
+															¡Rezago! El porcentaje es mayor a 115.
+													</div>';
+					}
+		
+		} elseif (isset($_POST['115'])) {
+
+			//115
+			// Obtén los valores de los campos de texto
+			$numUnidades115 = isset($_POST['txtNombre1151']) ? (int)$_POST['txtNombre1151'] : 0;
+			$numUnidadesPromedio115 = isset($_POST['txtNombre1152']) ? (int)$_POST['txtNombre1152'] : 0;
+			
+			// Verifica si el denominador es 0 antes de realizar la división
+			if ($numUnidadesPromedio115 != 0) {
+				// Calcula el porcentaje
+				$porcentaje115 = ($numUnidades115 / $numUnidadesPromedio115) * 100;
+			
+				// Evalúa el porcentaje y determina el estado
+				if ($porcentaje115 <= 100) {
+					$estado115 = 'Optimo';
+				} elseif ($porcentaje115 > 100 && $porcentaje115 <= 115) {
+					$estado115 = 'En Proceso';
+				} else {
+					$estado115 = 'Rezago';
+				}
+			
+				// Almacena el estado en la sesión
+				$_SESSION['estadoPorcentaje115'] = $estado115;
+				$estadoGeneral115 = $estado115;
+			} else {
+				// Manejar el caso donde el denominador es 0 (división por 0)
+				$_SESSION['estadoPorcentaje115'] = 'Error: División por 0';
+				$estadoGeneral115 = 'Error: División por 0';
+			}
 
 
+			$alert115='';
+			if ($estadoGeneral115 === 'Optimo') {
 
-  
-  
-  //114
- // Obtén los valores de los campos de texto
- $numUnidades114 = isset($_POST['txtNombre1141']) ? (int)$_POST['txtNombre1141'] : 0;
- $numUnidadesPromedio114 = isset($_POST['txtNombre1142']) ? (int)$_POST['txtNombre1142'] : 0;
+				$alert115 = '<div class="alert alert-success" role="alert">
+												¡Optimo! El porcentaje es menor a 100.
+										</div>';
+			} elseif ($estadoGeneral115 === 'En Proceso')  {
+					$alert115 = '<div class="alert alert-warning" role="alert">
+													En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
+											</div>';
+			} elseif ($estadoGeneral115 === 'Error: División por 0') {
+					$alert115 = '<div class="alert alert-danger" role="alert">
+													Error: Se ha ingresado 0 en la división.
+											</div>';
+			}  elseif ($estadoGeneral115 === '') {
 
-// Verifica si el denominador es 0 antes de realizar la división
-if ($numUnidadesPromedio114 != 0) {
-    // Calcula el porcentaje
-    $porcentaje114 = ($numUnidades114 / $numUnidadesPromedio114) * 100;
+			
+			} else {
+					$alert115 = '<div class="alert alert-danger" role="alert">
+													¡Rezago! El porcentaje es mayor a 115.
+											</div>';
+			}
+			
 
-    // Evalúa el porcentaje y determina el estado
-    if ($porcentaje114 <= 100) {
-        $estado114 = 'Optimo';
-    } elseif ($porcentaje114 > 100 && $porcentaje114 <= 115) {
-        $estado114 = 'En Proceso';
-    } else {
-        $estado114 = 'Rezago';
-    }
+		} elseif (isset($_POST['116'])) {
+			
+			//116
+			// Obtén los valores de los campos de texto
+			$numUnidades116 = isset($_POST['txtNombre1161']) ? (int)$_POST['txtNombre1161'] : 0;
+			$numUnidadesPromedio116 = isset($_POST['txtNombre1162']) ? (int)$_POST['txtNombre1162'] : 0;
+			
+			// Verifica si el denominador es 0 antes de realizar la división
+			if ($numUnidadesPromedio116 != 0) {
+				// Calcula el porcentaje
+				$porcentaje116 = ($numUnidades116 / $numUnidadesPromedio116) * 100;
+			
+				// Evalúa el porcentaje y determina el estado
+				if ($porcentaje116 <= 100) {
+					$estado116 = 'Optimo';
+				} elseif ($porcentaje116 > 100 && $porcentaje116 <= 115) {
+					$estado116 = 'En Proceso';
+				} else {
+					$estado116 = 'Rezago';
+				}
+			
+				// Almacena el estado en la sesión
+				$_SESSION['estadoPorcentaje116'] = $estado116;
+				$estadoGeneral116 = $estado116;
+			} else {
+				// Manejar el caso donde el denominador es 0 (división por 0)
+				$_SESSION['estadoPorcentaje116'] = 'Error: División por 0';
+				$estadoGeneral116 = 'Error: División por 0';
+			}
 
-    // Almacena el estado en la sesión
-    $_SESSION['estadoPorcentaje114'] = $estado114;
-} else {
-    // Manejar el caso donde el denominador es 0 (división por 0)
-    $_SESSION['estadoPorcentaje114'] = 'Error: División por 0';
-}
 
-//115
- // Obtén los valores de los campos de texto
- $numUnidades115 = isset($_POST['txtNombre1151']) ? (int)$_POST['txtNombre1151'] : 0;
- $numUnidadesPromedio115 = isset($_POST['txtNombre1152']) ? (int)$_POST['txtNombre1152'] : 0;
- 
- // Verifica si el denominador es 0 antes de realizar la división
- if ($numUnidadesPromedio115 != 0) {
-	 // Calcula el porcentaje
-	 $porcentaje115 = ($numUnidades115 / $numUnidadesPromedio115) * 100;
- 
-	 // Evalúa el porcentaje y determina el estado
-	 if ($porcentaje115 <= 100) {
-		 $estado115 = 'Optimo';
-	 } elseif ($porcentaje115 > 100 && $porcentaje115 <= 115) {
-		 $estado115 = 'En Proceso';
-	 } else {
-		 $estado115 = 'Rezago';
-	 }
- 
-	 // Almacena el estado en la sesión
-	 $_SESSION['estadoPorcentaje115'] = $estado115;
- } else {
-	 // Manejar el caso donde el denominador es 0 (división por 0)
-	 $_SESSION['estadoPorcentaje115'] = 'Error: División por 0';
- }
+			$alert116='';
+			if ($estadoGeneral116 === 'Optimo') {
 
- //116
- // Obtén los valores de los campos de texto
- $numUnidades116 = isset($_POST['txtNombre1161']) ? (int)$_POST['txtNombre1161'] : 0;
- $numUnidadesPromedio116 = isset($_POST['txtNombre1162']) ? (int)$_POST['txtNombre1162'] : 0;
- 
- // Verifica si el denominador es 0 antes de realizar la división
- if ($numUnidadesPromedio116 != 0) {
-	 // Calcula el porcentaje
-	 $porcentaje116 = ($numUnidades116 / $numUnidadesPromedio116) * 100;
- 
-	 // Evalúa el porcentaje y determina el estado
-	 if ($porcentaje116 <= 100) {
-		 $estado116 = 'Optimo';
-	 } elseif ($porcentaje116 > 100 && $porcentaje116 <= 115) {
-		 $estado116 = 'En Proceso';
-	 } else {
-		 $estado116 = 'Rezago';
-	 }
- 
-	 // Almacena el estado en la sesión
-	 $_SESSION['estadoPorcentaje116'] = $estado116;
- } else {
-	 // Manejar el caso donde el denominador es 0 (división por 0)
-	 $_SESSION['estadoPorcentaje116'] = 'Error: División por 0';
- }
+				$alert116 = '<div class="alert alert-success" role="alert">
+												¡Optimo! El porcentaje es menor a 100.
+										</div>';
+			} elseif ($estadoGeneral116 === 'En Proceso')  {
+					$alert116 = '<div class="alert alert-warning" role="alert">
+													En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
+											</div>';
+			} elseif ($estadoGeneral116 === 'Error: División por 0') {
+					$alert116 = '<div class="alert alert-danger" role="alert">
+													Error: Se ha ingresado 0 en la división.
+											</div>';
+			}  elseif ($estadoGeneral116 === '') {
 
- //117
- // Obtén los valores de los campos de texto
- $numUnidades117 = isset($_POST['txtNombre1171']) ? (int)$_POST['txtNombre1171'] : 0;
- $numUnidadesPromedio117 = isset($_POST['txtNombre1172']) ? (int)$_POST['txtNombre1172'] : 0;
- 
- // Verifica si el denominador es 0 antes de realizar la división
- if ($numUnidadesPromedio117 != 0) {
-	 // Calcula el porcentaje
-	 $porcentaje117 = ($numUnidades117 / $numUnidadesPromedio117) * 100;
- 
-	 // Evalúa el porcentaje y determina el estado
-	 if ($porcentaje117 <= 100) {
-		 $estado117 = 'Optimo';
-	 } elseif ($porcentaje117 > 100 && $porcentaje117 <= 115) {
-		 $estado117 = 'En Proceso';
-	 } else {
-		 $estado117 = 'Rezago';
-	 }
- 
-	 // Almacena el estado en la sesión
-	 $_SESSION['estadoPorcentaje117'] = $estado117;
- } else {
-	 // Manejar el caso donde el denominador es 0 (división por 0)
-	 $_SESSION['estadoPorcentaje117'] = 'Error: División por 0';
- }
-    
+			
+			} else {
+					$alert116 = '<div class="alert alert-danger" role="alert">
+													¡Rezago! El porcentaje es mayor a 115.
+											</div>';
+			}
+
+		} elseif (isset($_POST['117'])) {
+		
+			 //117
+			// Obtén los valores de los campos de texto
+			$numUnidades117 = isset($_POST['txtNombre1171']) ? (int)$_POST['txtNombre1171'] : 0;
+			$numUnidadesPromedio117 = isset($_POST['txtNombre1172']) ? (int)$_POST['txtNombre1172'] : 0;
+			
+			// Verifica si el denominador es 0 antes de realizar la división
+			if ($numUnidadesPromedio117 != 0) {
+				// Calcula el porcentaje
+				$porcentaje117 = ($numUnidades117 / $numUnidadesPromedio117) * 100;
+			
+				// Evalúa el porcentaje y determina el estado
+				if ($porcentaje117 <= 100) {
+					$estado117 = 'Optimo';
+				} elseif ($porcentaje117 > 100 && $porcentaje117 <= 115) {
+					$estado117 = 'En Proceso';
+				} else {
+					$estado117 = 'Rezago';
+				}
+			
+					// Almacena el estado en la sesión
+					$_SESSION['estadoPorcentaje117'] = $estado117;
+					$estadoGeneral117 = $estado117;
+				} else {
+					// Manejar el caso donde el denominador es 0 (división por 0)
+					$_SESSION['estadoPorcentaje117'] = 'Error: División por 0';
+					$estadoGeneral117 = 'Error: División por 0';
+				}
+				
+				$alert117='';
+				if ($estadoGeneral117 === 'Optimo') {
+
+					$alert117 = '<div class="alert alert-success" role="alert">
+													¡Optimo! El porcentaje es menor a 100.
+											</div>';
+				} elseif ($estadoGeneral117 === 'En Proceso')  {
+						$alert117 = '<div class="alert alert-warning" role="alert">
+														En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
+												</div>';
+				} elseif ($estadoGeneral117 === 'Error: División por 0') {
+						$alert117 = '<div class="alert alert-danger" role="alert">
+														Error: Se ha ingresado 0 en la división.
+												</div>';
+				}  elseif ($estadoGeneral117 === '') {
+
+				
+				} else {
+						$alert117 = '<div class="alert alert-danger" role="alert">
+														¡Rezago! El porcentaje es mayor a 115.
+												</div>';
+				}
+		
+		
+		}
 }
  
 ?>
@@ -343,25 +455,7 @@ if ($numUnidadesPromedio114 != 0) {
 
 
 						
-<?php if (isset($_SESSION['estadoPorcentaje114'])) : ?>
-    <?php if ($_SESSION['estadoPorcentaje114'] === 'Optimo') : ?>
-        <div class="alert alert-success" role="alert">
-            ¡Optimo! El porcentaje es menor a 100.
-        </div>
-    <?php elseif ($_SESSION['estadoPorcentaje114'] === 'En Proceso') : ?>
-        <div class="alert alert-warning" role="alert">
-            En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
-        </div>
-    <?php elseif ($_SESSION['estadoPorcentaje114'] === 'Error: División por 0') : ?>
-        <div class="alert alert-danger" role="alert">
-            Error: Se ha ingresado 0 en la división.
-        </div>
-    <?php else : ?>
-        <div class="alert alert-danger" role="alert">
-            ¡Rezago! El porcentaje es mayor a 115.
-        </div>
-    <?php endif; ?>
-<?php endif; ?>
+							<?php echo isset($alert114) ? $alert114 : ''; ?>
 
 
 	<form method="POST" enctype="multipart/form-data">
@@ -383,25 +477,7 @@ if ($numUnidadesPromedio114 != 0) {
 	</form>
 
 												
-					<?php if (isset($_SESSION['estadoPorcentaje115'])) : ?>
-						<?php if ($_SESSION['estadoPorcentaje115'] === 'Optimo') : ?>
-							<div class="alert alert-success" role="alert">
-								¡Optimo! El porcentaje es menor a 100.
-							</div>
-						<?php elseif ($_SESSION['estadoPorcentaje115'] === 'En Proceso') : ?>
-							<div class="alert alert-warning" role="alert">
-								En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
-							</div>
-						<?php elseif ($_SESSION['estadoPorcentaje115'] === 'Error: División por 0') : ?>
-							<div class="alert alert-danger" role="alert">
-								Error: Se ha ingresado 0 en la división.
-							</div>
-						<?php else : ?>
-							<div class="alert alert-danger" role="alert">
-								¡Rezago! El porcentaje es mayor a 115.
-							</div>
-						<?php endif; ?>
-					<?php endif; ?>
+		<?php echo isset($alert115) ? $alert115 : ''; ?>
 
 					<form method="POST" enctype="multipart/form-data">
      				<div class="form-group">		
@@ -420,25 +496,8 @@ if ($numUnidadesPromedio114 != 0) {
 						</form>
 
 													
-					<?php if (isset($_SESSION['estadoPorcentaje116'])) : ?>
-						<?php if ($_SESSION['estadoPorcentaje116'] === 'Optimo') : ?>
-							<div class="alert alert-success" role="alert">
-								¡Optimo! El porcentaje es menor a 100.
-							</div>
-						<?php elseif ($_SESSION['estadoPorcentaje116'] === 'En Proceso') : ?>
-							<div class="alert alert-warning" role="alert">
-								En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
-							</div>
-						<?php elseif ($_SESSION['estadoPorcentaje116'] === 'Error: División por 0') : ?>
-							<div class="alert alert-danger" role="alert">
-								Error: Se ha ingresado 0 en la división.
-							</div>
-						<?php else : ?>
-							<div class="alert alert-danger" role="alert">
-								¡Rezago! El porcentaje es mayor a 115.
-							</div>
-						<?php endif; ?>
-					<?php endif; ?>
+						<?php echo isset($alert116) ? $alert116 : ''; ?>
+
 					<form method="POST" enctype="multipart/form-data">
      				<div class="form-group">
 						<h6 class="display-15">1.1.7 Participación de las mujeres en puestos de mando medio y superior en la
@@ -456,25 +515,7 @@ if ($numUnidadesPromedio114 != 0) {
 						</div>
 						</form>
 													
-					<?php if (isset($_SESSION['estadoPorcentaje117'])) : ?>
-						<?php if ($_SESSION['estadoPorcentaje117'] === 'Optimo') : ?>
-							<div class="alert alert-success" role="alert">
-								¡Optimo! El porcentaje es menor a 100.
-							</div>
-						<?php elseif ($_SESSION['estadoPorcentaje117'] === 'En Proceso') : ?>
-							<div class="alert alert-warning" role="alert">
-								En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
-							</div>
-						<?php elseif ($_SESSION['estadoPorcentaje117'] === 'Error: División por 0') : ?>
-							<div class="alert alert-danger" role="alert">
-								Error: Se ha ingresado 0 en la división.
-							</div>
-						<?php else : ?>
-							<div class="alert alert-danger" role="alert">
-								¡Rezago! El porcentaje es mayor a 115.
-							</div>
-						<?php endif; ?>
-					<?php endif; ?>
+						<?php echo isset($alert117) ? $alert117 : ''; ?>
 					
 				
 			</div>
