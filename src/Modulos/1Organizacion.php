@@ -5,8 +5,8 @@
 include("../../bd.php");
 
 	$alerta = '';
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registarNuevoFormulario'])){
-	
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarNuevoFormulario'])){
+
 	$estaCompletado1 = $_SESSION['completado1'] ?? false;
 	$estaCompletado2 = $_SESSION['completado2'] ?? false;
 	$estaCompletado3 = $_SESSION['completado3'] ?? false;
@@ -81,6 +81,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registarNuevoFormulari
 		$_SESSION['deshabilitarBoton5'] = false;
 		$_SESSION['deshabilitarBoton6'] = false;
 		$_SESSION['deshabilitarBoton7'] = false;
+
+		// Obtener el año actual
+		$anoActual = date("Y");
+		// Obtener el mes actual
+		$mesActual = date("m");
+		// Obtener el día actual
+		$diaActual = date("d");	
+		// Concatenar los tres valores
+		$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+		// Obtener la fecha y hora actual
+		$fechaActual = date("Y-m-d H:i:s");
+		$nuevafecha = substr($fechaActual,0,10);
+
+		$querySelect = mysqli_query($conexion, "SELECT `fecha` FROM `formulario` WHERE fecha = '$nuevafecha'");
+		
+		if (!mysqli_fetch_assoc($querySelect)) {
+			
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `formulario` (`id_formulario`, `nombre`, `fecha`) VALUES (NULL, ' REGISTRO.$fechaCompleta', '$fechaActual')");
+			$querySelect = mysqli_query($conexion, "SELECT `id_formulario` FROM `formulario` WHERE fecha = '$nuevafecha'");
+			$dataFormulario = mysqli_fetch_assoc($querySelect);
+			$idFormulario = $dataFormulario['id_formulario'];
+			
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `modulo` (`id_modulo`, `id_formulario`, `modulo`) VALUES (NULL, '$idFormulario', '1.1 ESTRUCTURA')");
+
+			$querySelect = mysqli_query($conexion, "SELECT `id_modulo` FROM `modulo` WHERE modulo = '1.1 ESTRUCTURA'");
+			$dataModulo = mysqli_fetch_assoc($querySelect);
+			$idModulo = $dataModulo['id_modulo'];
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `tema` (`id_tema`, `id_modulo`, `tema`) VALUES (NULL, '$idModulo', 'Indicadores de Gestión')");
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `tema` (`id_tema`, `id_modulo`, `tema`) VALUES (NULL, '$idModulo', 'Indicadores de Desempeño')");
+
+		}
 	}
 }
 
@@ -147,6 +178,14 @@ $estadoGeneral117 = empty($estadoGeneral117) ? '' : $estadoGeneral117;
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
+	$querySelect = mysqli_query($conexion, "SELECT `id_tema` FROM `tema` WHERE tema = 'Indicadores de Gestión'");
+	$dataTema1 = mysqli_fetch_assoc($querySelect);
+	$idTema1 = $dataTema1['id_tema'];
+
+	$querySelect = mysqli_query($conexion, "SELECT `id_tema` FROM `tema` WHERE tema = 'Indicadores de Desempeño'");
+	$dataTema2 = mysqli_fetch_assoc($querySelect);
+	$idTema2 = $dataTema2['id_tema'];
+
     // Evaluar y almacenar las opciones seleccionadas según el botón presionado
   if (isset($_POST['111'])) {
 		$_SESSION['completado1'] = true;
@@ -156,31 +195,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['deshabilitarBoton1'] = $botonDeshabilitado1;
 		$count = 0;
 
+		$check1 = 0;
+		$check2 = 0;
+		$check3 = 0;
+		$check4 = 0;
 		if(isset($_POST['check1111'])) {
 			$opcion1_form1_value = isset($_POST['check1111']) ? $_POST['check1111'] : '';
 			$_SESSION['check1111'] = $opcion1_form1_value;
-			echo "Opción 1 seleccionada: " . $_POST['check1111'] . "<br>";
+			$check1 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1112'])) {
 			$opcion2_form1_value = isset($_POST['check1112']) ? $_POST['check1112'] : '';
 			$_SESSION['check1112'] = $opcion2_form1_value;
-			echo "Opción 2 seleccionada: " . $_POST['check1112'] . "<br>";
+			$check2 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1113'])) {
 			$opcion3_form1_value = isset($_POST['check1113']) ? $_POST['check1113'] : '';
 			$_SESSION['check1113'] = $opcion3_form1_value;
-			echo "Opción 3 seleccionada: " . $_POST['check1113'] . "<br>";
+			$check3 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1114'])) {
 			$opcion4_form1_value = isset($_POST['check1114']) ? $_POST['check1114'] : '';
 			$_SESSION['check1114'] = $opcion4_form1_value;
-			echo "Opción 4 seleccionada: " . $_POST['check1114'] . "<br>";
+			$check4 = 1;
 			$count = $count + 1;
 		}
-				echo $count;
 
 		// Evaluar el estado general del formulario
 		$estadoGeneral111 = 'rezago';  // Inicialmente, asume que no hay checkboxes seleccionados
@@ -207,6 +249,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		} 
 
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema1', '1.1.1 Bando de Policía y Gobierno')");
+		$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.1 Bando de Policía y Gobierno'");
+		$dataSubtema = mysqli_fetch_assoc($querySelect);
+		$idSubtema = $dataSubtema['id_subtema'];
+		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'a) Disposiciones normativas que regulan la organización y funcionamiento del Ayuntamiento.', $check1)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'b) Disposiciones normativas de la Administración Pública Municipal.', $check2)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'c) Documento que señale que fue avalado por la Administración o el Ayuntamiento en funciones, según corresponda.', $check3)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'd) Publicado conforme a la legislación estatal.', $check4)");
+
 		$_SESSION['alert111'] = $alert111;
 
 	} elseif (isset($_POST['112'])) {
@@ -218,28 +270,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['deshabilitarBoton2'] = $botonDeshabilitado2;
 		$count = 0;
 
+		$check1 = 0;
+		$check2 = 0;
+		$check3 = 0;
+		$check4 = 0;
 		if(isset($_POST['check1121'])) {
 			$opcion1_form2_value = true;
 			$_SESSION['check1121'] = $opcion1_form2_value;
-			echo "Opción 1 seleccionada: " . $_POST['check1121'] . "<br>";
+			$check1 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1122'])) {
 			$opcion2_form2_value = true;
 			$_SESSION['check1122'] = $opcion2_form2_value;
-			echo "Opción 2 seleccionada: " . $_POST['check1122'] . "<br>";
+			$check2 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1123'])) {
 			$opcion3_form2_value = true;
 			$_SESSION['check1123'] = $opcion3_form2_value;
-			echo "Opción 3 seleccionada: " . $_POST['check1123'] . "<br>";
+			$check3 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1124'])) {
 			$opcion4_form2_value = true;
 			$_SESSION['check1124'] = $opcion4_form2_value;
-			echo "Opción 4 seleccionada: " . $_POST['check1124'] . "<br>";
+			$check4 = 1;
 			$count = $count + 1;
 		}
 
@@ -266,6 +322,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		}	elseif ($estadoGeneral112 === "")  {
 
 		}
+
+
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema1', '1.1.2 Manuales de Organización')");
+		$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.2 Manuales de Organización'");
+		$dataSubtema = mysqli_fetch_assoc($querySelect);
+		$idSubtema = $dataSubtema['id_subtema'];
+		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'a) Disposiciones normativas que regulan la organización y funcionamiento del Ayuntamiento.', $check1)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'b) Disposiciones normativas de la Administración Pública Municipal.', $check2)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'c) Documento que señale que fue avalado por la Administración o el Ayuntamiento en funciones, según corresponda.', $check3)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'd) Publicado conforme a la legislación estatal.', $check4)");
+
+
 		$_SESSION['alert112'] = $alert112;
 
   } elseif (isset($_POST['113'])) {
@@ -277,16 +346,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['deshabilitarBoton3'] = $botonDeshabilitado3;
 		$count = 0;
 
+		$check1 = 0;
+		$check2 = 0;
 		if(isset($_POST['check1131'])) {
 			$opcion1_form3_value = isset($_POST['check1131']) ? $_POST['check1131'] : '';
 			$_SESSION['check1131'] = $opcion1_form3_value;
-			echo "Opción 1 seleccionada: " . $_POST['check1131'] . "<br>";
+			$check1 = 1;
 			$count = $count + 1;
 		}
 		if(isset($_POST['check1132'])) {
 			$opcion2_form3_value = isset($_POST['check1132']) ? $_POST['check1132'] : '';
 			$_SESSION['check1132'] = $opcion2_form3_value;
-			echo "Opción 2 seleccionada: " . $_POST['check1132'] . "<br>";
+			$check2 = 1;
 			$count = $count + 1;
 		}
 		//113
@@ -316,6 +387,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		}
 		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema1', '1.1.3 Tabulador de sueldos o documentos con la estructura salarial del personal de la administración pública municipal')");
+		$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.3 Tabulador de sueldos o documentos con la estructura salarial del personal de la administración pública municipal'");
+		$dataSubtema = mysqli_fetch_assoc($querySelect);
+		$idSubtema = $dataSubtema['id_subtema'];
+		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'a) Disposiciones normativas que regulan la organización y funcionamiento del Ayuntamiento.', $check1)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'b) Disposiciones normativas de la Administración Pública Municipal.', $check2)");
+
+
 		$_SESSION['alert113'] = $alert113;
 
 	} elseif (isset($_POST['114'])) {
@@ -377,6 +457,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										</div>';
 		}
 	
+
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema2', '1.1.4 Unidades administrativas existentes en función del número de unidades administrativas promedio')");
+		$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.4 Unidades administrativas existentes en función del número de unidades administrativas promedio'");
+		$dataSubtema = mysqli_fetch_assoc($querySelect);
+		$idSubtema = $dataSubtema['id_subtema'];
+		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Número de unidades administrativas que conforman la administración.', $opcion1_form4_value)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Número de unidades administrativas promedio nacional.', $opcion2_form4_value)");
+
 		$_SESSION['alert114'] = $alert114;
 
 	} elseif (isset($_POST['115'])) {
@@ -438,6 +527,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										</div>';
 		}
 		
+
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema2', '1.1.5 Unidades administrativas existentes en función del número de unidades administrativas promedio')");
+		$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.5 Unidades administrativas existentes en función del número de unidades administrativas promedio'");
+		$dataSubtema = mysqli_fetch_assoc($querySelect);
+		$idSubtema = $dataSubtema['id_subtema'];
+		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Número de unidades administrativas que conforman la administración.', $opcion1_form5_value)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Número de unidades administrativas promedio nacional.', $opcion2_form5_value)");
+
 		$_SESSION['alert115'] = $alert115;
 
 	} elseif (isset($_POST['116'])) {
@@ -500,6 +598,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										</div>';
 		}
 
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema2', '1.1.6 Nivel salarial del Presidente(a) municipal')");
+		$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.6 Nivel salarial del Presidente(a) municipal'");
+		$dataSubtema = mysqli_fetch_assoc($querySelect);
+		$idSubtema = $dataSubtema['id_subtema'];
+		
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Puestos de mando medio y superior ocupados por mujeres.', $opcion1_form6_value)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Total de puestos de mando medio y superior de la APM.', $opcion2_form6_value)");
+
+
 		$_SESSION['alert116'] = $alert116;
 
 	} elseif (isset($_POST['117'])) {
@@ -540,7 +647,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$estadoGeneral117 = 'Error: División por 0';
 			}
 			
-			$alert117='';
 			if ($estadoGeneral117 === 'Optimo') {
 
 				$alert117 = '<div class="alert alert-success" role="alert">
@@ -563,7 +669,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 											</div>';
 			}
 	
-	
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `subtema` (`id_subtema`, `id_tema`, `subtema`) VALUES (NULL, '$idTema2', '1.1.7 Participación de las mujeres en puestos de mando medio y superior en la administración pública municipal')");
+			$querySelect = mysqli_query($conexion, "SELECT `id_subtema` FROM `subtema` WHERE subtema = '1.1.7 Participación de las mujeres en puestos de mando medio y superior en la administración pública municipal'");
+			$dataSubtema = mysqli_fetch_assoc($querySelect);
+			$idSubtema = $dataSubtema['id_subtema'];
+			
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Número de unidades administrativas que conforman la administración.', $opcion1_form7_value)");
+			$queryInsert = mysqli_query($conexion, "INSERT INTO `input_entero` (`id_input_entero`, `id_subtema`, `enunciado`, `valor`) VALUES (NULL, '$idSubtema', 'Número de unidades administrativas promedio nacional.', $opcion2_form7_value)");
+
+			$_SESSION['alert117'] = $alert117;
 	}
 }
  
@@ -587,7 +701,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="registarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
+        <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
 		</form>
     </div>
 		<?php echo isset($alerta) ? $alerta : ''; ?>

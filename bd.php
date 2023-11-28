@@ -1,15 +1,13 @@
 <?php 
-
-$host="localhost";
-$bd="GDM";
-$usuario="root";
-$contrasenia="";
-
-try {
-    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasenia);
-    if($conexion){
-        echo "Conectado... a sistema";
+    $host = "localhost";
+    $user = "root";
+    $clave = "";
+    $bd = "GDM";
+    $conexion = mysqli_connect($host,$user,$clave,$bd);
+    if (mysqli_connect_errno()){
+        echo "No se pudo conectar a la base de datos";
+        exit();
     }
-} catch ( Exception $ex) {
-    echo $ex->getMessage();
-}?>
+    mysqli_select_db($conexion,$bd) or die("No se encuentra la base de datos");
+    mysqli_set_charset($conexion,"utf8");
+?>
