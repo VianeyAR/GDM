@@ -910,11 +910,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
-	<div class="btn-group" role="group" aria-label="">
+	<div class="d-flex justify-content-between">
+		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
 		</form>
+			
     </div>
+		<div class="editar">
+        <form method="post" action="">
+							<div class="form-group d-flex align-items-center">
+									<label for="opciones"><h5 class="m-3">Selecciona un Registro:</h5></label>
+									<select class="form-control" name="opciones" id="opciones">
+											<?php
+													$resultado = mysqli_query($conexion , "SELECT * FROM `formulario`");
+													while($formulario = mysqli_fetch_assoc($resultado)){?>
+													<option id="formulario" value="<?php echo $formulario["id_formulario"]; ?>"> <?php echo $formulario["nombre"]; ?></option>
+											<?php }?>
+											<!-- Puedes agregar más opciones según sea necesario -->
+									</select>
+									<button type="submit" class="btn btn-primary m-2" name="submit">Enviar</button>
+							</div>
+        </form>
+
+        <?php
+        // Verificar si se ha enviado el formulario
+        if (isset($_POST['submit'])) {
+            // Obtener el valor seleccionado en el dropdown
+            $opcionSeleccionada = $_POST['opciones'];
+
+            // Mostrar la opción seleccionada
+            echo "<p class='mt-3'>La opción seleccionada es: $opcionSeleccionada</p>";
+            // Aquí puedes realizar cualquier otra acción con la opción seleccionada
+        }
+        ?>
+    </div>
+	</div>
 		<?php echo isset($alerta) ? $alerta : ''; ?>
 
     <!-- Modulo 1 Organizacion-->
@@ -926,6 +957,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<h2 class="display-7">1.1 Estructura</h2>
 	<hr class="my-2">
 
+	
 
 </div>
 		
