@@ -15,6 +15,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarNuevoFormular
 	$estaCompletado5 = $_SESSION['completado5'] ?? false;
 	$estaCompletado6 = $_SESSION['completado6'] ?? false;
 	$estaCompletado7 = $_SESSION['completado7'] ?? false;
+	$estaCompletado8 = $_SESSION['completado8'] ?? false;
+	$estaCompletado9 = $_SESSION['completado9'] ?? false;
+	$estaCompletado10 = $_SESSION['completado10'] ?? false;
+	$estaCompletado11 = $_SESSION['completado11'] ?? false;
+	$estaCompletado12 = $_SESSION['completado12'] ?? false;
+	$estaCompletado13 = $_SESSION['completado13'] ?? false;
+	$estaCompletado14 = $_SESSION['completado14'] ?? false;
+	$estaCompletado15 = $_SESSION['completado15'] ?? false;
+	$estaCompletado16 = $_SESSION['completado16'] ?? false;
+	$estaCompletado17 = $_SESSION['completado17'] ?? false;
+	$estaCompletado18 = $_SESSION['completado18'] ?? false;
+	$estaCompletado19 = $_SESSION['completado19'] ?? false;
 
 	$valores = [
     $estaCompletado1,
@@ -23,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarNuevoFormular
     $estaCompletado4,
     $estaCompletado5,
     $estaCompletado6,
-    $estaCompletado7
+    $estaCompletado7,
 	];
 
 		// Verificar si todos los valores son true
@@ -37,8 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarNuevoFormular
 	if ($todosTrue) {
 		// elimina la sesion
 		session_unset();
-		$alerta = '<div class="alert alert-success" role="alert">
-									Nuevo	Formulario.
+		$alerta = '<div class="alert alert-warninig" role="alert">
+									Formulario Anual Registrado.
 							</div>';
 		//habiltar checkbox
 		// Inicializar un array con los nombres de las variables
@@ -985,8 +997,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['txtNombre2252'] = $opcion2_form6_value;
 		$_SESSION['txtNombre2253'] = $opcion3_form6_value;
 		$_SESSION['txtNombre2254'] = $opcion4_form6_value;
+
 		// Verifica si el denominador es 0 antes de realizar la división
-		if ($opcion2_form6_value != 0 && $opcion4_form6_value != 0) {
+		if ($opcion2_form6_value != 0 || $opcion4_form6_value != 0) {
 			// Calcula el porcentaje
 			$porcentaje = ($opcion1_form6_value / $opcion2_form6_value) / ($opcion3_form6_value / $opcion4_form6_value) * 100;
 		
@@ -1350,8 +1363,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	} elseif (isset($_POST['242'])) {
 
 		$_SESSION['completado18'] = true;
-		$checkboxesDeshabilitadosForm = true;
-		$_SESSION['checkDisabled'] = $checkboxesDeshabilitadosForm;
+		$checkboxesDeshabilitadosForm9 = true;
+		$_SESSION['checkDisabled9'] = $checkboxesDeshabilitadosForm9;
 		$botonDeshabilitado18 = true;
 		$_SESSION['deshabilitarBoton18'] = $botonDeshabilitado18;
 		$count = 0;
@@ -1372,7 +1385,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//242
 		$estadoGeneral = 'rezago'; 
 
-		if ($count === 5) {
+		if ($count === 2) {
 			$estadoGeneral = 'optimo'; 
 		} elseif ($count > 0) {
 			$estadoGeneral = 'proceso'; 
@@ -1478,7 +1491,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
 
-
+	<script type="text/javascript">
+    window.onbeforeunload = function() {
+        return "¡Atención! Estás a punto de abandonar esta página. ¿Estás seguro?";
+    };
+	</script>
 
 <!-- Modulo 1 Hacienda-->
 
@@ -1913,7 +1930,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								$valor_variable = ${"opcion{$i}_form{$valueCheckNames223[$i]}"};
 							?>
 								<label>
-										<input type="checkbox" name="<?= $valueCheckNames223[$i] ?>" value="<?= $valueCheckNames223[$i] ?>" <?php if ($checkboxesDeshabilitadosForm5) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
+										<input type="checkbox" name="<?= $valueCheckNames223[$i] ?>" value="<?= $valueCheckNames223[$i] ?>" <?php if ($checkboxesDeshabilitadosForm6) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
 										<?= $labels223[$i] ?>
 								</label><br>
 						<?php endfor; ?>
@@ -2003,6 +2020,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="225" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado12) echo "disabled"; ?>>Guardar</button>
 						</div>
+						<?php echo isset($alert225) ? $alert225 : ''; ?>
 					</div>
 				</form>
 			</div>
