@@ -28,67 +28,97 @@
 				<form method="POST" enctype="multipart/form-data">
 					<p>
 						<h6 class="display-15">7.1.1 Reglamento publicado del Consejo Municipal de Mejora Regulatoria, con las
- atribuciones siguientes: </h6></p>
+ 						atribuciones siguientes: </h6></p>
 					<hr class="my-2">
 
 					<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Establecer bases y principios para la efectiva coordinación entre órganos de gobierno municipal.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Definir mecanismos de suministro, intercambio, sistematización y actualización de información.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Aprobar lineamientos administrativos, a propuesta de los integrantes de la Comisión.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Conocer los informes e indicadores.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Promover el uso de metodologías, instrumentos, programas nacionales e Internacionales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Identificar problemáticas regulatorias que incidan en la competitividad o el desarrollo económico y social.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Establecer lineamientos para el diseño, fundamentación y resolución de trámites y procedimientos administrativos.</label>
-						</br>
+					<?php
+						$valueCheckNames = [
+							'check7111',
+							'check7112',
+							'check7113',
+							'check7114',
+							'check7115',
+							'check7116',
+							'check7117'
+						];
+
+						$labels = [
+							'a) Establecer bases y principios para la efectiva coordinación entre órganos de gobierno municipal.',
+							'b) Definir mecanismos de suministro, intercambio, sistematización y actualización de información.',
+							'c) Aprobar lineamientos administrativos, a propuesta de los integrantes de la Comisión.',
+							'd) Conocer los informes e indicadores.',
+							'e) Promover el uso de metodologías, instrumentos, programas nacionales e internacionales.',
+							'f) Identificar problemáticas regulatorias que incidan en la competitividad o el desarrollo económico y social.',
+							'g) Establecer lineamientos para el diseño, fundamentación y resolución de trámites y procedimientos administrativos.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">7.1.2 Consejo Municipal de Mejora Regulatoria</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a)  Acta de instalación del Consejo Municipal de Mejora Regulatoria.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Minutas de las sesiones del Consejo, firmadas y fechadas en el año en curso (mínimo dos minutas).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Las minutas están firmadas por un representante del sector privado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Las minutas están firmadas por un representante del sector social.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e)Las minutas están firmadas por un representante del sector académico. </label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check7121',
+							'check7122',
+							'check7123',
+							'check7124',
+							'check7125',
+						];
+
+						$labels = [
+							'a) Acta de instalación del Consejo Municipal de Mejora Regulatoria.',
+							'b) Minutas de las sesiones del Consejo, firmadas y fechadas en el año en curso (mínimo dos minutas).',
+							'c) Las minutas están firmadas por un representante del sector privado.',
+							'd) Las minutas están firmadas por un representante del sector social.',
+							'e) Las minutas están firmadas por un representante del sector académico.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">7.1.3 Apertura de una unidad económica de bajo riesgo</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Decreto por medio del cual se crea la “ventanilla única”.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Procedimiento para la apertura de la unidad económica, avalada por Cabildo.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Acciones de difusión del procedimiento entre la ciudadanía.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check7131',
+							'check7132',
+							'check7133',
+						];
+
+						$labels = [
+							'a) Decreto por medio del cual se crea la “ventanilla única”.',
+							'b) Procedimiento para la apertura de la unidad económica, avalada por Cabildo.',
+							'c) Acciones de difusión del procedimiento entre la ciudadanía.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -155,42 +185,62 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check7211',
+						'check7212',
+						'check7213',
+						'check7214',
+						'check7215',
+					];
+
+					$labels = [
+						'a) Estado que presenta el sector en su entidad federativa.',
+						'b) Padrón de unidades en el año evaluado.',
+						'c) Padrón de unidades en el año previo al evaluado.',
+						'd) Detección de las principales demandas del sector.',
+						'e) Análisis de las causas del cierre y apertura de unidades de dicho sector.',
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Estado que presenta el sector en su entidad federativa. </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Padrón de unidades en el año evaluado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c)  Padrón de unidades en el año previo al evaluado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Detección de las principales demandas del sector.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Análisis de las causas del cierre y apertura de unidades de dicho sector.</label>
-						</br>
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNamesPadronSector[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">7.2.2 Programa de fomento del sector:</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Objetivo(s).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Metas por año</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Líneas de acción.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d)  Esquema de coordinación y vinculación</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Calendario de actividades del año en curso.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check7221',
+							'check7222',
+							'check7223',
+							'check7224',
+							'check7225',
+						];
+
+						$labels = [
+							'a) Objetivo(s).',
+							'b) Metas por año.',
+							'c) Líneas de acción.',
+							'd) Esquema de coordinación y vinculación.',
+							'e) Calendario de actividades del año en curso.',
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+			
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -257,52 +307,83 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check7311',
+						'check7312',
+						'check7313',
+					];
+
+					$labels = [
+						'a) Promover la inversión productiva en el municipio a través de programas de incentivos, apoyos, orientación o difusión.',
+						'b) Generar información estadística relativa a las actividades y capacidades productivas y comerciales en el municipio.',
+						'c) Promover, gestionar y evaluar, en coordinación con las autoridades estatales o federales, el financiamiento de proyectos productivos.',
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Promover la inversión productiva en el municipio a través de programas de incentivos, apoyos,
-                                                                            orientación o difusión.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Generar información estadística relativa a las actividades y capacidades productivas y
-                                                                            comerciales en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Promover, gestionar y evaluar, en coordinación con las autoridades estatales o federales, el financiamiento de proyectos productivos.</label>
-						</br>						
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+					
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">7.3.2 Programa municipal de fomento económico</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Personal capacitado para brindar servicios de información y asesoría.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Estrategia de vinculación con sectores económicos e Instituciones de Educación Superior.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Estrategia de especialización sectorial.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Diagnóstico por sector</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check7321',
+							'check7322',
+							'check7323',
+							'check7324',
+						];
+
+						$labels = [
+							'a) Personal capacitado para brindar servicios de información y asesoría.',
+							'b) Estrategia de vinculación con sectores económicos e Instituciones de Educación Superior.',
+							'c) Estrategia de especialización sectorial.',
+							'd) Diagnóstico por sector',
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">7.3.3 Vinculación para el fomento económico</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Convenio de colaboración vigente con por lo menos una Cámara o consejo empresarial
-                                                                             municipal o regional, en materia económica.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Convenio de colaboración vigente con por lo menos una institución de educación superior del
-                                                                            municipio, estado o región, en materia económica.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Convenio de colaboración vigente con por lo menos un municipio o estado, en materia económica.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check7331',
+							'check7332',
+							'check7333',
+						];
+
+						$labels = [
+							'a) Convenio de colaboración vigente con por lo menos una Cámara o consejo empresarial municipal o regional, en materia económica.',
+							'b) Convenio de colaboración vigente con por lo menos una institución de educación superior del municipio, estado o región, en materia económica.',
+							'c) Convenio de colaboración vigente con por lo menos un municipio o estado, en materia económica.',
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>

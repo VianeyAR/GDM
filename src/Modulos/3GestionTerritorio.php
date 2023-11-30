@@ -334,96 +334,123 @@
 					<hr class="my-2">
 
 					<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Consideraciones generales</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Atribuciones de las autoridades municipales en la materia.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Organización y operación del Consejo Municipal de protección civil.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Atribuciones de la Unidad Municipal de Protección Civil.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) De la elaboración del programa Municipal de Protección Civil.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Participación de la sociedad en las políticas de protección civil.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Prevención y control de siniestros.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Medidas de seguridad y sanciones administrativas a los infractores del marco normativo en la
-																			materia</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> i) Medios de defensa (los recursos establecidos para combatir las sanciones impuestas conforme
-																			al Reglamento).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> j) Gaceta en la que fue publicado de acuerdo con la legislación estatal.</label>
-						</br>
+					<?php
+						$valueCheckNames = [
+							'check3311', 'check3312', 'check3313',
+							'check3314', 'check3315', 'check3316',
+							'check3317', 'check3318', 'check3319',
+							'check33110'
+						];
+
+						$labels = [
+							'a) Consideraciones generales',
+							'b) Atribuciones de las autoridades municipales en la materia.',
+							'c) Organización y operación del Consejo Municipal de protección civil.',
+							'd) Atribuciones de la Unidad Municipal de Protección Civil.',
+							'e) De la elaboración del programa Municipal de Protección Civil.',
+							'f) Participación de la sociedad en las políticas de protección civil.',
+							'g) Prevención y control de siniestros.',
+							'h) Medidas de seguridad y sanciones administrativas a los infractores del marco normativo en la materia',
+							'i) Medios de defensa (los recursos establecidos para combatir las sanciones impuestas conforme al Reglamento).',
+							'j) Gaceta en la que fue publicado de acuerdo con la legislación estatal.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.3.2 Unidad de protección civil</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Organigrama de la administración en funciones.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Manual de organización de la unidad de protección civil.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Nombramiento oficial del titular de la unidad de protección civil.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Constancia(s) de experiencia laboral del titular de la unidad de protección civil con mínimo tres
-																			años de experiencia.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Constancia de capacitación del titular de la unidad de protección civil (con una fecha de 
-																			antigüedad no mayor a 12 meses)</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3321', 'check3322', 'check3323',
+							'check3324', 'check3325', 'check3326',
+							'check3327', 'check3328', 'check3329',
+							'check33210'
+						];
+
+						$labels = [
+							'a) Consideraciones generales',
+							'b) Atribuciones de las autoridades municipales en la materia.',
+							'c) Organización y operación del Consejo Municipal de protección civil.',
+							'd) Atribuciones de la Unidad Municipal de Protección Civil.',
+							'e) De la elaboración del programa Municipal de Protección Civil.',
+							'f) Participación de la sociedad en las políticas de protección civil.',
+							'g) Prevención y control de siniestros.',
+							'h) Medidas de seguridad y sanciones administrativas a los infractores del marco normativo en la materia',
+							'i) Medios de defensa (los recursos establecidos para combatir las sanciones impuestas conforme al Reglamento).',
+							'j) Gaceta en la que fue publicado de acuerdo con la legislación estatal.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.3.3 Consejo municipal de protección civil </h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Acta de instalación del Consejo Municipal de Protección Civil, firmada por todos los miembros
-																			que integran dicho consejo.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Acta(s) de reunión(es) del año en curso, firmadas por los asistentes.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Acta del año en curso con acciones que disminuyen el riesgo ante el cambio climático.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'checkConsejoProteccionCivil1', 'checkConsejoProteccionCivil2', 'checkConsejoProteccionCivil3'
+						];
+
+						$labelsConsejo = [
+							'a) Acta de instalación del Consejo Municipal de Protección Civil, firmada por todos los miembros que integran dicho consejo.',
+							'b) Acta(s) de reunión(es) del año en curso, firmadas por los asistentes.',
+							'c) Acta del año en curso con acciones que disminuyen el riesgo ante el cambio climático.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labelsConsejo[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.3.4 Atlas Municipal de riesgos</h6></p>
 						<hr class="my-2">
+						<?php
+							$valueCheckNames = [
+								'check3341', 'check3342', 'check3343', 'check3344'
+							];
+
+							$labels = [
+								'a) Mapa que identifique por fenómeno las zonas en donde hay riesgo respecto a un fenómeno con intensidad máxima, media o mínima.',
+								'b) Georreferenciado en los sistemas de información geográfica (SIG).',
+								'c) Documento que señale que fue elaborado conforme a las normas cromáticas para su elaboración por el Centro Nacional de Prevención de Desastres (CENAPRED).',
+								'd) Publicado conforme lo establezca la normatividad estatal o municipal.'
+							];
+							?>
+
+							<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+									<?= $labels[$i] ?>
+								</label><br>
+							<?php endfor; ?>
+
 						<label>
-						<input type="checkbox" name="prueba" value=""> a)Mapa que identifique por fenómeno las zonas en donde hay riesgo respecto a un fenómeno con
-																			intensidad máxima, media o mínima.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Georreferenciado en los sistemas de información geográfica (SIG).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Documento que señale que fue elaborado conforme a las normas cromáticas para su
-																			elaboración por el Centro Nacional de Prevención de Desastres (CENAPRED).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Publicado conforme lo establezca la normatividad estatal o municipal.</label>
+						<input type="checkbox" name="prueba" value=""> </label>
 						</br>
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
@@ -431,18 +458,26 @@
 
 						<h6 class="display-15">3.3.5 Programa municipal de protección civil </h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Alineación con los objetivos del Plan Estatal y Municipal de Desarrollo</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Objetivos, estrategias, líneas de acción, acciones y metas</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Acciones para disminuir la ocupación de suelo en zonas de riesgo</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Lista de obras para la reducción y mitigación de riesgos.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3351', 'check3352', 'check3353', 'check3354'
+						];
+
+						$labels = [
+							'a) Alineación con los objetivos del Plan Estatal y Municipal de Desarrollo',
+							'b) Objetivos, estrategias, líneas de acción, acciones y metas',
+							'c) Acciones para disminuir la ocupación de suelo en zonas de riesgo',
+							'd) Lista de obras para la reducción y mitigación de riesgos.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -513,70 +548,85 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check3411', 'check3412', 'check3413',
+						'check3414', 'check3415', 'check3416'
+					];
+
+					$labels = [
+						'a) Identificación de los municipios que conforman la zona metropolitana donde se localiza el municipio, de acuerdo con el Sistema Urbano Nacional (SUN).',
+						'b) Principales características demográficas de la zona metropolitana donde se localiza el municipio.',
+						'c) Documento con una reseña del marco normativo de las zonas metropolitanas, que integre mínimo: Ley general de Asentamientos Humanos, Ordenamiento Territorial y Desarrollo Urbano; Ley de Desarrollo Urbano Estatal y Plan o Programa de Desarrollo Urbano Municipal.',
+						'd) Estudio que señale qué servicios públicos se ofrecerían de manera más eficiente si se contara con una estrategia metropolitana.',
+						'e) Identificación de la cuenca hidrológica en donde se localiza el municipio y la zona metropolitana.',
+						'f) Lista de espacios públicos con infraestructura verde instalados en el municipio.'
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Identificación de los municipios que conforman la zona metropolitana donde se localiza el
-																			municipio, de acuerdo con el Sistema Urbano Nacional (SUN).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Principales características demográficas de la zona metropolitana donde se localiza el
-																			municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c)  Documento con una reseña del marco normativo de las zonas metropolitanas, que integre
-																			mínimo: Ley general de Asentamientos Humanos, Ordenamiento Territorial y Desarrollo
-																			Urbano; Ley de Desarrollo Urbano Estatal y Plan o Programa de Desarrollo Urbano Municipal..</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Estudio que señale qué servicios públicos se ofrecerían de manera más eficiente si se contara
-																			con una estrategia metropolitana.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Identificación de la cuenca hidrológica en donde se localiza el municipio y la zona
-																			metropolitana.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Lista de espacios públicos con infraestructura verde instalados en el municipio.</label>
-						</br>
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.4.2 Gobernanza metropolitana</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Documento que formalice la participación del municipio en un consejo o comisión con los
-																			municipios de la zona metropolitana</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Reglamento o Lineamientos de consejo o comisión de la zona metropolitana.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Convenio de colaboración en materia ambiental con al menos un municipio de la zona
-																			metropolitana.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3421', 'check3422', 'check3423'
+						];
+
+						$labels = [
+							'a) Documento que formalice la participación del municipio en un consejo o comisión con los municipios de la zona metropolitana.',
+							'b) Reglamento o Lineamientos de consejo o comisión de la zona metropolitana.',
+							'c) Convenio de colaboración en materia ambiental con al menos un municipio de la zona metropolitana.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.4.3 Programa de la zona metropolitana</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Estrategia para el desarrollo integral de la Zona Metropolitana.</label>
-						</br>	
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Delimitación de los centros de población con espacios geográficos de reserva para una
-																			expansión ordenada a largo plazo, que considere estimaciones técnicas del crecimiento</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Políticas e instrumentos para la reestructuración, localización, mejoramiento de la
-																			infraestructura y los equipamientos del ámbito metropolitano.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Previsiones y acciones prioritarias para conservar, proteger, acrecentar y mejorar el espacio público</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Metodología o indicadores para dar seguimiento y evaluar la aplicación y el cumplimiento de los objetivos del programa de la Zona Metropolitana.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3431',
+							'check3432',
+							'check3433',
+							'check3434',
+							'check3435'
+						];
+
+						$labels = [
+							'a) Estrategia para el desarrollo integral de la Zona Metropolitana.',
+							'b) Delimitación de los centros de población con espacios geográficos de reserva para una expansión ordenada a largo plazo, que considere estimaciones técnicas del crecimiento',
+							'c) Políticas e instrumentos para la reestructuración, localización, mejoramiento de la infraestructura y los equipamientos del ámbito metropolitano.',
+							'd) Previsiones y acciones prioritarias para conservar, proteger, acrecentar y mejorar el espacio público',
+							'e) Metodología o indicadores para dar seguimiento y evaluar la aplicación y el cumplimiento de los objetivos del programa de la Zona Metropolitana.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
