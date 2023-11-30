@@ -38,64 +38,78 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check3111', 'check3112', 'check3113', 'check3114', 'check3115', 'check3116'
+					];
+
+					$labels = [
+						'a) Zonificación de los centros de población ubicados en todo el territorio municipal, cabecera municipal y localidades.',
+						'b) Estrategias de conservación, mejoramiento y crecimiento de centros de población.',
+						'c) Mencione sanciones administrativas a los infractores del marco normativo en la materia.',
+						'd) Gaceta estatal en la que fue publicado el PDU o su actualización, con fecha no mayor a cinco años de antigüedad.',
+						'e) Comprobante de inscripción del PDU o su actualización en el Registro Público de la Propiedad, con fecha no mayor a cinco años y medio de antigüedad.',
+						'f) Documento que valide la congruencia del PDU o su actualización con la planeación urbana estatal; ejemplo: dictamen de congruencia emitido por la dependencia responsable de la planeación urbana del gobierno estatal.',
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Zonificación de los centros de población ubicados en todo el territorio municipal, cabecera
-                                                                            municipal y localidades.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Estrategias de conservación, mejoramiento y crecimiento de centros de población.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Mencione sanciones administrativas a los infractores del marco normativo en la materia.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Gaceta estatal en la que fue publicado el PDU o su actualización, con fecha no mayor a cinco años
-                                                                            de antigüedad.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Comprobante de inscripción del PDU o su actualización en el Registro Público de la Propiedad,
-                                                                            con fecha no mayor a cinco años y medio de antigüedad.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Documento que valide la congruencia del PDU o su actualización con la planeación urbana
-																			estatal; ejemplo: dictamen de congruencia emitido por la dependencia responsable de la
-																			planeación urbana del gobierno estatal.</label>
-						</br>
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.1.2 Emisión de licencias de construcción</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Documento que describa el procedimiento para la emisión de licencias de construcción, que
-																			señale claramente responsables y tiempos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Documento que describa el procedimiento de solicitud y conexión al servicio de agua potable y
-																			drenaje o equivalente.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Esquema de verificación del uso del inmueble, respecto a la licencia emitida.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3121', 'check3122', 'check3123'
+						];
+
+						$labels = [
+							'a) Documento que describa el procedimiento para la emisión de licencias de construcción, que señale claramente responsables y tiempos.',
+							'b) Documento que describa el procedimiento de solicitud y conexión al servicio de agua potable y drenaje o equivalente.',
+							'c) Esquema de verificación del uso del inmueble, respecto a la licencia emitida.',
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+			
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.1.3 Unidad responsable de la planeación urbana</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Comprobante de estudios, que muestre el perfil profesional del titular de la unidad de planeación
-																			urbana municipal.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Constancia de experiencia laboral del titular de la Unidad responsable de la planeación urbana
-																			municipal.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Constancia de capacitación del titular de la Unidad Administrativa de la planeación urbana
-																			municipal (con una fecha de antigüedad no mayor a 12 meses)</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3131', 'check3132', 'check3133'
+						];
+
+						$labels = [
+							'a) Comprobante de estudios, que muestre el perfil profesional del titular de la unidad de planeación urbana municipal.',
+							'b) Constancia de experiencia laboral del titular de la Unidad responsable de la planeación urbana municipal.',
+							'c) Constancia de capacitación del titular de la Unidad Administrativa de la planeación urbana municipal (con una fecha de antigüedad no mayor a 12 meses).',
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -173,62 +187,79 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check3211', 'check3212', 'check3213', 'check3214', 'check3215'
+					];
+
+					$labels = [
+						'a) Verificar la constitución y el funcionamiento del órgano ejecutivo y técnico de los comités de POEL.',
+						'b) Verificar que la bitácora ambiental incluye las minutas del comité ejecutivo y técnico y los resultados de las evaluaciones de la ejecución del Programa.',
+						'c) Revisar que los resultados cumplan con el reglamento de la LGEEPA en materia de ordenamiento.',
+						'd) Modificar el Programa de Ordenamiento Ecológico.',
+						'e) Gaceta estatal o municipal en la que fue publicado el reglamento o lineamientos municipales del ordenamiento ecológico local.',
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Verificar la constitución y el funcionamiento del órgano ejecutivo y técnico de los comités de
-																			POEL.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b)Verificar que la bitácora ambiental incluye las minutas del comité ejecutivo y técnico y los
-																			resultados de las evaluaciones de la ejecución del Programa.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Revisar que los resultados cumplan con el reglamento de la LGEEPA en materia de
-                                                                            ordenamiento.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Modificar el Programa de Ordenamiento Ecológico.</label></br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e)  Gaceta estatal o municipal en la que fue publicado el reglamento o lineamientos municipales del
-																				ordenamiento ecológico local. </label>
-						</br>
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.2.2 Programa de Ordenamiento Ecológico Local </h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Caracterización del territorio de ordenamiento ecológico local.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Identificación de problemas ambientales en el diagnóstico del territorio de ordenamiento.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Formulación del pronóstico del ordenamiento ecológico local.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Evidencia de la participación ciudadana en su proceso de elaboración (listas de asistencia,
-																			minutas con acuerdos o relación de compromisos).</label></br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Gaceta municipal o estatal con la publicación o actualización del “Programa de Ordenamiento
-																			Ecológico Local” con una antigüedad no mayor a cinco años.</label></br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Documento en donde se encuentre el reporte y evaluación para el seguimiento al ordenamiento
-																			ecológico con información del año en curso.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3221', 'check3222', 'check3223', 'check3224', 'check3225', 'check3226'
+						];
+
+						$labels = [
+							'a) Caracterización del territorio de ordenamiento ecológico local.',
+							'b) Identificación de problemas ambientales en el diagnóstico del territorio de ordenamiento.',
+							'c) Formulación del pronóstico del ordenamiento ecológico local.',
+							'd) Evidencia de la participación ciudadana en su proceso de elaboración (listas de asistencia, minutas con acuerdos o relación de compromisos).',
+							'e) Gaceta municipal o estatal con la publicación o actualización del “Programa de Ordenamiento Ecológico Local” con una antigüedad no mayor a cinco años.',
+							'f) Documento en donde se encuentre el reporte y evaluación para el seguimiento al ordenamiento ecológico con información del año en curso.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+		
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">3.2.3 Acciones para la implementación del Ordenamiento Ecológico</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Bitácora Ambiental (local) con información correspondiente al año en curso.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Informe de actividades, firmado por el titular de la instancia responsable y con información del
-																			año en curso.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+							'check3231', 'check3232'
+						];
+
+						$labels = [
+							'a) Bitácora Ambiental (local) con información correspondiente al año en curso.',
+							'b) Informe de actividades, firmado por el titular de la instancia responsable y con información del año en curso.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>

@@ -32,36 +32,42 @@
 					<hr class="my-2">
 
 					<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Ámbito de validez.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Fundamentación y motivación.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Objetivo de la norma (principios de máxima publicidad, gratuidad, sujetos obligados e información de oficio).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Clasificación de información.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Protección de datos personales</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Conservación de documentos. </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g)  Sanciones administrativas.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Medios de defensa (garantía de audiencia).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> i) Normas transitorias (artículos).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> j) Gaceta o medio oficial en la que se haya publicado.</label>
-						</br>
+					<?php
+						$valueCheckNames = [
+								'check8111', 'check8112', 'check8113', 'check8114', 
+								'check8115', 'check8116','check8117', 'check8118', 
+								'check8119', 'check81110'
+						];
+
+						$labels = [
+							'a) Ámbito de validez.',
+						
+							'b) Fundamentación y motivación.',
+						   
+							'c) Objetivo de la norma (principios de máxima publicidad, gratuidad, sujetos obligados e información de oficio).',
+						   
+							'd) Clasificación de información.',
+						   
+							'e) Protección de datos personales',
+						   
+							'f) Conservación de documentos.',
+						   
+							'g)  Sanciones administrativas.',
+						   
+							'h) Medios de defensa (garantía de audiencia).',
+						   
+							'i) Normas transitorias (artículos).',
+						   
+							'j) Gaceta o medio oficial en la que se haya publicado.'
+						];
+						?>
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+										<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>" >
+										<?= $labels[$i] ?>
+								</label><br>
+						<?php endfor; ?>
+						
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>

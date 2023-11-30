@@ -31,98 +31,66 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check4111', 'check4112', 'check4113', 'check4114',
+						'check4115', 'check4116', 'check4117', 'check4118',
+						'check4119', 'check4110', 'check4111', 'check4112',
+						'check4113', 'check41114'
+					];
+
+					$labels = [
+						'a) Disposiciones generales (servicios que administra el municipio y sus alcances).',
+						'b) Autoridades municipales encargadas de la prestación y sus facultades.',
+						'c) Derechos de los usuarios respecto a los servicios públicos.',
+						'd) Sanciones a las que puede hacerse acreedor un usuario.',
+						'e) Medios de impugnación y órganos encargados de dirimir controversias.',
+						'f) Reglamenta el servicio de agua potable, drenaje y alcantarillado.',
+						'g) Reglamenta el tratamiento y disposición de aguas residuales.',
+						'h) Reglamenta el servicio de alumbrado público.',
+						'i) Reglamenta el servicio de limpia y recolección.',
+						'j) Reglamenta el traslado, tratamiento y disposición final de residuos.',
+						'k) Reglamenta el servicio de panteones.',
+						'l) Reglamenta el servicio de mercados públicos.',
+						'm) Reglamenta el servicio de calles, parques y jardines.',
+						'n) Publicado conforme a la legislación estatal.'
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Disposiciones generales (servicios que administra el municipio y sus alcances). </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Autoridades municipales encargadas de la prestación y sus facultades.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Derechos de los usuarios respecto a los servicios públicos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Sanciones a las que puede hacerse acreedor un usuario.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e)  Medios de impugnación y órganos encargados de dirimir controversias.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Reglamenta el servicio de agua potable, drenaje y alcantarillado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Reglamenta el tratamiento y disposición de aguas residuales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Reglamenta el servicio de alumbrado público.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> i) Reglamenta el servicio de limpia y recolección.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> j) Reglamenta el traslado, tratamiento y disposición final de residuos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> k) Reglamenta el servicio de panteones.</label>
-						</br><label>
-						<input type="checkbox" name="prueba" value=""> l) Reglamenta el servicio de mercados públicos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> m) Reglamenta el servicio de calles, parques y jardines.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> n) Publicado conforme a la legislación estatal.</label>
-						</br>
-						<p>¿Qué procede si el gobierno del estado presta un servicio a través de convenio o decreto?</p>
-						<p> 1. Señale en el cuadro izquierdo el servicio:</p>
-						<label>
-						<input type="checkbox" name="prueba" value="">Servicio de agua potable, drenaje, alcantarillado  </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de tratamiento y disposición de sus aguas residuales </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de alumbrado público </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de limpia y recolección </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de tratamiento y disposición final de residuos </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de panteones </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de mercados públicos </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de calles, parques y jardines </label>
-						</br>
-						<p> 2. Presente el convenio o decreto vigente por cada uno de los servicios señalados anteriormente.</p>
-						<p> 3. Una vez presentado el convenio o decreto vigente, proceda a marcar el elemento
-							como acreditado; en caso de que el municipio no cuente con dicho documento, el
-							elemento deberá quedar en blanco.</p>
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+
+						
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15"> 4.1.2 Estructura administrativa para la prestación de los servicios públicos</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Unidad(es) administrativa(s) de servicios públicos en el organigrama de la administración
-																			pública municipal.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Manual de organización de cada unidad administrativa responsable de la prestación de los
-																			servicios públicos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Nombramiento oficial del director o directores responsables.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Presupuesto del año en curso aprobado por cabildo de la Ley de Egresos Municipal exclusivo
-																			para proyectos en servicios públicos (sin considerar gasto corriente).</label>
-						</br>
+						<?php
+							$valueCheckNames = [
+								'check4121', 'check4122', 'check4123', 'check4124'
+							];
+
+							$labels = [
+								'a) Unidad(es) administrativa(s) de servicios públicos en el organigrama de la administración pública municipal.',
+								'b) Manual de organización de cada unidad administrativa responsable de la prestación de los servicios públicos.',
+								'c) Nombramiento oficial del director o directores responsables.',
+								'd) Presupuesto del año en curso aprobado por cabildo de la Ley de Egresos Municipal exclusivo para proyectos en servicios públicos (sin considerar gasto corriente).',
+							];
+							?>
+
+							<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+									<?= $labels[$i] ?>
+								</label><br>
+							<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -134,7 +102,7 @@
 </div>
 <br>
 	
-	<!--Tema 2 -- Planeacion-->
+	<!--Tema 2 -- Diagnostico-->
 
 	<div class="jumbotron">
 			<h2 class="display-7">4.2 Diagnóstico</h2>
@@ -158,61 +126,62 @@
 					<hr class="my-2">
 
 					<div class="form-group">
+					<?php
+					$valueCheckNames = [
+						'check4211', 'check4212', 'check4213', 'check4214',
+						'check4215', 'check4216', 'check4217', 'check4218', 'check4219'
+					];
+
+					$labels = [
+						'a) Número de viviendas particulares habitadas.',
+						'b) Número de viviendas conectadas a un sistema de agua.',
+						'c) Número de viviendas sin toma de agua potable en el año evaluado.',
+						'd) Número de viviendas conectadas a un sistema de drenaje.',
+						'e) Número de viviendas sin drenaje en el año evaluado.',
+						'f) Número de tramos de calle.',
+						'g) Número de tramos de calle sin alcantarillado en el año evaluado.',
+						'h) Volumen de aguas residuales.',
+						'i) Volumen de aguas tratadas.',
+					];
+					?>
+
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
 						<label>
-						<input type="checkbox" name="prueba" value=""> a) Número de viviendas particulares habitadas.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b)  Número de viviendas conectadas a un sistema de agua.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Número de viviendas sin toma de agua potable en el año evaluado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Número de viviendas conectadas a un sistema de drenaje.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Número de viviendas sin drenaje en el año evaluado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Número de tramos de calle.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Número de tramos de calle sin alcantarillado en el año evaluado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Volumen de aguas residuales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> i) Volumen de aguas tratadas.</label>
-						</br>
+							<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+							<?= $labels[$i] ?>
+						</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">4.2.2 Situación del Alumbrado público</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Número de tramos de calle.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Número de tramos de calle con alumbrado público.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Número de tramos de calle con alumbrado público funcionando.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Número de tramos de calle sin alumbrado público.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Número de parques y jardines en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Número de parques y jardines que cuentan con alumbrado público funcionando.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Cuantificación del consumo de energía utilizada por concepto del servicio de alumbrado
-																			público.</label>
-						</br>
+						<?php
+							$valueCheckNames = [
+								'check4221', 'check4222', 'check4223', 'check4224',
+								'check4225', 'check4226', 'check4227'
+							];
+
+							$labels = [
+								'a) Número de tramos de calle.',
+								'b) Número de tramos de calle con alumbrado público.',
+								'c) Número de tramos de calle con alumbrado público funcionando.',
+								'd) Número de tramos de calle sin alumbrado público.',
+								'e) Número de parques y jardines en el municipio.',
+								'f) Número de parques y jardines que cuentan con alumbrado público funcionando.',
+								'g) Cuantificación del consumo de energía utilizada por concepto del servicio de alumbrado público.',
+							];
+							?>
+
+							<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+									<?= $labels[$i] ?>
+								</label><br>
+							<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -220,54 +189,59 @@
 						<h6 class="display-15">4.2.3 Situación de limpia, recolección, traslado, tratamiento y disposición final de
                                                residuos </h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Número de tramos de calle.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b)  Número de tramos de calle que disponen del servicio de limpia.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Número de parques y jardines en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Número de parques y jardines que carecen del servicio de limpia.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Número de tiraderos a cielo abierto operando en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Número de sitios de disposición final de residuos sólidos con autorización del gobierno del
-																			estado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Número de toneladas de residuos sólidos que se generan en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Número de toneladas de residuos sólidos dispuestas en un sitio que cumple con lo establecido
-																			en la NOM-083.</label>
-						</br>
+						<?php
+							$valueCheckNames = [
+								'check4231', 'check4232', 'check4233', 'check4234',
+								'check4235', 'check4236', 'check4237', 'check4238'
+							];
+
+							$labels = [
+								'a) Número de tramos de calle.',
+								'b) Número de tramos de calle que disponen del servicio de limpia.',
+								'c) Número de parques y jardines en el municipio.',
+								'd) Número de parques y jardines que carecen del servicio de limpia.',
+								'e) Número de tiraderos a cielo abierto operando en el municipio.',
+								'f) Número de sitios de disposición final de residuos sólidos con autorización del gobierno del estado.',
+								'g) Número de toneladas de residuos sólidos que se generan en el municipio.',
+								'h) Número de toneladas de residuos sólidos dispuestas en un sitio que cumple con lo establecido en la NOM-083.',
+							];
+							?>
+
+							<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+									<?= $labels[$i] ?>
+								</label><br>
+							<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">4.2.4 Situación de Mercados (centrales de abasto) y panteones </h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Número de mercados públicos municipales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b)  Número de mercados ambulantes (tianguis) en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Número de centrales de abastos en el municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Número de panteones municipales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Número de espacios disponibles para depósito de restos humanos registrados por el municipio
-                                                                            en el año evaluado.</label>
-						</br>
+						<?php
+							$valueCheckNames = [
+								'check4241', 'check4242', 'check4243', 'check4244',
+								'check4245'
+							];
+
+							$labels = [
+								'a) Número de mercados públicos municipales.',
+								'b) Número de mercados ambulantes (tianguis) en el municipio.',
+								'c) Número de centrales de abastos en el municipio.',
+								'd) Número de panteones municipales.',
+								'e) Número de espacios disponibles para depósito de restos humanos registrados por el municipio en el año evaluado.',
+							];
+							?>
+
+							<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+									<?= $labels[$i] ?>
+								</label><br>
+							<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -300,111 +274,77 @@
 					<hr class="my-2">
 
 					<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Objetivos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b)  Responsables.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Calendario de actividades.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Resultados esperados.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Metas del servicio de agua potable, drenaje y alcantarillado.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Metas del servicio de tratamiento y disposición de aguas residuales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Metas del servicio de alumbrado público.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Metas del servicio de limpia y recolección.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> i) Metas del servicio de traslado, tratamiento y disposición final de residuos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> j) Metas del servicio de panteones.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> k) Metas del servicio de mercados públicos.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> l) Metas del servicio de calles, parques y jardines.</label>
-						</br>
+					<?php
+						$valueCheckNames = [
+							'check4311', 'check4312', 'check4313', 'check4314',
+							'check4315', 'check4316', 'check4317', 'check4318',
+							'check4319', 'check43110', 'check43111', 'check43112'
+						];
+
+						$labels = [
+							'a) Objetivos.',
+							'b) Responsables.',
+							'c) Calendario de actividades.',
+							'd) Resultados esperados.',
+							'e) Metas del servicio de agua potable, drenaje y alcantarillado.',
+							'f) Metas del servicio de tratamiento y disposición de aguas residuales.',
+							'g) Metas del servicio de alumbrado público.',
+							'h) Metas del servicio de limpia y recolección.',
+							'i) Metas del servicio de traslado, tratamiento y disposición final de residuos.',
+							'j) Metas del servicio de panteones.',
+							'k) Metas del servicio de mercados públicos.',
+							'l) Metas del servicio de calles, parques y jardines.',
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
-							<p>¿Qué procede si el gobierno del estado presta un servicio a través de convenio o decreto?</p>
-						<p> 1. Señale en el cuadro izquierdo el servicio:</p>
-						<label>
-						<input type="checkbox" name="prueba" value="">Servicio de agua potable, drenaje, alcantarillado  </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de tratamiento y disposición de sus aguas residuales </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de alumbrado público </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de limpia y recolección </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de tratamiento y disposición final de residuos </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de panteones </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de mercados públicos </label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> Servicio de calles, parques y jardines </label>
-						</br>
-						<p> 2. Presente el convenio o decreto vigente por cada uno de los servicios señalados anteriormente.</p>
-						<p> 3. Una vez presentado el convenio o decreto vigente, proceda a marcar el elemento
-							como acreditado; en caso de que el municipio no cuente con dicho documento, el
-							elemento deberá quedar en blanco.</p>
-						</div>
+						
 
 
 						<h6 class="display-15">4.3.2 Cartera de proyectos para mejorar la prestación de los servicios públicos</h6></p>
 						<hr class="my-2">
 						<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Nombre (de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b)  Objetivo (de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Unidad administrativa responsable (de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Cronograma (calendario de actividades de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Alcance (entregables o productos de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Costo (presupuesto de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> g) Ficha de indicadores de seguimiento (de cada proyecto).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> h) Presenta por lo menos un proyecto de cinco servicios públicos diferentes.</label>
-						</br>
+						<?php
+							$valueCheckNames = [
+								'check8181', 'check8182', 'check8183', 'check8184',
+								'check8185', 'check8186', 'check8187', 'check8188'
+							];
+
+							$labels = [
+								'a) Nombre (de cada proyecto).',
+								'b) Objetivo (de cada proyecto).',
+								'c) Unidad administrativa responsable (de cada proyecto).',
+								'd) Cronograma (calendario de actividades de cada proyecto).',
+								'e) Alcance (entregables o productos de cada proyecto).',
+								'f) Costo (presupuesto de cada proyecto).',
+								'g) Ficha de indicadores de seguimiento (de cada proyecto).',
+								'h) Presenta por lo menos un proyecto de cinco servicios públicos diferentes.',
+							];
+							?>
+
+							<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>">
+									<?= $labels[$i] ?>
+								</label><br>
+							<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 					</div>
 				</form>
+						</div>
 				</div>
 			</div>
 		</div>
