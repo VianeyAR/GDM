@@ -34,31 +34,22 @@
 					<div class="form-group">
 					<?php
 						$valueCheckNames = [
-								'check8111', 'check8112', 'check8113', 'check8114', 
-								'check8115', 'check8116','check8117', 'check8118', 
-								'check8119', 'check81110'
+								'check8111', 'check8112', 'check8113', 'check8114', 'check8115',
+								 'check8116', 'check8117', 'check8118', 'check8119', 'check81110'
 						];
 
 						$labels = [
-							'a) Ámbito de validez.',
-						
-							'b) Fundamentación y motivación.',
-						   
-							'c) Objetivo de la norma (principios de máxima publicidad, gratuidad, sujetos obligados e información de oficio).',
-						   
-							'd) Clasificación de información.',
-						   
-							'e) Protección de datos personales',
-						   
-							'f) Conservación de documentos.',
-						   
-							'g)  Sanciones administrativas.',
-						   
-							'h) Medios de defensa (garantía de audiencia).',
-						   
-							'i) Normas transitorias (artículos).',
-						   
-							'j) Gaceta o medio oficial en la que se haya publicado.'
+						 'a) Ámbito de validez.',
+						 'b) Fundamentación y motivación.',												
+						 'c) Objetivo de la norma (principios de máxima publicidad, gratuidad, sujetos obligados e información de oficio).',												
+						 'd) Clasificación de información.',												
+						 'e) Protección de datos personales',												
+						 'f) Conservación de documentos. ',												
+						 'g)  Sanciones administrativas.',												
+						 'h) Medios de defensa (garantía de audiencia).',												
+						 'i) Normas transitorias (artículos).',												
+						 'j) Gaceta o medio oficial en la que se haya publicado.'
+
 						];
 						?>
 						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
@@ -67,34 +58,35 @@
 										<?= $labels[$i] ?>
 								</label><br>
 						<?php endfor; ?>
-						
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">8.1.2 Programa de transparencia y acceso a la información pública</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Objetivos, metas y líneas de acción para garantizar la transparencia y el acceso a la
-                                                                           información pública para la ciudadanía</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Procedimiento interno para que todas las unidades de la administración pública municipal
-                                                                            proporcionen la información solicitada.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Portal web con una sección específica de transparencia y acceso a la información
-                                                                            pública (ya sea del municipio o en algún servidor del gobierno estatal).</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Responsables</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> e) Presupuesto asignado para la operación del programa.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> f) Informe anual, firmados por la funcionaria o funcionario responsable.</label>
-						</br>
+						<?php
+						$checkboxNames = [
+							'prueba1', 'prueba2', 'prueba3', 'prueba4', 'prueba5', 'prueba6'
+						];
+
+						$labels = [
+							'a) Objetivos, metas y líneas de acción para garantizar la transparencia y el acceso a la información pública para la ciudadanía',
+							'b) Procedimiento interno para que todas las unidades de la administración pública municipal proporcionen la información solicitada.',
+							'c) Portal web con una sección específica de transparencia y acceso a la información pública (ya sea del municipio o en algún servidor del gobierno estatal).',
+							'd) Responsables',
+							'e) Presupuesto asignado para la operación del programa.',
+							'f) Informe anual, firmados por la funcionaria o funcionario responsable.'
+						];
+						?>
+
+						<?php for ($i = 0; $i < count($checkboxNames); $i++) : ?>
+							<label>
+								<input type="checkbox" name="<?= $checkboxNames[$i] ?>" value="<?= $checkboxNames[$i] ?>">
+								<?= $labels[$i] ?>
+							</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -174,29 +166,47 @@
 					<hr class="my-2">
 
 					<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Mecanismos de contacto (procedimiento o instrumento) publicado y documentado que
-                                                                             funcione para que la ciudadanía incida en las acciones municipales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Medio de difusión de los mecanismos, avalado por la Administración en turno para atender las
-                                                                            propuestas ciudadanas.</label>
-						</br>
+					<?php
+					$valueCheckNames = [
+						'check8211', 'check8212'
+					];
+
+					$labels = [
+						'a) Mecanismos de contacto (procedimiento o instrumento) publicado y documentado que funcione para que la ciudadanía incida en las acciones municipales.',
+						'b) Medio de difusión de los mecanismos, avalado por la Administración en turno para atender las propuestas ciudadanas.'
+					];
+					?>
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>" >
+									<?= $labels[$i] ?>
+							</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">8.2.2 Seguimiento y atención de las propuestas ciudadanas</h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Esquema para que la propuesta sea considerada por el equipo directivo del municipio.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Mecanismo o procedimiento para que la propuesta sea considerada en un proceso institucional.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Informe de resultados, que señale el número de propuestas atendidas en el año en curso.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+								'check8221', 'check8222', 'check8223'
+						];
+
+						$labels = [
+							'a) Esquema para que la propuesta sea considerada por el equipo directivo del municipio.',
+							'b) Mecanismo o procedimiento para que la propuesta sea considerada en un proceso institucional.',
+							'c) Informe de resultados, que señale el número de propuestas atendidas en el año en curso.'
+						];
+						?>
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+										<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>" >
+										<?= $labels[$i] ?>
+								</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
@@ -234,33 +244,49 @@
 					<hr class="my-2">
 
 					<div class="form-group">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Disposiciones generales.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Principios y valores del servicio público.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c) Compromisos con el servicio público.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> d) Publicado conforme a la legislación estatal</label>
-						</br>
+					<?php
+						$valueCheckNames = [
+								'check8311', 'check8312', 'check8313', 'check8314'
+					];
+
+					$labels = [
+						'a) Disposiciones generales.',
+						'b) Principios y valores del servicio público.',
+						'c) Compromisos con el servicio público.',
+						'd) Publicado conforme a la legislación estatal'
+					];
+					?>
+					<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+							<label>
+									<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>" >
+									<?= $labels[$i] ?>
+							</label><br>
+					<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
 
 						<h6 class="display-15">8.3.2. Difusión y capacitación sobre el Código de ética </h6></p>
 						<hr class="my-2">
-						<label>
-						<input type="checkbox" name="prueba" value=""> a) Acciones de capacitación a sus servidores públicos sobre el Código de Ética.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> b) Mecanismos para la difusión del Código de Ética entre su personal.</label>
-						</br>
-						<label>
-						<input type="checkbox" name="prueba" value=""> c)  Informe de evaluación de su cumplimiento de las acciones del año en curso.</label>
-						</br>
+						<?php
+						$valueCheckNames = [
+								'check8321', 'check8322', 'check8323'
+						];
+
+						$labels = [
+							'a) Acciones de capacitación a sus servidores públicos sobre el Código de Ética.',
+							'b) Mecanismos para la difusión del Código de Ética entre su personal.',
+							'c) Informe de evaluación de su cumplimiento de las acciones del año en curso.'
+						];
+						?>
+						<?php for ($i = 0; $i < count($valueCheckNames); $i++) : ?>
+								<label>
+										<input type="checkbox" name="<?= $valueCheckNames[$i] ?>" value="<?= $valueCheckNames[$i] ?>" >
+										<?= $labels[$i] ?>
+								</label><br>
+						<?php endfor; ?>
+
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="Accion" value="Agregar" class="btn btn-success">Guardar</button>
 						</div>
