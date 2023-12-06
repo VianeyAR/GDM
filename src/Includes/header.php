@@ -14,6 +14,7 @@ session_start();  // Asegúrate de tener esto al inicio de tu script
    
     <title>GDM</title>
     <link rel="stylesheet" href="../../assets/css/styles.css"  />
+    <link rel="stylesheet" href="../../assets/css/modulos.css" />
   
     
    
@@ -64,6 +65,7 @@ session_start();  // Asegúrate de tener esto al inicio de tu script
                                 Hacienda</b>
                             </a>
 
+
                             <a class="nav-link" href="3GestionTerritorio.php">
                             <div class="sb-nav-link-icon">
                             <img src="../../assets/img/GestionTerritorio.png"
@@ -72,6 +74,7 @@ session_start();  // Asegúrate de tener esto al inicio de tu script
                             </div><b>
                                 Gestión del Territorio</b>
                             </a>
+
 
                             <a class="nav-link" href="4ServiciosPublicos.php">
                             <div class="sb-nav-link-icon">

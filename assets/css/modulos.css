@@ -31,4 +31,24 @@
    
 }
 
+/* Estilo para los párrafos dentro del enlace */
+.nav-link b {
+    line-height: 1.4;
+}
+
+
+
+
+
+/* Estilo para los enlaces cuando el mouse pasa sobre ellos */
+.nav-link:hover {
+  
+    background: rgb(60, 199, 6);
+}
+
+
+
+
+
+
 

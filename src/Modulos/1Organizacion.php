@@ -703,6 +703,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
+
+	<img class="card-img-top" src="../../assets/img/Organizacion.png"
+     alt="Gobierno Abierto" 
+     style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
+
 	<div class="d-flex justify-content-between">
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
@@ -749,9 +754,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	<h2 class="display-7">1.1 Estructura</h2>
 	<hr class="my-2">
-
-	
-
 </div>
 		
 	<!--Indicadores de Gestion-->
