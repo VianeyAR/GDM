@@ -6,6 +6,18 @@
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
 
+	
+    <img class="card-img-top" src="../../assets/img/GobiernoAbierto.png"
+     alt="Gobierno Abierto" 
+     style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
+
+  
+
+
+</br>
+
+	
+
     <!-- Modulo 1 Organizacion-->
 
     <!--Tema 1 -- Estructura -->
