@@ -1,4 +1,186 @@
-<?php include("../Includes/header.php"); ?>
+<?php include("../Includes/header.php"); 
+
+
+
+
+if (isset($_POST['registrarNuevoFormulario'])) {
+
+	$alerta = '<div class="alert alert-success" role="alert">
+								Nuevo	Formulario.
+						</div>';
+						
+	//habiltar checkbox
+	// Inicializar un array con los nombres de las variables
+	$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8', 'checkDisabled9'];
+	
+	// Establecer todas las variables de sesión a true
+	foreach ($checkNames as $checkName) {
+			$_SESSION[$checkName] = false;
+	}
+	// habilitar inputs
+	// Inicializar un array con los nombres de las variables
+	$inputNames = ['inputDisabled1', 'inputDisabled2', 'inputDisabled3', 'inputDisabled4','inputDisabled5','inputDisabled6','inputDisabled7','inputDisabled8','inputDisabled9','inputDisabled10'];
+	
+	// Recorrer el array y asignar los valores a las variables
+	foreach ($inputNames as $inputName) {
+			$_SESSION[$inputName] = false;
+	}
+	// habilitar boton
+	// Inicializar un array con los nombres de las variables
+	$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10', 'deshabilitarBoton11', 'deshabilitarBoton12', 'deshabilitarBoton13', 'deshabilitarBoton14', 'deshabilitarBoton15', 'deshabilitarBoton16', 'deshabilitarBoton17', 'deshabilitarBoton18', 'deshabilitarBoton19'];
+	// Recorrer el array y asignar los valores a las variables
+	foreach ($botonNames as $botonName) {
+		$_SESSION[$botonName] = false;
+	}
+	
+	
+	}
+	
+	//deshabiltar checkbox
+	// Inicializar un array con los nombres de las variables
+	$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8', 'checkDisabled9'];
+	
+	// Recorrer el array y asignar los valores a las variables
+	foreach ($checkNames as $index => $checkName) {
+	${"checkboxesDeshabilitadosForm" . ($index + 1)} = $_SESSION[$checkName] ?? true;
+	}
+	
+	// deshabilitar inputs
+	// Inicializar un array con los nombres de las variables
+	$inputNames = ['inputDisabled1', 'inputDisabled2', 'inputDisabled3', 'inputDisabled4','inputDisabled5','inputDisabled6','inputDisabled7','inputDisabled8','inputDisabled9','inputDisabled10'];
+	
+	// Recorrer el array y asignar los valores a las variables
+	foreach ($inputNames as $index => $inputName) {
+	${"inputsDeshabilitadosForm" . ($index + 1)} = $_SESSION[$inputName] ?? true;
+	}
+	// deshabilitar boton
+	// Inicializar un array con los nombres de las variables
+	$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10', 'deshabilitarBoton11', 'deshabilitarBoton12', 'deshabilitarBoton13', 'deshabilitarBoton14', 'deshabilitarBoton15', 'deshabilitarBoton16', 'deshabilitarBoton17', 'deshabilitarBoton18', 'deshabilitarBoton19'];
+	// Recorrer el array y asignar los valores a las variables
+	foreach ($botonNames as $index => $botonName) {
+	${"botonDeshabilitado" . ($index + 1)} = $_SESSION[$botonName] ?? true;
+	}
+	// valores checkboxes
+	// Inicializar un array con los nombres de las variables
+	
+	$opciones = [
+	'check211' => 6, // Último número de cada grupo de checkboxes
+	'check212' => 5,
+	'check213' => 3,
+	'check221' => 2,
+	'check222' => 3,
+	'check223' => 3,
+	'check231' => 2,
+	'check241' => 5,
+	'check242' => 2,
+	];
+	
+	$valueCheckNames211 = [
+	'check2111', 'check2112', 'check2113', 'check2114', 'check2115', 'check2116'
+	];
+	$valueCheckNames212 = [
+	'check2121', 'check2122', 'check2123', 'check2124', 'check2125',
+	];
+	$valueCheckNames213 = [
+	'check2131', 'check2132', 'check2133', 
+	];
+	$valueCheckNames221 = [
+	'check2211', 'check2212',
+	];
+	$valueCheckNames222 = [
+	'check2221', 'check2222', 'check2223', 
+	];
+	$valueCheckNames223 = [
+	'check2231', 'check2232', 'check2233', 
+	];
+	$valueCheckNames231 = [
+	'check2311', 'check2312', 
+	];
+	$valueCheckNames241 = [
+	'check2411', 'check2412', 'check2413', 'check2414', 'check2415',
+	];
+	$valueCheckNames242 = [
+	'check2421', 'check2422', 
+	];
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check211']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames211[$i]}"} = $_SESSION[$valueCheckNames211[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check212']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames212[$i]}"} = $_SESSION[$valueCheckNames212[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check213']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames213[$i]}"} = $_SESSION[$valueCheckNames213[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check221']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames221[$i]}"} = $_SESSION[$valueCheckNames221[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check222']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames222[$i]}"} = $_SESSION[$valueCheckNames222[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check223']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames223[$i]}"} = $_SESSION[$valueCheckNames223[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check231']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames231[$i]}"} = $_SESSION[$valueCheckNames231[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check241']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames241[$i]}"} = $_SESSION[$valueCheckNames241[$i]] ?? false;
+	}
+	// Crear variables dinámicas
+	for ($i = 0; $i < $opciones['check242']; $i++) {
+	${"opcion{$i}_form{$valueCheckNames242[$i]}"} = $_SESSION[$valueCheckNames242[$i]] ?? false;
+	}
+	
+	// valores inputs
+	$variableNames = [
+	'form1' => ['txtNombre2141', 'txtNombre2142'],
+	'form2' => ['txtNombre2151', 'txtNombre2152'],
+	'form3' => ['txtNombre2161', 'txtNombre2162'],
+	'form4' => ['txtNombre2171', 'txtNombre2172'],
+	'form5' => ['txtNombre2241', 'txtNombre2242'],
+	'form6' => ['txtNombre2251', 'txtNombre2252', 'txtNombre2253', 'txtNombre2254',],
+	'form7' => ['txtNombre2321', 'txtNombre2322'],
+	'form8' => ['txtNombre2331', 'txtNombre2332'],
+	'form9' => ['txtNombre2341'],
+	'form10' => ['txtNombre2431', 'txtNombre2432']
+	];
+	
+	// Recorrer el array y asignar los valores a las variables
+	// Recorrer el array y asignar los valores a las variables
+	foreach ($variableNames as $form => $inputNames) {
+	foreach ($inputNames as $inputName) {
+		${"opcion1_$form" . "_$inputName"} = $_SESSION[$inputName] ?? '';
+	}
+	}
+	
+	
+	// Alerta para cada subtema
+	$alerts = [
+	'alert211', 'alert212', 'alert213', 'alert214', 'alert215', 'alert216', 'alert217',
+	'alert221', 'alert222', 'alert223', 'alert224', 'alert225',
+	'alert231', 'alert232', 'alert233', 'alert234',
+	'alert241', 'alert242', 'alert243'
+	];
+	
+	foreach ($alerts as $index => $alert) {
+	${$alert} = $_SESSION[$alert] ?? '';
+	}
+
+
+
+
+
+
+
+?>
 
 
      <!--Enlaces de los stilo CSS -->
