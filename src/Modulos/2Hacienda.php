@@ -1243,6 +1243,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert214) ? $alert214 : ''; ?>
 						</div>
 					</form>
+					
 					<form method="POST" enctype="multipart/form-data">
 						<div class="form-group">
 							<p><b><h6 class="display-15">2.1.5 Tasa de crecimiento real anual de la recaudación del impuesto predial</h6></p></b>
