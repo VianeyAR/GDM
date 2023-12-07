@@ -195,11 +195,11 @@ if (isset($_POST['guardarFormulario'])) {
 	$fechaActual = date("Y-m-d H:i:s");
 	$nuevafecha = substr($fechaActual,0,10);
 
-	$querySelect = mysqli_query($conexion, "SELECT `fecha` FROM `formulario` WHERE fecha = '$nuevafecha'");
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Hacienda'");
 	
 	if (!mysqli_fetch_assoc($querySelect)) {
 		$idFormulario = registrarFormularioNuevo($fechaCompleta, $fechaActual, $nuevafecha);
-		$idModulo = registrarModulo($idFormulario, 'Organización');
+		$idModulo = registrarModulo($idFormulario, 'Hacienda');
 		$idTema1 = registrarTema($idModulo, "2.1 Ingresos");
 		$_SESSION['idTema1'] = $idTema1;
 		$idTema2 = registrarTema($idModulo, "2.2 Egresos");
@@ -1005,22 +1005,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
 
-	<!-- <script type="text/javascript">
-    window.onbeforeunload = function() {
-        return "¡Atención! Estás a punto de abandonar esta página. ¿Estás seguro?";
-    };
-	</script> -->
-
-<!-- Modulo 1 Hacienda-->
-
-<!--Tema 1 -- Ingresos -->
-
-<div class="jumbotron">
-	<h2 class="display-7">2.1 Ingresos</h2>
-	<hr class="my-2">
-</div>
-
-<div class="d-flex justify-content-between">
+	<div class="d-flex justify-content-between">
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
@@ -1064,6 +1049,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 	</div>
 		<?php echo isset($alerta) ? $alerta : ''; ?>
+
+<!-- Modulo 1 Hacienda-->
+
+<!--Tema 1 -- Ingresos -->
+
+<div class="jumbotron">
+	<h2 class="display-7">2.1 Ingresos</h2>
+	<hr class="my-2">
+</div>
 
 <!--Indicadores de Gestion-->
 <div class="container">
