@@ -36,10 +36,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 	foreach ($botonNames as $botonName) {
 		$_SESSION[$botonName] = false;
 	}
-
-
 }
-
 
 //deshabiltar checkbox
 // Inicializar un array con los nombres de las variables
@@ -952,16 +949,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			
     </div>
 		
+<<<<<<< HEAD
 
      
     
+=======
+>>>>>>> 0f54e77c118668b63d6e504f10503823786d5357
 		
 	</div>
 		
     <!-- Modulo 1 Organizacion-->
 
     <!--Tema 1 -- Estructura -->
-
 	<div class="jumbotron">
 
 	<h2 class="display-7">1.1 Estructura</h2>
@@ -1022,6 +1021,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="111" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Guardar</button>
+						</div>
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="inputGroupFile02">
 						</div>
 						<?php echo isset($alert111) ? $alert111 : ''; ?>
 					</div>
