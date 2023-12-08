@@ -1000,55 +1000,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	}
 }
 ?>
+
+
     <!--Enlaces de los stilo CSS -->
 
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
 
-	<div class="d-flex justify-content-between">
+	<img class="card-img-top" src="../../assets/img/Organizacion.png"
+     alt="Gobierno Abierto" 
+     style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
+
+		<div class="d-flex justify-content-between">
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
+        <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-danger">Registro nuevo</button>
 		</form>
 			
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="guardarFormulario" value="" class="btn btn-success">Guardar</button>
+        <button type="submit" name="guardarFormulario" value="" class="btn btn-danger">Guardar</button>
 		</form>
 			
     </div>
-		<div class="editar">
-        <form method="post" action="">
-							<div class="form-group d-flex align-items-center">
-									<label for="opciones"><h5 class="m-3">Selecciona un Registro:</h5></label>
-									<select class="form-control" name="opciones" id="opciones">
-											<?php
-													$resultado = mysqli_query($conexion , "SELECT * FROM `formulario`");
-													while($formulario = mysqli_fetch_assoc($resultado)){?>
-													<option id="formulario" value="<?php echo $formulario["id_formulario"]; ?>"> <?php echo $formulario["nombre"]; ?></option>
-											<?php }?>
-											<!-- Puedes agregar más opciones según sea necesario -->
-									</select>
-									<button type="submit" class="btn btn-primary m-2" name="submit">Enviar</button>
-							</div>
-        </form>
 
-        <?php
-        // Verificar si se ha enviado el formulario
-        // if (isset($_POST['submit'])) {
-        //     // Obtener el valor seleccionado en el dropdown
-        //     $opcionSeleccionada = $_POST['opciones'];
-
-        //     // Mostrar la opción seleccionada
-        //     echo "<p class='mt-3'>La opción seleccionada es: $opcionSeleccionada</p>";
-        //     // Aquí puedes realizar cualquier otra acción con la opción seleccionada
-        // }
-        ?>
-    </div>
-		
-	</div>
-		<?php echo isset($alerta) ? $alerta : ''; ?>
+       
 
 <!-- Modulo 1 Hacienda-->
 
