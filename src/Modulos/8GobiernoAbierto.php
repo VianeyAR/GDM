@@ -3,7 +3,7 @@
 <?php 
 	// Inicia la sesión
 	include("../../bd.php");
-	//session_unset();
+	// session_unset();
 	include("../../funciones.php");
 	$alerta = '';
 
@@ -163,7 +163,7 @@ if (isset($_POST['guardarFormulario'])) {
 	$fechaActual = date("Y-m-d H:i:s");
 	$nuevafecha = substr($fechaActual,0,10);
 
-	$querySelect = mysqli_query($conexion, "SELECT `fecha` FROM `formulario` WHERE fecha = '$nuevafecha'");
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Gobierno Abierto'");
 	
 	if (!mysqli_fetch_assoc($querySelect)) {
 		$idFormulario = registrarFormularioNuevo($fechaCompleta, $fechaActual, $nuevafecha);
@@ -201,7 +201,7 @@ if (isset($_POST['guardarFormulario'])) {
 		registrarIndicadoresCheckboxes($valueCheckNames831, $valor_checkbox5, $enunciados7, $idTema3, '8.3.1. Código de ética de los servidores públicos municipales', 1);
 		$enunciados8 = $_SESSION['enunciados8'];
 		$valor_checkbox6 = $_SESSION['valorcheck6'];
-		registrarIndicadoresCheckboxes($valueCheckNames831, $valor_checkbox6, $enunciados8, $idTema3, "8.3.2. Difusión y capacitación sobre el Código de ética", 1);
+		registrarIndicadoresCheckboxes($valueCheckNames832, $valor_checkbox6, $enunciados8, $idTema3, "8.3.2. Difusión y capacitación sobre el Código de ética", 1);
 		
 		
 	}
@@ -247,8 +247,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 
 		// Evaluar el estado general del formulario
-		$alert211 = evaluarEstadoAlertaCheck($count, 10);
-		$_SESSION['alert211'] = $alert211;
+		$alert811 = evaluarEstadoAlertaCheck($count, 10);
+		$_SESSION['alert811'] = $alert811;
 
 
 
@@ -284,10 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$alert812 = evaluarEstadoAlertaCheck($count, 6);
 		$_SESSION['alert812'] = $alert812;
 
-
-
-
-  	} elseif (isset($_POST['813'])) {
+  } elseif (isset($_POST['813'])) {
 
 		//214
 		// Obtén los valores de los campos de texto
@@ -392,7 +389,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$botonDeshabilitado5 = true;
 		$_SESSION['deshabilitarBoton5'] = $botonDeshabilitado5;
 		$count = 0;
-		$valor_checkbox5 = array();
+		$valor_checkbox3 = array();
 		foreach ($valueCheckNames821 as $index => $name) {
 			// Verificar si el checkbox está marcado
 			if (isset($_POST[$name])) {
@@ -405,7 +402,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$_SESSION[$name] = false;
 			}
 		}
-		$_SESSION['valorcheck3'] = $valor_checkbox5;
+		$_SESSION['valorcheck3'] = $valor_checkbox3;
 		$enunciados = [
 						'a) Mecanismos de contacto (procedimiento o instrumento) publicado y documentado que funcione para que la ciudadanía incida en las acciones municipales.',
 						'b) Medio de difusión de los mecanismos, avalado por la Administración en turno para atender las propuestas ciudadanas.'
@@ -413,10 +410,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['enunciados5'] = $enunciados;
 		$alert821 = evaluarEstadoAlertaCheck($count, 2);
 		$_SESSION['alert821'] = $alert821;
-
-
-
-
 	} elseif (isset($_POST['822'])) {
 		$checkboxesDeshabilitadosForm4 = true;
 		$_SESSION['checkDisabled4'] = $checkboxesDeshabilitadosForm4;
@@ -445,10 +438,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['enunciados6'] = $enunciados;
 		$alert822 = evaluarEstadoAlertaCheck($count, 3);
 		$_SESSION['alert822'] = $alert822;
-
-
-
-
 
 	} elseif (isset($_POST['831'])) {
 		$checkboxesDeshabilitadosForm5 = true;
@@ -479,10 +468,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['enunciados7'] = $enunciados;
 		$alert831 = evaluarEstadoAlertaCheck($count, 4);
 		$_SESSION['alert831'] = $alert831;
-
-
-
-
 
 	} elseif (isset($_POST['832'])) {
 		$checkboxesDeshabilitadosForm6 = true;
