@@ -40,7 +40,7 @@ function registrarIndicadoresCheckboxes($valueCheckNames, $arrayValores, $enunci
 		$enunciado = $enunciados[$index];
 		// echo $arrayValores[$index];
 		if ($arrayValores[$index] != "") {
-			$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_indicadores`, `enunciado`, `valor`) VALUES (NULL, '$idIndicadores', '$enunciado', 1)");
+		$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_indicadores`, `enunciado`, `valor`) VALUES (NULL, '$idIndicadores', '$enunciado', 1)");
 		} else {
 			$queryInsert = mysqli_query($conexion, "INSERT INTO `checkbox` (`id_checkbox`, `id_indicadores`, `enunciado`, `valor`) VALUES (NULL, '$idIndicadores', '$enunciado', 0)");
 		}
