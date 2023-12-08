@@ -560,10 +560,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-      <!--Enlaces de los stilo CSS -->
+   <!--Enlaces de los stilo CSS -->
 
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
+
+	<img class="card-img-top" src="../../assets/img/MedioAmbiente.png"
+     alt="Gobierno Abierto" 
+     style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
 
 	<div class="d-flex justify-content-between">
 		<div class="btn-group" role="group" aria-label="">
@@ -574,14 +578,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="guardarFormulario" value="" class="btn btn-success">Guardar</button>
+        <button type="submit" name="guardarFormulario" value="" class="btn btn-success">Guardar Formulario</button>
 		</form>
 			
     </div>
-		
+	
+        <?php
+        // Verificar si se ha enviado el formulario
+        // if (isset($_POST['submit'])) {
+        //     // Obtener el valor seleccionado en el dropdown
+        //     $opcionSeleccionada = $_POST['opciones'];
+
+        //     // Mostrar la opción seleccionada
+        //     echo "<p class='mt-3'>La opción seleccionada es: $opcionSeleccionada</p>";
+        //     // Aquí puedes realizar cualquier otra acción con la opción seleccionada
+        // }
+        ?>
+    
 		
 	</div>
-	<?php echo isset($alerta) ? $alerta : ''; ?>
+		<?php echo isset($alerta) ? $alerta : ''; ?>
     <!-- Modulo 1 Organizacion-->
 
     <!--Tema 1 -- Estructura -->
@@ -647,7 +663,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="511" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="511" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -702,7 +718,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="512" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="512" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -774,7 +790,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="521" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="521" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -827,7 +843,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="522" value="" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="522" value="" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -876,7 +892,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="523" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="523" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -925,7 +941,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="524" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="524" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -1001,7 +1017,7 @@ sustentables</h2></p>
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="531" value="" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="531" value="" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -1049,7 +1065,7 @@ sustentables</h2></p>
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="532" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="532" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -1098,7 +1114,7 @@ sustentables</h2></p>
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="533" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="533" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="inputGroupFile02">
@@ -1152,7 +1168,7 @@ sustentables</h2></p>
 						<?php endforeach; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="534" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado10) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="534" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado10) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert534) ? $alert534 : ''; ?>
 			

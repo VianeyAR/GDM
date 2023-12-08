@@ -570,40 +570,29 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 
 ?>
 
-
-     <!--Enlaces de los stilo CSS -->
+  <!--Enlaces de los stilo CSS -->
 
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
 	<link rel="stylesheet" href="../../assets/css/modulos.css" />
+
+	<img class="card-img-top" src="../../assets/img/DesarrolloEconomico.png"
+     alt="Gobierno Abierto" 
+     style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
+
 	<div class="d-flex justify-content-between">
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
+        <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-danger">Registro nuevo</button>
 		</form>
 			
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="guardarFormulario" value="" class="btn btn-success">Guardar</button>
+        <button type="submit" name="guardarFormulario" value="" class="btn btn-danger">Guardar Formulario</button>
 		</form>
 			
     </div>
-		<div class="editar">
-        <form method="post" action="">
-							<div class="form-group d-flex align-items-center">
-									<label for="opciones"><h5 class="m-3">Selecciona un Registro:</h5></label>
-									<select class="form-control" name="opciones" id="opciones">
-											<?php
-													$resultado = mysqli_query($conexion , "SELECT * FROM `formulario`");
-													while($formulario = mysqli_fetch_assoc($resultado)){?>
-													<option id="formulario" value="<?php echo $formulario["id_formulario"]; ?>"> <?php echo $formulario["nombre"]; ?></option>
-											<?php }?>
-											<!-- Puedes agregar más opciones según sea necesario -->
-									</select>
-									<button type="submit" class="btn btn-primary m-2" name="submit">Enviar</button>
-							</div>
-        </form>
-
+	
         <?php
         // Verificar si se ha enviado el formulario
         // if (isset($_POST['submit'])) {
@@ -615,7 +604,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
         //     // Aquí puedes realizar cualquier otra acción con la opción seleccionada
         // }
         ?>
-    </div>
+    
 		
 	</div>
 		<?php echo isset($alerta) ? $alerta : ''; ?>
@@ -684,7 +673,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							<?php endfor; ?>
 
 							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="711" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Guardar</button>
+								<button type="submit" name="711" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
 							</div>
 							<?php echo isset($alert711) ? $alert711 : ''; ?>
 						</div>
@@ -733,7 +722,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							<?php endfor; ?>
 
 							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="712" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Guardar</button>
+								<button type="submit" name="712" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Evaluar</button>
 							</div>
 							<?php echo isset($alert712) ? $alert712 : ''; ?>
 						</div>
@@ -780,7 +769,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							<?php endfor; ?>
 
 							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="713" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Guardar</button>
+								<button type="submit" name="713" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Evaluar</button>
 							</div>
 							<?php echo isset($alert713) ? $alert713 : ''; ?>
 						</div>
@@ -832,7 +821,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						<?php endforeach; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="714" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="714" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert714) ? $alert714 : ''; ?>
 			
@@ -905,7 +894,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="721" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="721" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert721) ? $alert721 : ''; ?>
 					</div>
@@ -954,7 +943,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="722" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="722" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert722) ? $alert722 : ''; ?>
 					</div>
@@ -1005,7 +994,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						<?php endforeach; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="723" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="723" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert723) ? $alert723 : ''; ?>
 			
@@ -1077,7 +1066,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							<?php endfor; ?>
 
 							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="731" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Guardar</button>
+								<button type="submit" name="731" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
 							</div>
 							<?php echo isset($alert731) ? $alert731 : ''; ?>
 						</div>
@@ -1125,7 +1114,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							<?php endfor; ?>
 
 							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="732" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Guardar</button>
+								<button type="submit" name="732" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Evaluar</button>
 							</div>
 							<?php echo isset($alert732) ? $alert732 : ''; ?>
 						</div>
@@ -1172,7 +1161,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							<?php endfor; ?>
 
 							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="733" value="" class="btn btn-success" <?php if ($botonDeshabilitado10) echo "disabled"; ?>>Guardar</button>
+								<button type="submit" name="733" value="" class="btn btn-success" <?php if ($botonDeshabilitado10) echo "disabled"; ?>>Evaluar</button>
 							</div>
 							<?php echo isset($alert733) ? $alert733 : ''; ?>
 						</div>

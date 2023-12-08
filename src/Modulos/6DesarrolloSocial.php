@@ -818,55 +818,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    <!--Enlaces de los stilo CSS -->
+     <!--Enlaces de los stilo CSS -->
 
 	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
-	<link rel="stylesheet" href="../../assets/css/modulos.css" >
+	<link rel="stylesheet" href="../../assets/css/modulos.css" />
 
-	<div class="d-flex justify-content-between">
-		<div class="btn-group" role="group" aria-label="">
-		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
-		</form>
-			
-    </div>
-		<div class="btn-group" role="group" aria-label="">
-		<form method="POST" enctype="multipart/form-data">
-        <button type="submit" name="guardarFormulario" value="" class="btn btn-success">Guardar</button>
-		</form>
-			
-    </div>
-		<div class="editar">
-        <form method="post" action="">
-							<div class="form-group d-flex align-items-center">
-									<label for="opciones"><h5 class="m-3">Selecciona un Registro:</h5></label>
-									<select class="form-control" name="opciones" id="opciones">
-											<?php
-													$resultado = mysqli_query($conexion , "SELECT * FROM `formulario`");
-													while($formulario = mysqli_fetch_assoc($resultado)){?>
-													<option id="formulario" value="<?php echo $formulario["id_formulario"]; ?>"> <?php echo $formulario["nombre"]; ?></option>
-											<?php }?>
-											<!-- Puedes agregar más opciones según sea necesario -->
-									</select>
-									<button type="submit" class="btn btn-primary m-2" name="submit">Enviar</button>
-							</div>
-        </form>
+<img class="card-img-top" src="../../assets/img/DesarrolloSocial.png"
+ alt="Gobierno Abierto" 
+ style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
 
-        <?php
-        // Verificar si se ha enviado el formulario
-        // if (isset($_POST['submit'])) {
-        //     // Obtener el valor seleccionado en el dropdown
-        //     $opcionSeleccionada = $_POST['opciones'];
-
-        //     // Mostrar la opción seleccionada
-        //     echo "<p class='mt-3'>La opción seleccionada es: $opcionSeleccionada</p>";
-        //     // Aquí puedes realizar cualquier otra acción con la opción seleccionada
-        // }
-        ?>
-    </div>
+<div class="d-flex justify-content-between">
+	<div class="btn-group" role="group" aria-label="">
+	<form method="POST" enctype="multipart/form-data">
+	<button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-danger">Registro nuevo</button>
+	</form>
 		
-	</div>
-		<?php echo isset($alerta) ? $alerta : ''; ?>
+</div>
+	<div class="btn-group" role="group" aria-label="">
+	<form method="POST" enctype="multipart/form-data">
+	<button type="submit" name="guardarFormulario" value="" class="btn btn-danger">Guardar Formulario</button>
+	</form>
+		
+</div>
+
+	<?php
+	// Verificar si se ha enviado el formulario
+	// if (isset($_POST['submit'])) {
+	//     // Obtener el valor seleccionado en el dropdown
+	//     $opcionSeleccionada = $_POST['opciones'];
+
+	//     // Mostrar la opción seleccionada
+	//     echo "<p class='mt-3'>La opción seleccionada es: $opcionSeleccionada</p>";
+	//     // Aquí puedes realizar cualquier otra acción con la opción seleccionada
+	// }
+	?>
+
+	
+</div>
+	<?php echo isset($alerta) ? $alerta : ''; ?>
     <!-- Modulo 1 Organizacion -->
 
     <!--Tema 1 -- Estructura -->
@@ -929,7 +918,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="611" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="611" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert611) ? $alert611 : ''; ?>
 					</div>
@@ -978,7 +967,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="612" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="612" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert612) ? $alert612 : ''; ?>
 					</div>
@@ -1025,7 +1014,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="613" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="613" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert613) ? $alert613 : ''; ?>
 					</div>
@@ -1097,7 +1086,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="621" value="" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="621" value="" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert621) ? $alert621 : ''; ?>
 					</div>
@@ -1148,7 +1137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="622" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="622" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert622) ? $alert622 : ''; ?>
 					</div>
@@ -1196,7 +1185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="623" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="623" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert623) ? $alert623 : ''; ?>
 					</div>
@@ -1271,7 +1260,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="631" value="" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="631" value="" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert631) ? $alert631 : ''; ?>
 					</div>
@@ -1320,7 +1309,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="632" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="632" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert632) ? $alert632 : ''; ?>
 					</div>
@@ -1388,7 +1377,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="641" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="641" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert641) ? $alert641 : ''; ?>
 					</div>
@@ -1443,7 +1432,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="642" value="" class="btn btn-success" <?php if ($botonDeshabilitado10) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="642" value="" class="btn btn-success" <?php if ($botonDeshabilitado10) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert642) ? $alert642 : ''; ?>
 					</div>
@@ -1496,7 +1485,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="643" value="" class="btn btn-success" <?php if ($botonDeshabilitado11) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="643" value="" class="btn btn-success" <?php if ($botonDeshabilitado11) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert643) ? $alert643 : ''; ?>
 					</div>
@@ -1542,7 +1531,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="644" value="" class="btn btn-success" <?php if ($botonDeshabilitado12) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="644" value="" class="btn btn-success" <?php if ($botonDeshabilitado12) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert644) ? $alert644 : ''; ?>
 					</div>
@@ -1616,7 +1605,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="651" value="" class="btn btn-success" <?php if ($botonDeshabilitado13) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="651" value="" class="btn btn-success" <?php if ($botonDeshabilitado13) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert651) ? $alert651 : ''; ?>
 					</div>
@@ -1668,7 +1657,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="652" value="" class="btn btn-success" <?php if ($botonDeshabilitado14) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="652" value="" class="btn btn-success" <?php if ($botonDeshabilitado14) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert652) ? $alert652 : ''; ?>
 					</div>
@@ -1741,7 +1730,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="661" value="" class="btn btn-success" <?php if ($botonDeshabilitado15) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="661" value="" class="btn btn-success" <?php if ($botonDeshabilitado15) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert661) ? $alert661 : ''; ?>
 					</div>
@@ -1791,7 +1780,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php endfor; ?>
 
 						<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="662" value="" class="btn btn-success" <?php if ($botonDeshabilitado16) echo "disabled"; ?>>Guardar</button>
+							<button type="submit" name="662" value="" class="btn btn-success" <?php if ($botonDeshabilitado16) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert662) ? $alert662 : ''; ?>
 					</div>
