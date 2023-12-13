@@ -8,33 +8,49 @@ include("../../funciones.php");
 $alerta = '';
 
 if (isset($_POST['registrarNuevoFormulario'])) {
+	// Obtener el año actual
+	$anoActual = date("Y");
+	// Obtener el mes actual
+	$mesActual = date("m");
+	// Obtener el día actual
+	$diaActual = date("d");	
+	// Concatenar los tres valores
+	$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+	// Obtener la fecha y hora actual
+	$fechaActual = date("Y-m-d H:i:s");
+	$nuevafecha = substr($fechaActual,0,10);
+	
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Organización'");
+	
+	if (!mysqli_fetch_assoc($querySelect)) {
 
-	$alerta = '<div class="alert alert-success" role="alert">
-								Nuevo	Formulario.
-						</div>';
-						
-	//habiltar checkbox
-	// Inicializar un array con los nombres de las variables
-	$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8', 'checkDisabled9', 'checkDisabled10'];
+		$alerta = '<div class="alert alert-success" role="alert">
+									Nuevo	Formulario.
+							</div>';
+							
+		//habiltar checkbox
+		// Inicializar un array con los nombres de las variables
+		$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8', 'checkDisabled9', 'checkDisabled10'];
 
-	// Establecer todas las variables de sesión a true
-	foreach ($checkNames as $checkName) {
-			$_SESSION[$checkName] = false;
-	}
-	// habilitar inputs
-	// Inicializar un array con los nombres de las variables
-	$inputNames = ['inputDisabled1', 'inputDisabled2', 'inputDisabled3', 'inputDisabled4','inputDisabled5','inputDisabled6','inputDisabled7'];
+		// Establecer todas las variables de sesión a true
+		foreach ($checkNames as $checkName) {
+				$_SESSION[$checkName] = false;
+		}
+		// habilitar inputs
+		// Inicializar un array con los nombres de las variables
+		$inputNames = ['inputDisabled1', 'inputDisabled2', 'inputDisabled3', 'inputDisabled4','inputDisabled5','inputDisabled6','inputDisabled7'];
 
-	// Recorrer el array y asignar los valores a las variables
-	foreach ($inputNames as $inputName) {
-			$_SESSION[$inputName] = false;
-	}
-	// habilitar boton
-	// Inicializar un array con los nombres de las variables
-	$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10', 'deshabilitarBoton11', 'deshabilitarBoton12', 'deshabilitarBoton13', 'deshabilitarBoton14', 'deshabilitarBoton15', 'deshabilitarBoton16', 'deshabilitarBoton17'];
-	// Recorrer el array y asignar los valores a las variables
-	foreach ($botonNames as $botonName) {
-		$_SESSION[$botonName] = false;
+		// Recorrer el array y asignar los valores a las variables
+		foreach ($inputNames as $inputName) {
+				$_SESSION[$inputName] = false;
+		}
+		// habilitar boton
+		// Inicializar un array con los nombres de las variables
+		$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10', 'deshabilitarBoton11', 'deshabilitarBoton12', 'deshabilitarBoton13', 'deshabilitarBoton14', 'deshabilitarBoton15', 'deshabilitarBoton16', 'deshabilitarBoton17'];
+		// Recorrer el array y asignar los valores a las variables
+		foreach ($botonNames as $botonName) {
+			$_SESSION[$botonName] = false;
+		}
 	}
 }
 
@@ -263,82 +279,88 @@ if (isset($_POST['guardarFormulario'])) {
 		$valor_input7 = $_SESSION['valorinput7'];
 		registrarIndicadoresInputs($valor_input7, $enunciados17, $idTema4, "1.4.3 Servidoras y Servidores públicos capacitado(as)", 2);
 		
+		session_unset();
+		$alerta = '<div class="alert alert-success" role="alert">
+								Guardado
+						</div>';
+	} else {
+		$alerta = '<div class="alert alert-warning" role="alert">
+								Ya Registrado.
+						</div>';
 	}
-
-
 }
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (isset($_POST['111'])) {
-		$checkboxesDeshabilitadosForm1 = true;
-		$_SESSION['checkDisabled1'] = $checkboxesDeshabilitadosForm1;
-		$botonDeshabilitado1 = true;
-		$_SESSION['deshabilitarBoton1'] = $botonDeshabilitado1;
-		$count = 0;
-		$valor_checkbox1 = array();
-		foreach ($valueCheckNames111 as $index => $name) {
-			// Verificar si el checkbox está marcado
-			if (isset($_POST[$name])) {
-					$valor_checkbox1[$index] = $_POST[$name];
-					$_SESSION[$name] = true;
-					$count = $count + 1;
-			} else {
-					$valor_checkbox1[$index] = "";
-					$_SESSION[$name] = false;
+	if (isset($_POST['111'])) {
+			$checkboxesDeshabilitadosForm1 = true;
+			$_SESSION['checkDisabled1'] = $checkboxesDeshabilitadosForm1;
+			$botonDeshabilitado1 = true;
+			$_SESSION['deshabilitarBoton1'] = $botonDeshabilitado1;
+			$count = 0;
+			$valor_checkbox1 = array();
+			foreach ($valueCheckNames111 as $index => $name) {
+				// Verificar si el checkbox está marcado
+				if (isset($_POST[$name])) {
+						$valor_checkbox1[$index] = $_POST[$name];
+						$_SESSION[$name] = true;
+						$count = $count + 1;
+				} else {
+						$valor_checkbox1[$index] = "";
+						$_SESSION[$name] = false;
+				}
 			}
-		}
-		$_SESSION['valorcheck1'] = $valor_checkbox1;
-		$enunciados = [
-			'a) Disposiciones normativas que regulan la organización y funcionamiento del Ayuntamiento.',
-			'b) Disposiciones normativas de la Administración Pública Municipal.',
-			'c) Documento que señale que fue avalado por la Administración o el Ayuntamiento en funciones, 
-			según corresponda.',
-			'd) Publicado conforme a la legislación estatal',
-		];
-		$_SESSION['enunciados1'] = $enunciados;
-		
+			$_SESSION['valorcheck1'] = $valor_checkbox1;
+			$enunciados = [
+				'a) Disposiciones normativas que regulan la organización y funcionamiento del Ayuntamiento.',
+				'b) Disposiciones normativas de la Administración Pública Municipal.',
+				'c) Documento que señale que fue avalado por la Administración o el Ayuntamiento en funciones, 
+				según corresponda.',
+				'd) Publicado conforme a la legislación estatal',
+			];
+			$_SESSION['enunciados1'] = $enunciados;
+			
 
-		// Evaluar el estado general del formulario
-		$alert111 = evaluarEstadoAlertaCheck($count, 4);
-		$_SESSION['alert111'] = $alert111;
+			// Evaluar el estado general del formulario
+			$alert111 = evaluarEstadoAlertaCheck($count, 4);
+			$_SESSION['alert111'] = $alert111;
 
-	} elseif (isset($_POST['112'])) {
-    $checkboxesDeshabilitadosForm2 = true;
-		$_SESSION['checkDisabled2'] = $checkboxesDeshabilitadosForm2;
-		$botonDeshabilitado2 = true;
-		$_SESSION['deshabilitarBoton2'] = $botonDeshabilitado2;
-		$count = 0;
-		$valor_checkbox2 = array();
-		foreach ($valueCheckNames112 as $index  => $name) {
-			// Verificar si el checkbox está marcado
-			if (isset($_POST[$name])) {
-					// El checkbox está marcado, puedes hacer lo que necesites con el valor
-					$valor_checkbox2[$index] = $_POST[$name];
-					$_SESSION[$name] = true;
-					$count = $count + 1;
-			} else {
-				$valor_checkbox2[$index] = "";
-					$_SESSION[$name] = false;
+		} elseif (isset($_POST['112'])) {
+		$checkboxesDeshabilitadosForm2 = true;
+			$_SESSION['checkDisabled2'] = $checkboxesDeshabilitadosForm2;
+			$botonDeshabilitado2 = true;
+			$_SESSION['deshabilitarBoton2'] = $botonDeshabilitado2;
+			$count = 0;
+			$valor_checkbox2 = array();
+			foreach ($valueCheckNames112 as $index  => $name) {
+				// Verificar si el checkbox está marcado
+				if (isset($_POST[$name])) {
+						// El checkbox está marcado, puedes hacer lo que necesites con el valor
+						$valor_checkbox2[$index] = $_POST[$name];
+						$_SESSION[$name] = true;
+						$count = $count + 1;
+				} else {
+					$valor_checkbox2[$index] = "";
+						$_SESSION[$name] = false;
+				}
 			}
-		}
-		$_SESSION['valorcheck2'] = $valor_checkbox2;
-		$enunciados = [
-			'a) Documento por unidad administrativa con organigrama (dirección o secretaría, ya sea bajo un 
-			esquema administrativo centralizado, desconcentrado, descentralizado, paramunicipal o 
-			autónomo), que describa las funciones y perfil de puesto de la estructura autorizada.',
-			'b) Organigrama general de la administración pública municipal.',
-			'c) Catálogo de puestos avalado por la Administración o el Ayuntamiento en funciones, según 
-			corresponda.',
-			'd) Documento que señale que fue avalado por la Administración o el Ayuntamiento en funciones, 
-			según corresponda.',
-		];
-		$_SESSION['enunciados2'] = $enunciados;
-		$alert112 = evaluarEstadoAlertaCheck($count, 4);
-		$_SESSION['alert112'] = $alert112;
+			$_SESSION['valorcheck2'] = $valor_checkbox2;
+			$enunciados = [
+				'a) Documento por unidad administrativa con organigrama (dirección o secretaría, ya sea bajo un 
+				esquema administrativo centralizado, desconcentrado, descentralizado, paramunicipal o 
+				autónomo), que describa las funciones y perfil de puesto de la estructura autorizada.',
+				'b) Organigrama general de la administración pública municipal.',
+				'c) Catálogo de puestos avalado por la Administración o el Ayuntamiento en funciones, según 
+				corresponda.',
+				'd) Documento que señale que fue avalado por la Administración o el Ayuntamiento en funciones, 
+				según corresponda.',
+			];
+			$_SESSION['enunciados2'] = $enunciados;
+			$alert112 = evaluarEstadoAlertaCheck($count, 4);
+			$_SESSION['alert112'] = $alert112;
 
-  } elseif (isset($_POST['113'])) {
+	} elseif (isset($_POST['113'])) {
 		$checkboxesDeshabilitadosForm3 = true;
 		$_SESSION['checkDisabled3'] = $checkboxesDeshabilitadosForm3;
 		$botonDeshabilitado3 = true;
@@ -1174,7 +1196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								$valor_variable = ${"opcion" . ($index + 1) . "_form1_value"};
 							?>
 							<label for="txtNombre" class="text1">
-								<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required><span><?= $labels114[$index] ?></span>
+								<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required><span><?= $labels114[$index] ?></span>
 							</label>
 						<?php endforeach; ?>
 
@@ -1210,7 +1232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								$valor_variable = ${"opcion" . ($index + 1) . "_form2_value"};
 							?>
 							<label for="txtNombre" class="text1">
-								<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required><span><?= $labels115[$index] ?></span>
+								<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required><span><?= $labels115[$index] ?></span>
 							</label>
 						<?php endforeach; ?>
 
@@ -1245,7 +1267,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							$valor_variable = ${"opcion" . ($index + 1) . "_form3_value"};
 						?>
 						<label for="txtNombre" class="text1">
-							<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required><span><?= $labels116[$index] ?></span>
+							<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required><span><?= $labels116[$index] ?></span>
 						</label>
 					<?php endforeach; ?>
 
@@ -1280,7 +1302,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									$valor_variable = ${"opcion" . ($index + 1) . "_form4_value"};
 								?>
 								<label for="txtNombre" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm4) echo "disabled"; ?> required><span><?= $labels117[$index] ?></span>
+									<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm4) echo "disabled"; ?> required><span><?= $labels117[$index] ?></span>
 								</label>
 							<?php endforeach; ?>
 

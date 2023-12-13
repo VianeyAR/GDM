@@ -3,12 +3,28 @@
 <?php 
 	// Inicia la sesión
 	include("../../bd.php");
-	//session_unset();
+	// session_unset();
 	include("../../funciones.php");
 	$alerta = '';
 
 
 if (isset($_POST['registrarNuevoFormulario'])) {
+
+	// Obtener el año actual
+	$anoActual = date("Y");
+	// Obtener el mes actual
+	$mesActual = date("m");
+	// Obtener el día actual
+	$diaActual = date("d");	
+	// Concatenar los tres valores
+	$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+	// Obtener la fecha y hora actual
+	$fechaActual = date("Y-m-d H:i:s");
+	$nuevafecha = substr($fechaActual,0,10);
+	
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Gestión del Territorio'");
+	
+	if (!mysqli_fetch_assoc($querySelect)) {
 
 		$alerta = '<div class="alert alert-success" role="alert">
 									Nuevo	Formulario.
@@ -66,7 +82,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 		foreach ($botonNames as $botonName) {
 			$_SESSION[$botonName] = false;
 		}
-
+	}
 
 }
 
@@ -162,7 +178,7 @@ $valueCheckNames321 = [
 	'check3211', 'check3212', 'check3213', 'check3214', 'check3215'
 ];
 $valueCheckNames322 = [
-	'check3211', 'check3212', 'check3213', 'check3214', 'check3215', 'check3216' 
+	'check3221', 'check3222', 'check3223', 'check3224', 'check3225', 'check3226' 
 ];
 $valueCheckNames323 = [
 	'check3231', 'check3232' 
@@ -301,7 +317,7 @@ if (isset($_POST['guardarFormulario'])) {
 	$fechaActual = date("Y-m-d H:i:s");
 	$nuevafecha = substr($fechaActual,0,10);
 
-	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Hacienda'");
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Gestión del Territorio'");
 	
 	if (!mysqli_fetch_assoc($querySelect)) {
 		$idFormulario = registrarFormularioNuevo($fechaCompleta, $fechaActual, $nuevafecha);
@@ -326,7 +342,7 @@ if (isset($_POST['guardarFormulario'])) {
 		registrarIndicadoresCheckboxes($valueCheckNames313, $valor_checkbox3, $enunciados3, $idTema1, '3.1.3 Unidad responsable de la planeación urbana', 1);
 		$enunciados4 = $_SESSION['enunciados4'];
 		$valor_input1 = $_SESSION['valorinput1'];
-		registrarIndicadoresInputs($valor_input1, $enunciados4, $idTema1, "3.1.4 Índice de Planeación Urbana", 7);
+		registrarIndicadoresInputs($valor_input1, $enunciados4, $idTema1, "3.1.4 Índice de Planeación Urbana", 2);
 		
 		
 		$enunciados5 = $_SESSION['enunciados5'];
@@ -334,13 +350,13 @@ if (isset($_POST['guardarFormulario'])) {
 		registrarIndicadoresCheckboxes($valueCheckNames321, $valor_checkbox4, $enunciados5, $idTema2, '3.2.1 Reglamento o lineamientos municipales del ordenamiento ecológico local.', 1);
 		$enunciados6 = $_SESSION['enunciados6'];
 		$valor_checkbox5 = $_SESSION['valorcheck5'];
-		registrarIndicadoresCheckboxes($valueCheckNames322, $valor_checkbox4, $enunciados6, $idTema2, '3.2.2 Programa de Ordenamiento Ecológico Local', 1);
+		registrarIndicadoresCheckboxes($valueCheckNames322, $valor_checkbox5, $enunciados6, $idTema2, '3.2.2 Programa de Ordenamiento Ecológico Local', 1);
 		$enunciados7 = $_SESSION['enunciados7'];
 		$valor_checkbox6 = $_SESSION['valorcheck6'];
-		registrarIndicadoresCheckboxes($valueCheckNames323, $valor_checkbox4, $enunciados7, $idTema2, '3.2.3 Acciones para la implementación del Ordenamiento Ecológico.', 1);
+		registrarIndicadoresCheckboxes($valueCheckNames323, $valor_checkbox6, $enunciados7, $idTema2, '3.2.3 Acciones para la implementación del Ordenamiento Ecológico.', 1);
 		$enunciados8 = $_SESSION['enunciados8'];
 		$valor_input2 = $_SESSION['valorinput2'];
-		registrarIndicadoresInputs($valor_input2, $enunciados8, $idTema2, "3.2.4 Índice de ordenamiento ecológico", 5);
+		registrarIndicadoresInputs($valor_input2, $enunciados8, $idTema2, "3.2.4 Índice de ordenamiento ecológico", 2);
 		
 		
 		$enunciados9 = $_SESSION['enunciados9'];
@@ -374,15 +390,21 @@ if (isset($_POST['guardarFormulario'])) {
 		registrarIndicadoresCheckboxes($valueCheckNames343, $valor_checkbox14, $enunciados17, $idTema4, '3.4.3 Programa de la zona metropolitana', 1);
 		
 		 
+		session_unset();
+		$alerta = '<div class="alert alert-success" role="alert">
+								Guardado
+						</div>';
+	} else {
+		$alerta = '<div class="alert alert-warning" role="alert">
+								Ya Registrado.
+						</div>';
 	}
-
-
 }
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (isset($_POST['311'])) {
+  	if (isset($_POST['311'])) {
 		$checkboxesDeshabilitadosForm1 = true;
 		$_SESSION['checkDisabled1'] = $checkboxesDeshabilitadosForm1;
 		$botonDeshabilitado1 = true;
@@ -418,7 +440,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	
 	} elseif (isset($_POST['312'])) {
-    $checkboxesDeshabilitadosForm2 = true;
+    	$checkboxesDeshabilitadosForm2 = true;
 		$_SESSION['checkDisabled2'] = $checkboxesDeshabilitadosForm2;
 		$botonDeshabilitado2 = true;
 		$_SESSION['deshabilitarBoton2'] = $botonDeshabilitado2;
@@ -704,7 +726,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$opcion5_form2_value,
 					
 				];
-				$_SESSION['valorinput1'] = $valor_input2;
+				$_SESSION['valorinput2'] = $valor_input2;
 	
 
 		
@@ -1341,7 +1363,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert321) ? $alert321 : ''; ?>
 						<!--Salto de parrafo 2.1.2-->
 					</div>
-
+						
 						<h6 class="display-15">3.2.2 Programa de Ordenamiento Ecológico Local </h6></p>
 						<hr class="my-2">
 						<div class="form-group">
@@ -1718,7 +1740,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php foreach($variableNames['form3'] as $index => $fieldName) : ?>
 								<?php $valor_variable = ${"opcion" . ($index + 1) . "_form3_value"}; ?>
 								<label for="<?= $fieldName ?>" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName ?>" id="<?= $fieldName ?>" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required>
+									<input type="number" class="form-control" name="<?= $fieldName ?>" id="<?= $fieldName ?>" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required>
 									<span><?= $labels336[$index] ?></span>
 								</label>
 							<?php endforeach; ?>

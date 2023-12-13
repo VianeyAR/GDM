@@ -10,6 +10,21 @@
 
 if (isset($_POST['registrarNuevoFormulario'])) {
 
+	// Obtener el año actual
+	$anoActual = date("Y");
+	// Obtener el mes actual
+	$mesActual = date("m");
+	// Obtener el día actual
+	$diaActual = date("d");	
+	// Concatenar los tres valores
+	$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+	// Obtener la fecha y hora actual
+	$fechaActual = date("Y-m-d H:i:s");
+	$nuevafecha = substr($fechaActual,0,10);
+
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Gobierno Abierto'");
+	
+	if (!mysqli_fetch_assoc($querySelect)) {
 		$alerta = '<div class="alert alert-success" role="alert">
 									Nuevo	Formulario.
 							</div>';
@@ -37,7 +52,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 		foreach ($botonNames as $botonName) {
 			$_SESSION[$botonName] = false;
 		}
-
+	}
 
 }
 
@@ -204,8 +219,15 @@ if (isset($_POST['guardarFormulario'])) {
 		registrarIndicadoresCheckboxes($valueCheckNames832, $valor_checkbox6, $enunciados8, $idTema3, "8.3.2. Difusión y capacitación sobre el Código de ética", 1);
 		
 		
+		session_unset();
+		$alerta = '<div class="alert alert-success" role="alert">
+								Guardado
+						</div>';
+	} else {
+		$alerta = '<div class="alert alert-warning" role="alert">
+								Ya Registrado.
+						</div>';
 	}
-
 
 }
 

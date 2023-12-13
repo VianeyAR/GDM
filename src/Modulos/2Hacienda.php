@@ -10,6 +10,22 @@
 
 if (isset($_POST['registrarNuevoFormulario'])) {
 
+	// Obtener el año actual
+	$anoActual = date("Y");
+	// Obtener el mes actual
+	$mesActual = date("m");
+	// Obtener el día actual
+	$diaActual = date("d");	
+	// Concatenar los tres valores
+	$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+	// Obtener la fecha y hora actual
+	$fechaActual = date("Y-m-d H:i:s");
+	$nuevafecha = substr($fechaActual,0,10);
+
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Hacienda'");
+	
+	if (!mysqli_fetch_assoc($querySelect)) {
+
 		$alerta = '<div class="alert alert-success" role="alert">
 									Nuevo	Formulario.
 							</div>';
@@ -37,7 +53,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 		foreach ($botonNames as $botonName) {
 			$_SESSION[$botonName] = false;
 		}
-
+	}
 
 }
 
@@ -266,15 +282,22 @@ if (isset($_POST['guardarFormulario'])) {
 		$enunciados19 = $_SESSION['enunciados19'];
 		$valor_input10 = $_SESSION['valorinput10'];
 		registrarIndicadoresInputs($valor_input10, $enunciados19, $idTema4, "2.4.3 Administración de bienes muebles e inmuebles patrimonio del municipio.", 2);
+		session_unset();
+		$alerta = '<div class="alert alert-success" role="alert">
+								Guardado
+						</div>';
+	} else {
+		$alerta = '<div class="alert alert-warning" role="alert">
+								Ya Registrado.
+						</div>';
 	}
-
 
 }
 
 // Verifica si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (isset($_POST['211'])) {
+  	if (isset($_POST['211'])) {
 		$checkboxesDeshabilitadosForm1 = true;
 		$_SESSION['checkDisabled1'] = $checkboxesDeshabilitadosForm1;
 		$botonDeshabilitado1 = true;
@@ -309,7 +332,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$_SESSION['alert211'] = $alert211;
 
 	} elseif (isset($_POST['212'])) {
-    $checkboxesDeshabilitadosForm2 = true;
+    	$checkboxesDeshabilitadosForm2 = true;
 		$_SESSION['checkDisabled2'] = $checkboxesDeshabilitadosForm2;
 		$botonDeshabilitado2 = true;
 		$_SESSION['deshabilitarBoton2'] = $botonDeshabilitado2;
@@ -339,7 +362,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$alert212 = evaluarEstadoAlertaCheck($count, 5);
 		$_SESSION['alert212'] = $alert212;
 
-  } elseif (isset($_POST['213'])) {
+  	} elseif (isset($_POST['213'])) {
 		$checkboxesDeshabilitadosForm3 = true;
 		$_SESSION['checkDisabled3'] = $checkboxesDeshabilitadosForm3;
 		$botonDeshabilitado3 = true;
@@ -883,10 +906,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$estadoGeneral = $estado;
 
 				$_SESSION['enunciados16'] = "Seleccionado";
-				$valor_input9 = [
-					$opcion1_form9_value,
-				];
-				$_SESSION['valorinput9'] = $valor_input9;
+
+				$_SESSION['valorinput9'] = $opcion1_form9_value;
 			} else {
 				$estadoGeneral = 'Error: Sin Selección';
 			}
@@ -1219,7 +1240,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									$valor_variable = ${"opcion" . ($index + 1) . "_form1_value"};
 								?>
 								<label for="txtNombre" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required><span><?= $labels214[$index] ?></span>
+									<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required><span><?= $labels214[$index] ?></span>
 								</label>
 							<?php endforeach; ?>
 
@@ -1254,7 +1275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									$valor_variable = ${"opcion" . ($index + 1) . "_form2_value"};
 								?>
 								<label for="txtNombre" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required ><span><?= $labels215[$index] ?></span>
+									<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required ><span><?= $labels215[$index] ?></span>
 								</label>
 
 							<?php endforeach; ?>
@@ -1290,7 +1311,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										$valor_variable = ${"opcion" . ($index + 1) . "_form3_value"};
 									?>
 									<label for="txtNombre" class="text1">
-										<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required><span><?= $labels216[$index] ?></span>
+										<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required><span><?= $labels216[$index] ?></span>
 									</label>
 
 								<?php endforeach; ?>
@@ -1326,7 +1347,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 												$valor_variable = ${"opcion" . ($index + 1) . "_form4_value"};
 											?>
 											<label for="txtNombre" class="text1">
-												<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm4) echo "disabled"; ?> required><span><?= $labels217[$index] ?></span>
+												<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm4) echo "disabled"; ?> required><span><?= $labels217[$index] ?></span>
 											</label>
 
 										<?php endforeach; ?>
@@ -1495,7 +1516,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									$valor_variable = ${"opcion" . ($index + 1) . "_form5_value"};
 								?>
 								<label for="txtNombre" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm5) echo "disabled"; ?> required><span><?= $labels224[$index] ?></span>
+									<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm5) echo "disabled"; ?> required><span><?= $labels224[$index] ?></span>
 								</label>
 							<?php endforeach; ?>
 						<div class="btn-group" role="group" aria-label="">
@@ -1530,7 +1551,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										$valor_variable = ${"opcion" . ($index + 1) . "_form6_value"};
 									?>
 									<label for="txtNombre" class="text1">
-										<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm6) echo "disabled"; ?> required><span><?= $labels225[$index] ?></span>
+										<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm6) echo "disabled"; ?> required><span><?= $labels225[$index] ?></span>
 									</label>
 							<?php endforeach; ?>
 						
@@ -1644,7 +1665,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								$valor_variable = ${"opcion" . ($index + 1) . "_form7_value"};
 						?>
 							<label for="txtNombre" class="text1">
-								<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm7) echo "disabled"; ?> required><span><?= $labels232[$index] ?></span>
+								<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm7) echo "disabled"; ?> required><span><?= $labels232[$index] ?></span>
 							</label>
 						<?php endforeach; ?>
 
@@ -1678,7 +1699,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									$valor_variable = ${"opcion" . ($index + 1) . "_form8_value"};
 							?>
 								<label for="txtNombre" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm8) echo "disabled"; ?> required><span><?= $labels233[$index] ?></span>
+									<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm8) echo "disabled"; ?> required><span><?= $labels233[$index] ?></span>
 								</label>
 							<?php endforeach; ?>
 
@@ -1860,7 +1881,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									$valor_variable = ${"opcion" . ($index + 1) . "_form10_value"};
 							?>
 								<label for="txtNombre" class="text1">
-									<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm10) echo "disabled"; ?> required><span><?= $labels243[$index] ?></span>
+									<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm10) echo "disabled"; ?> required><span><?= $labels243[$index] ?></span>
 								</label>
 							<?php endforeach; ?>
 

@@ -8,28 +8,43 @@ $alerta = '';
 
 
 if (isset($_POST['registrarNuevoFormulario'])) {
+	// Obtener el año actual
+	$anoActual = date("Y");
+	// Obtener el mes actual
+	$mesActual = date("m");
+	// Obtener el día actual
+	$diaActual = date("d");	
+	// Concatenar los tres valores
+	$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+	// Obtener la fecha y hora actual
+	$fechaActual = date("Y-m-d H:i:s");
+	$nuevafecha = substr($fechaActual,0,10);
 
-	$alerta = '<div class="alert alert-success" role="alert">
-								Nuevo	Formulario.
-						</div>';
-						
-	//habiltar checkbox
-	// Inicializar un array con los nombres de las variables
-	$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8', 'checkDisabled9', 'checkDisabled10', 'checkDisabled11', 'checkDisabled12','checkDisabled13', 'checkDisabled14', 'checkDisabled15', 'checkDisabled16'];
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Desarrollo Social'");
+	
+	if (!mysqli_fetch_assoc($querySelect)) {
 
-	// Establecer todas las variables de sesión a true
-	foreach ($checkNames as $checkName) {
-			$_SESSION[$checkName] = false;
+		$alerta = '<div class="alert alert-success" role="alert">
+									Nuevo	Formulario.
+							</div>';
+							
+		//habiltar checkbox
+		// Inicializar un array con los nombres de las variables
+		$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8', 'checkDisabled9', 'checkDisabled10', 'checkDisabled11', 'checkDisabled12','checkDisabled13', 'checkDisabled14', 'checkDisabled15', 'checkDisabled16'];
+
+		// Establecer todas las variables de sesión a true
+		foreach ($checkNames as $checkName) {
+				$_SESSION[$checkName] = false;
+		}
+
+		// habilitar boton
+		// Inicializar un array con los nombres de las variables
+		$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10','deshabilitarBoton11', 'deshabilitarBoton12', 'deshabilitarBoton13','deshabilitarBoton14', 'deshabilitarBoton15', 'deshabilitarBoton16'];
+		// Recorrer el array y asignar los valores a las variables
+		foreach ($botonNames as $botonName) {
+			$_SESSION[$botonName] = false;
+		}
 	}
-
-	// habilitar boton
-	// Inicializar un array con los nombres de las variables
-	$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10','deshabilitarBoton11', 'deshabilitarBoton12', 'deshabilitarBoton13','deshabilitarBoton14', 'deshabilitarBoton15', 'deshabilitarBoton16'];
-	// Recorrer el array y asignar los valores a las variables
-	foreach ($botonNames as $botonName) {
-		$_SESSION[$botonName] = false;
-	}
-
 
 }
 

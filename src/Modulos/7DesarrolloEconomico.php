@@ -9,36 +9,52 @@ $alerta = '';
 
 if (isset($_POST['registrarNuevoFormulario'])) {
 
-	$alerta = '<div class="alert alert-success" role="alert">
-								Nuevo	Formulario.
-						</div>';
-						
-	//habiltar checkbox
-	// Inicializar un array con los nombres de las variables
-	$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8'];
+	// Obtener el año actual
+	$anoActual = date("Y");
+	// Obtener el mes actual
+	$mesActual = date("m");
+	// Obtener el día actual
+	$diaActual = date("d");	
+	// Concatenar los tres valores
+	$fechaCompleta = $anoActual . '-' . $mesActual . '-' . $diaActual;
+	// Obtener la fecha y hora actual
+	$fechaActual = date("Y-m-d H:i:s");
+	$nuevafecha = substr($fechaActual,0,10);
+
+	$querySelect = mysqli_query($conexion, "SELECT * FROM `formulario` f INNER JOIN modulo m ON f.id_formulario = m.id_formulario WHERE f.fecha = '$nuevafecha' and m.modulo = 'Desarrollo Económico'");
 	
-	// Establecer todas las variables de sesión a true
-	foreach ($checkNames as $checkName) {
-			$_SESSION[$checkName] = false;
+	if (!mysqli_fetch_assoc($querySelect)) {
+
+		$alerta = '<div class="alert alert-success" role="alert">
+									Nuevo	Formulario.
+							</div>';
+							
+		//habiltar checkbox
+		// Inicializar un array con los nombres de las variables
+		$checkNames = ['checkDisabled1', 'checkDisabled2', 'checkDisabled3', 'checkDisabled4', 'checkDisabled5', 'checkDisabled6', 'checkDisabled7', 'checkDisabled8'];
+		
+		// Establecer todas las variables de sesión a true
+		foreach ($checkNames as $checkName) {
+				$_SESSION[$checkName] = false;
+		}
+		// habilitar inputs
+		// Inicializar un array con los nombres de las variables
+		$inputNames = ['inputDisabled1', 'inputDisabled2'];
+		
+		// Recorrer el array y asignar los valores a las variables
+		foreach ($inputNames as $inputName) {
+				$_SESSION[$inputName] = false;
+		}
+		// habilitar boton
+		// Inicializar un array con los nombres de las variables
+		$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10'];
+		// Recorrer el array y asignar los valores a las variables
+		foreach ($botonNames as $botonName) {
+			$_SESSION[$botonName] = false;
+		}
 	}
-	// habilitar inputs
-	// Inicializar un array con los nombres de las variables
-	$inputNames = ['inputDisabled1', 'inputDisabled2'];
 	
-	// Recorrer el array y asignar los valores a las variables
-	foreach ($inputNames as $inputName) {
-			$_SESSION[$inputName] = false;
-	}
-	// habilitar boton
-	// Inicializar un array con los nombres de las variables
-	$botonNames = ['deshabilitarBoton1', 'deshabilitarBoton2', 'deshabilitarBoton3', 'deshabilitarBoton4', 'deshabilitarBoton5', 'deshabilitarBoton6', 'deshabilitarBoton7', 'deshabilitarBoton8', 'deshabilitarBoton9', 'deshabilitarBoton10'];
-	// Recorrer el array y asignar los valores a las variables
-	foreach ($botonNames as $botonName) {
-		$_SESSION[$botonName] = false;
-	}
-	
-	
-	}
+}
 	
 	//deshabiltar checkbox
 	// Inicializar un array con los nombres de las variables
@@ -217,8 +233,16 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 			$enunciados10 = $_SESSION['enunciados10'];
 			$valor_checkbox8 = $_SESSION['valorcheck8'];
 			registrarIndicadoresCheckboxes($valueCheckNames733, $valor_checkbox8, $enunciados10, $idTema3, '7.3.3 Vinculación para el fomento económico', 1);
+			
+			session_unset();
+			$alerta = '<div class="alert alert-success" role="alert">
+									Guardado
+							</div>';
+		} else {
+			$alerta = '<div class="alert alert-warning" role="alert">
+									Ya Registrado.
+							</div>';
 		}
-	
 	
 	}
 
@@ -816,7 +840,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 								$valor_variable = ${"opcion" . ($index + 1) . "_form1_value"};
 							?>
 							<label for="txtNombre" class="text1">
-								<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required><span><?= $labels714[$index] ?></span>
+								<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required><span><?= $labels714[$index] ?></span>
 							</label>
 						<?php endforeach; ?>
 
@@ -989,7 +1013,7 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 								$valor_variable = ${"opcion" . ($index + 1) . "_form2_value"};
 							?>
 							<label for="txtNombre" class="text1">
-								<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required><span><?= $labels723[$index] ?></span>
+								<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required><span><?= $labels723[$index] ?></span>
 							</label>
 						<?php endforeach; ?>
 
