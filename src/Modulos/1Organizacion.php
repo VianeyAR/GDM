@@ -3,9 +3,10 @@
 <?php
 // Inicia la sesión
 include("../../bd.php");
-// session_unset();
+//session_unset();
 include("../../funciones.php");
 $alerta = '';
+include("../../pdf.php");
 
 if (isset($_POST['registrarNuevoFormulario'])) {
 	// Obtener el año actual
@@ -327,7 +328,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$_SESSION['alert111'] = $alert111;
 
 		} elseif (isset($_POST['112'])) {
-		$checkboxesDeshabilitadosForm2 = true;
+			$checkboxesDeshabilitadosForm2 = true;
 			$_SESSION['checkDisabled2'] = $checkboxesDeshabilitadosForm2;
 			$botonDeshabilitado2 = true;
 			$_SESSION['deshabilitarBoton2'] = $botonDeshabilitado2;
@@ -419,7 +420,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 				$enunciados = [
 					'Número de unidades administrativas que conforman la administración.',
-					'Gasto corriente en el año evaluado',
+					'Número de unidades administrativas promedio nacional.',
 				];
 				$_SESSION['enunciados4'] = $enunciados;
 				$valor_input1 = [
@@ -496,13 +497,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// Verifica si el denominador es 0 antes de realizar la división
 		if ($opcion2_form3_value != 0) {
 			// Calcula el porcentaje
-			$porcentaje = ($opcion1_form3_value / $opcion2_form3_value) * 100;
+			$porcentaje = ($opcion1_form3_value / $opcion2_form3_value);
 		
 		
 			// Evalúa el porcentaje y determina el estado
 			if ($porcentaje <= 1) {
 				$estado = 'Optimo';
-			} elseif ($porcentaje > 1 && $porcentaje <= 1.5) {
+			} elseif ($porcentaje > 1 && $porcentaje <= 1.15) {
 				$estado = 'En Proceso';
 			} else {
 				$estado = 'Rezago';
@@ -523,7 +524,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$opcion2_form3_value,
 			];
 			$_SESSION['valorinput3'] = $valor_input3;
-		} else {
+		} elseif (isset($opcion1_form3_value) && strlen($opcion1_form3_value) > 0 && isset($opcion2_form3_value) && strlen($opcion2_form3_value) > 0) {
+			$estadoGeneral = 'Error: Texto no admitido';
+		}
+		else {
 			$estadoGeneral = 'Error: División por 0';
 		}
 
@@ -822,8 +826,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$_SESSION['deshabilitarBoton14'] = $botonDeshabilitado14;
 				$estadoGeneral = $estado;
 				$enunciados = [
-					'Número de observaciones a diciembre del año anterior inmediato.',
-					'Número de observaciones del año en curso.',
+					'Número de observaciones en el año evaluado.',
+					'Número de observaciones en el año previo al evaluado',
 				];
 				
 				$_SESSION['enunciados14'] = $enunciados;
@@ -962,13 +966,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-danger">Registro nuevo</button>
-		</form>
+	
+                   
+	</form>
 			
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="guardarFormulario" value="" class="btn btn-danger">Guardar Formulario</button>
-		</form>
+	
+                  	
+	</form>
 			
     </div>
 	
@@ -1052,11 +1060,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="111" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert111) ? $alert111 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1107,7 +1124,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert112) ? $alert112 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
+
+
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
 						<h6 class="display-15">1.1.3 Tabulador de sueldos o documentos con la estructura salarial del personal de la administración pública municipal</h6>
@@ -1154,6 +1184,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert113) ? $alert113 : ''; ?>
 						
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1180,7 +1221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 							$labels114 = [
 								'Número de unidades administrativas que conforman la administración.',
-								'Gasto corriente en el año evaluado',
+								'Número de unidades administrativas promedio nacional.',
 							];
 
 							$valoresForm1 = [
@@ -1206,6 +1247,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert114) ? $alert114 : ''; ?>
 			
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data">
 					<div class="form-group">
@@ -1241,6 +1293,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert115) ? $alert115 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data">
 					<div class="form-group">		
@@ -1267,7 +1330,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							$valor_variable = ${"opcion" . ($index + 1) . "_form3_value"};
 						?>
 						<label for="txtNombre" class="text1">
-							<input type="number" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required><span><?= $labels116[$index] ?></span>
+							<input type="text" class="form-control" name="<?= $fieldName?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm3) echo "disabled"; ?> required><span><?= $labels116[$index] ?></span>
 						</label>
 					<?php endforeach; ?>
 
@@ -1276,7 +1339,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert116) ? $alert116 : ''; ?>
 					</div>
-					</form>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>	
+				</form>
 					<form method="POST" enctype="multipart/form-data">
      				<div class="form-group">
 						<h6 class="display-15">1.1.7 Participación de las mujeres en puestos de mando medio y superior en la
@@ -1311,6 +1385,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 								<?php echo isset($alert117) ? $alert117 : ''; ?>
 						</div>
+					
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 			</div>
 		</div>
@@ -1386,6 +1471,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert121) ? $alert121 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1433,6 +1529,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert122) ? $alert122 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1488,6 +1595,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert123) ? $alert123 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1548,7 +1666,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 								<?php echo isset($alert124) ? $alert124 : ''; ?>
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1620,6 +1750,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert131) ? $alert131 : ''; ?>
 
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1667,6 +1808,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert132) ? $alert132 : ''; ?>
 						
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1691,8 +1843,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php
 
 								$labels133 = [
-									'Número de observaciones a diciembre del año anterior inmediato.',
-									'Número de observaciones del año en curso.',
+									'Número de observaciones en el año evaluado.',
+									'Número de observaciones en el año previo al evaluado.',
 								];
 
 								$valoresForm6 = [
@@ -1716,9 +1868,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									<button type="submit" name="133" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado14) echo "disabled"; ?>>Evaluar</button>
 								</div>
 								<?php echo isset($alert133) ? $alert133 : ''; ?>
-					</div>
-				</form>
+					</div></form>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
 
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
+					</div>
 			</div>
 		</div>
 	</div>
@@ -1792,6 +1955,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert141) ? $alert141 : ''; ?>
 
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1840,6 +2014,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert142) ? $alert142 : ''; ?>
 						
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1891,6 +2076,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert143) ? $alert143 : ''; ?>
 					
 					</div>
+				
+                    <form action="1Organizacion.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>

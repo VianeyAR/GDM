@@ -122,20 +122,24 @@ function evaluarEstadoAlertaInputs($estadoGeneral) : string {
 	if ($estadoGeneral === 'Optimo') {
 
 		$alerta = '<div class="alert alert-success" role="alert">
-										¡Optimo! El porcentaje es menor a 100.
+										¡Optimo!
 								</div>';
 	} elseif ($estadoGeneral === 'En Proceso')  {
 			$alerta = '<div class="alert alert-warning" role="alert">
-											En proceso. El porcentaje es mayor a 100 pero menor o igual a 115.
+											En proceso.
 									</div>';
 	} elseif ($estadoGeneral === 'Error: División por 0') {
 			$alerta = '<div class="alert alert-danger" role="alert">
 											Error: Se ha ingresado 0 en la división.
 									</div>';
+	} elseif ($estadoGeneral === 'Error: Texto no admitido') {
+			$alerta = '<div class="alert alert-danger" role="alert">
+											¡Error: Texto no admitido!
+									</div>';
 	} elseif ($estadoGeneral === '') {
 	} else {
 			$alerta = '<div class="alert alert-danger" role="alert">
-											¡Rezago! El porcentaje es mayor a 115.
+											¡Rezago!
 									</div>';
 	}
 	return $alerta;

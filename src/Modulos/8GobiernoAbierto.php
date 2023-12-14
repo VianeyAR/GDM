@@ -1,11 +1,12 @@
-<?php include("../Includes/header.php"); ?>
+<?php include ("../Includes/header.php"); ?>
 
 <?php 
 	// Inicia la sesión
 	include("../../bd.php");
-	// session_unset();
+	//session_unset();
 	include("../../funciones.php");
 	$alerta = '';
+	include("../../pdf.php");
 
 
 if (isset($_POST['registrarNuevoFormulario'])) {
@@ -529,30 +530,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-        <!--Enlaces de los stilo CSS -->
+<!--Enlaces de los stilo CSS -->
 
-	<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
-	<link rel="stylesheet" href="../../assets/css/modulos.css" />
+<!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />-->
+<link rel="stylesheet" href="../../assets/css/modulos.css" />
 
-<img class="card-img-top" src="../../assets/img/GobiernoAbierto.png"
- alt="Gobierno Abierto" 
- style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
+<img class="card-img-top" src="../../assets/img/GobiernoAbierto.png" alt="Gobierno Abierto"
+    style="width: 100px; height: 100px; display: block; margin: auto; max-width: 100%;">
 
 <div class="d-flex justify-content-between">
-	<div class="btn-group" role="group" aria-label="">
-	<form method="POST" enctype="multipart/form-data">
-	<button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-primary">Registro nuevo</button>
-	</form>
-		
-</div>
-	<div class="btn-group" role="group" aria-label="">
-	<form method="POST" enctype="multipart/form-data">
-	<button type="submit" name="guardarFormulario" value="" class="btn btn-primary">Guardar Formulario</button>
-	</form>
-		
-</div>
+    <div class="btn-group" role="group" aria-label="">
+        <form method="POST" enctype="multipart/form-data">
+            <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-primary">Registro
+                nuevo</button>
+        </form>
 
-	<?php
+    </div>
+    <div class="btn-group" role="group" aria-label="">
+        <form method="POST" enctype="multipart/form-data">
+            <button type="submit" name="guardarFormulario" value="" class="btn btn-primary">Guardar Formulario</button>
+        </form>
+
+    </div>
+
+    <?php
 	// Verificar si se ha enviado el formulario
 	// if (isset($_POST['submit'])) {
 	//     // Obtener el valor seleccionado en el dropdown
@@ -564,38 +565,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// }
 	?>
 
-	
+
 </div>
-	<?php echo isset($alerta) ? $alerta : ''; ?>
+<?php echo isset($alerta) ? $alerta : ''; ?>
 
 
-    <!-- Modulo 1 Organizacion-->
+<!-- Modulo 1 Organizacion-->
 
-    <!--Tema 1 -- Estructura -->
+<!--Tema 1 -- Estructura -->
 
-	<div class="jumbotron">
-		<h2 class="display-7">8.1 Transparencia</h2>
-	<hr class="my-2">
-    </div>
+<div class="jumbotron">
+    <h2 class="display-7">8.1 Transparencia</h2>
+    <hr class="my-2">
+</div>
 
-	<!--Indicadores de Gestion-->
-	<div class="container">
-	<div class="row">
-	<div class="col-md-6">
-		<div class="card">
-			<div class="card-header">
-				Indicadores de Gestión
-			</div>
-			<div class="card-body">
+<!--Indicadores de Gestion-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Indicadores de Gestión
+                </div>
+                <div class="card-body">
 
-				<form method="POST" enctype="multipart/form-data">
-					<p>
-						<h6 class="display-15">8.1.1 Reglamento municipal de transparencia y acceso a la información pública,
-                                              incorpora los elementos siguientes:</h6></p>
-					<hr class="my-2">
+                    <form method="POST" enctype="multipart/form-data">
+                        <p>
+                        <h6 class="display-15">8.1.1 Reglamento municipal de transparencia y acceso a la información
+                            pública,
+                            incorpora los elementos siguientes:</h6>
+                        </p>
+                        <hr class="my-2">
 
-					<div class="form-group">
-					<?php
+                        <div class="form-group">
+                            <?php
 						
 
 						$labels811 = [
@@ -616,30 +619,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								${"opcion{$i}_form{$valueCheckNames811[$i]}"} = $_SESSION[$valueCheckNames811[$i]] ?? false;
 							}
 						?>
-						<?php for ($i = 0; $i < $opciones['check811']; $i++) : ?>
-							<?php 
+                            <?php for ($i = 0; $i < $opciones['check811']; $i++) : ?>
+                            <?php 
 								$valor_variable = ${"opcion{$i}_form{$valueCheckNames811[$i]}"};
 							?>
-								<label>
-										<input type="checkbox" name="<?= $valueCheckNames811[$i] ?>" value="<?= $valueCheckNames811[$i] ?>" <?php if ($checkboxesDeshabilitadosForm1) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
-										<?= $labels811[$i] ?>
-								</label><br>
-						<?php endfor; ?>
+                            <label>
+                                <input type="checkbox" name="<?= $valueCheckNames811[$i] ?>"
+                                    value="<?= $valueCheckNames811[$i] ?>"
+                                    <?php if ($checkboxesDeshabilitadosForm1) echo "disabled"; ?>
+                                    <?php if ($valor_variable) echo "checked"; ?>>
+                                <?= $labels811[$i] ?>
+                            </label><br>
+                            <?php endfor; ?>
 
-						<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="811" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
-							</div>
-							<?php echo isset($alert811) ? $alert811 : ''; ?>
-							<!--Salto de parrafo 2.1.2-->
-						</div>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="811" value="" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert811) ? $alert811 : ''; ?>
+                            <!--Salto de parrafo 2.1.2-->
+                        </div>
+                    </form>
+
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 
 
 
 
-						<h6 class="display-15">8.1.2 Programa de transparencia y acceso a la información pública</h6></p>
-						<hr class="my-2">
-						<div class="form-group">
-						<?php
+
+                    <form method="POST" enctype="multipart/form-data">
+                        <h6 class="display-15">8.1.2 Programa de transparencia y acceso a la información pública</h6>
+                        </p>
+                        <hr class="my-2">
+                        <div class="form-group">
+                            <?php
 						
 						$labels812 = [
 							'a) Objetivos, metas y líneas de acción para garantizar la transparencia y el acceso a la información pública para la ciudadanía',
@@ -654,47 +676,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								${"opcion{$i}_form{$valueCheckNames812[$i]}"} = $_SESSION[$valueCheckNames812[$i]] ?? false;
 							}
 						?>
-						<?php for ($i = 0; $i < $opciones['check812']; $i++) : ?>
-							<?php 
+                            <?php for ($i = 0; $i < $opciones['check812']; $i++) : ?>
+                            <?php 
 								$valor_variable = ${"opcion{$i}_form{$valueCheckNames812[$i]}"};
 							?>
-								<label>
-										<input type="checkbox" name="<?= $valueCheckNames812[$i] ?>" value="<?= $valueCheckNames812[$i] ?>" <?php if ($checkboxesDeshabilitadosForm2) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
-										<?= $labels812[$i] ?>
-								</label><br>
-						<?php endfor; ?>
+                            <label>
+                                <input type="checkbox" name="<?= $valueCheckNames812[$i] ?>"
+                                    value="<?= $valueCheckNames812[$i] ?>"
+                                    <?php if ($checkboxesDeshabilitadosForm2) echo "disabled"; ?>
+                                    <?php if ($valor_variable) echo "checked"; ?>>
+                                <?= $labels812[$i] ?>
+                            </label><br>
+                            <?php endfor; ?>
 
-						<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="812" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Evaluar</button>
-							</div>
-							<?php echo isset($alert812) ? $alert812 : ''; ?>
-							<!--Salto de parrafo 2.1.2-->
-						</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="812" value="" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert812) ? $alert812 : ''; ?>
+                            <!--Salto de parrafo 2.1.2-->
+                        </div>
+                    </form>
+                    <div>
+                        <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
 
-	<!--Indicadores de desempeño -->
-	
-	<div class="col-md-6">
-		<div class="card">
-			<div class="card-header">
-				Indicadores de Desempeño
-			</div>
-			<div class="card-body">
+                            <input type="file" name="pdf_file" id="pdf_file">
+                            <br>
+                            <label for="nuevo_nombre">Nuevo nombre:</label>
+                            <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                            <br>
+                            <input type="submit" value="Subir PDF" name="subirpdf">
+                        </form>
+                    </div></br>
 
-			<form method="POST" enctype="multipart/form-data">
+                </div>
+            </div>
+        </div>
 
-						<div class="form-group">
-							<p>
-								<h6 class="display-15">8.1.3 Eficacia en la atención de solicitudes de acceso a la información</h6>
-							</p>
-							<hr class="my-2">
-							<p>Método de cálculo: (Solicitudes de acceso a la información recurridas ante el órgano garante del derecho y falladas en contra del municipio / total de solicitudes de información presentadas) * 100</p>
-							
-							<?php
+
+        <!--Indicadores de desempeño -->
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Indicadores de Desempeño
+                </div>
+                <div class="card-body">
+
+                    <form method="POST" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <p>
+                            <h6 class="display-15">8.1.3 Eficacia en la atención de solicitudes de acceso a la
+                                información</h6>
+                            </p>
+                            <hr class="my-2">
+                            <p>Método de cálculo: (Solicitudes de acceso a la información recurridas ante el órgano
+                                garante del derecho y falladas en contra del municipio / total de solicitudes de
+                                información presentadas) * 100</p>
+
+                            <?php
 							$labels813 = [
 								'Total de solicitudes de acceso a las informaciones recurridas ante el órgano garante del derecho y falladas en contra del municipio.',
 								'Total de solicitudes de información presentadas.',
@@ -709,36 +750,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								${"opcion" . ($index + 1) . "_form1_value"} = $_SESSION[$fieldName] ?? '';
 							}
 							?>
-							<?php foreach($variableNames['form1'] as  $index => $fieldName) : ?>
-								<?php 
+                            <?php foreach($variableNames['form1'] as  $index => $fieldName) : ?>
+                            <?php 
 									$valor_variable = ${"opcion" . ($index + 1) . "_form1_value"};
 								?>
-								<label for="txtNombre" class="text1">
-									<input type="number" class="form-control" name="<?= $fieldName ?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required>
-									<span><?= $labels813[$index] ?></span>
-								</label>
-							<?php endforeach; ?>
+                            <label for="txtNombre" class="text1">
+                                <input type="number" class="form-control" name="<?= $fieldName ?>" id="txtNombre"
+                                    placeholder="" value="<?= $valor_variable ?>"
+                                    <?php if ($inputsDeshabilitadosForm1) echo "disabled"; ?> required>
+                                <span><?= $labels813[$index] ?></span>
+                            </label>
+                            <?php endforeach; ?>
 
-							<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="813" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Evaluar</button>
-							</div>
-							<?php echo isset($alert813) ? $alert813 : ''; ?>
-						</div>
-						</form>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="813" value="Agregar" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert813) ? $alert813 : ''; ?>
+                        </div>
+                    </form>
+
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 
 
 
 
-						<form method="POST" enctype="multipart/form-data">
 
-							<div class="form-group">
-								<p>
-									<h6 class="display-15">8.1.4 Cumplimiento de obligaciones de transparencia</h6>
-								</p>
-								<hr class="my-2">
-								<p>Método de cálculo: (Número de obligaciones de transparencia disponibles y actualizadas / total de obligaciones de transparencia establecidas en la legislación) * 100.</p>
-								
-								<?php
+                    <form method="POST" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <p>
+                            <h6 class="display-15">8.1.4 Cumplimiento de obligaciones de transparencia</h6>
+                            </p>
+                            <hr class="my-2">
+                            <p>Método de cálculo: (Número de obligaciones de transparencia disponibles y actualizadas /
+                                total de obligaciones de transparencia establecidas en la legislación) * 100.</p>
+
+                            <?php
 								$labels814 = [
 									'Número de obligaciones de transparencia, disponibles y actualizadas',
 									'Total de obligaciones de transparencia establecidas en la legislación.',
@@ -753,53 +810,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									${"opcion" . ($index + 1) . "_form2_value"} = $_SESSION[$fieldName] ?? '';
 								}
 								?>
-								<?php foreach($variableNames['form2'] as  $index => $fieldName) : ?>
-									<?php 
+                            <?php foreach($variableNames['form2'] as  $index => $fieldName) : ?>
+                            <?php 
 										$valor_variable = ${"opcion" . ($index + 1) . "_form2_value"};
 									?>
-									<label for="txtNombre" class="text2">
-										<input type="number" class="form-control" name="<?= $fieldName ?>" id="txtNombre" placeholder="" value="<?= $valor_variable ?>" <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required>
-										<span><?= $labels814[$index] ?></span>
-									</label>
-								<?php endforeach; ?>
+                            <label for="txtNombre" class="text2">
+                                <input type="number" class="form-control" name="<?= $fieldName ?>" id="txtNombre"
+                                    placeholder="" value="<?= $valor_variable ?>"
+                                    <?php if ($inputsDeshabilitadosForm2) echo "disabled"; ?> required>
+                                <span><?= $labels814[$index] ?></span>
+                            </label>
+                            <?php endforeach; ?>
 
-								<div class="btn-group" role="group" aria-label="">
-									<button type="submit" name="814" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Evaluar</button>
-								</div>
-								<?php echo isset($alert814) ? $alert814 : ''; ?>
-							</div>
-						</form>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="814" value="Agregar" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert814) ? $alert814 : ''; ?>
+                        </div>
+                    </form>
 
-			</div>
-		</div>
-	</div>
-	</div>
-	</div></br>
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
 
-	<!--Tema 2 -- Planeacion-->
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></br>
 
-	<div class="jumbotron">
-			<h2 class="display-7">8.2 Participación ciudadana</h2>
-		<hr class="my-2">
+<!--Tema 2 -- Planeacion-->
+
+<div class="jumbotron">
+    <h2 class="display-7">8.2 Participación ciudadana</h2>
+    <hr class="my-2">
 </div>
 
 <!--Indicadores de Gestion-->
 <div class="container">
-	<div class="row">
-<div class="col-md-6">
-		<div class="card">
-			<div class="card-header">
-				Indicadores de Gestión
-			</div>
-			<div class="card-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Indicadores de Gestión
+                </div>
+                <div class="card-body">
 
-				<form method="POST" enctype="multipart/form-data">
-					<p>
-						<h6 class="display-15">8.2.1 Mecanismo para atender las propuestas ciudadanas</h6></p>
-					<hr class="my-2">
+                    <form method="POST" enctype="multipart/form-data">
+                        <p>
+                        <h6 class="display-15">8.2.1 Mecanismo para atender las propuestas ciudadanas</h6>
+                        </p>
+                        <hr class="my-2">
 
-					<div class="form-group">
-					<?php
+                        <div class="form-group">
+                            <?php
 					
 					$labels821= [
 						'a) Mecanismos de contacto (procedimiento o instrumento) publicado y documentado que funcione para que la ciudadanía incida en las acciones municipales.',
@@ -810,27 +881,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							${"opcion{$i}_form{$valueCheckNames821[$i]}"} = $_SESSION[$valueCheckNames821[$i]] ?? false;
 						}
 					?>
-					<?php for ($i = 0; $i < $opciones['check821']; $i++) : ?>
-						<?php 
+                            <?php for ($i = 0; $i < $opciones['check821']; $i++) : ?>
+                            <?php 
 							$valor_variable = ${"opcion{$i}_form{$valueCheckNames821[$i]}"};
 						?>
-							<label>
-									<input type="checkbox" name="<?= $valueCheckNames821[$i] ?>" value="<?= $valueCheckNames821[$i] ?>" <?php if ($checkboxesDeshabilitadosForm3) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
-									<?= $labels821[$i] ?>
-							</label><br>
-					<?php endfor; ?>
+                            <label>
+                                <input type="checkbox" name="<?= $valueCheckNames821[$i] ?>"
+                                    value="<?= $valueCheckNames821[$i] ?>"
+                                    <?php if ($checkboxesDeshabilitadosForm3) echo "disabled"; ?>
+                                    <?php if ($valor_variable) echo "checked"; ?>>
+                                <?= $labels821[$i] ?>
+                            </label><br>
+                            <?php endfor; ?>
 
-					<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="821" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Evaluar</button>
-						</div>
-						<?php echo isset($alert821) ? $alert821 : ''; ?>
-						<!--Salto de parrafo 2.1.2-->
-					</div>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="821" value="" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert821) ? $alert821 : ''; ?>
+                            <!--Salto de parrafo 2.1.2-->
+                        </div>
+                    </form>
 
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
 
-						<h6 class="display-15">8.2.2 Seguimiento y atención de las propuestas ciudadanas</h6></p>
-						<hr class="my-2">
-						<?php
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+
+                    <form method="POST" enctype="multipart/form-data">
+                        <h6 class="display-15">8.2.2 Seguimiento y atención de las propuestas ciudadanas</h6>
+                        </p>
+                        <hr class="my-2">
+                        <div class="form-group">
+                            <?php
 
 						$labels822= [
 							'a) Esquema para que la propuesta sea considerada por el equipo directivo del municipio.',
@@ -842,56 +931,73 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								${"opcion{$i}_form{$valueCheckNames822[$i]}"} = $_SESSION[$valueCheckNames822[$i]] ?? false;
 							}
 						?>
-						<?php for ($i = 0; $i < $opciones['check822']; $i++) : ?>
-							<?php 
+                            <?php for ($i = 0; $i < $opciones['check822']; $i++) : ?>
+                            <?php 
 								$valor_variable = ${"opcion{$i}_form{$valueCheckNames822[$i]}"};
 							?>
-								<label>
-										<input type="checkbox" name="<?= $valueCheckNames822[$i] ?>" value="<?= $valueCheckNames822[$i] ?>" <?php if ($checkboxesDeshabilitadosForm4) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
-										<?= $labels822[$i] ?>
-								</label><br>
-						<?php endfor; ?>
+                            <label>
+                                <input type="checkbox" name="<?= $valueCheckNames822[$i] ?>"
+                                    value="<?= $valueCheckNames822[$i] ?>"
+                                    <?php if ($checkboxesDeshabilitadosForm4) echo "disabled"; ?>
+                                    <?php if ($valor_variable) echo "checked"; ?>>
+                                <?= $labels822[$i] ?>
+                            </label><br>
+                            <?php endfor; ?>
 
-						<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="822" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Evaluar</button>
-							</div>
-							<?php echo isset($alert822) ? $alert822 : ''; ?>
-							<!--Salto de parrafo 2.1.2-->
-						</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div></br>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="822" value="" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert822) ? $alert822 : ''; ?>
+                            <!--Salto de parrafo 2.1.2-->
+                        </div>
+                    </form>
+
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div></br>
 
 
 
-        
-		<!--Tema 3 -- Contraloría-->
 
-		<div class="jumbotron">
-				<h2 class="display-7">8.3 Ética pública</h2>
-			<hr class="my-2">
+<!--Tema 3 -- Contraloría-->
+
+<div class="jumbotron">
+    <h2 class="display-7">8.3 Ética pública</h2>
+    <hr class="my-2">
 </div>
 
 <!--Indicadores de Gestion-->
 <div class="container">
-<div class="row">
-<div class="col-md-6">
-		<div class="card">
-			<div class="card-header">
-				Indicadores de Gestión
-			</div>
-			<div class="card-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Indicadores de Gestión
+                </div>
+                <div class="card-body">
 
-				<form method="POST" enctype="multipart/form-data">
-					<p>
-						<h6 class="display-15">8.3.1. Código de ética de los servidores públicos municipales</h6></p>
-					<hr class="my-2">
+                    <form method="POST" enctype="multipart/form-data">
+                        <p>
+                        <h6 class="display-15">8.3.1. Código de ética de los servidores públicos municipales</h6>
+                        </p>
+                        <hr class="my-2">
 
-					<div class="form-group">
-					<?php
+                        <div class="form-group">
+                            <?php
 					
 					$labels831 = [
 						'a) Disposiciones generales.',
@@ -904,27 +1010,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							${"opcion{$i}_form{$valueCheckNames831[$i]}"} = $_SESSION[$valueCheckNames831[$i]] ?? false;
 						}
 					?>
-					<?php for ($i = 0; $i < $opciones['check831']; $i++) : ?>
-						<?php 
+                            <?php for ($i = 0; $i < $opciones['check831']; $i++) : ?>
+                            <?php 
 							$valor_variable = ${"opcion{$i}_form{$valueCheckNames831[$i]}"};
 						?>
-							<label>
-									<input type="checkbox" name="<?= $valueCheckNames831[$i] ?>" value="<?= $valueCheckNames831[$i] ?>" <?php if ($checkboxesDeshabilitadosForm5) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
-									<?= $labels831  [$i] ?>
-							</label><br>
-					<?php endfor; ?>
+                            <label>
+                                <input type="checkbox" name="<?= $valueCheckNames831[$i] ?>"
+                                    value="<?= $valueCheckNames831[$i] ?>"
+                                    <?php if ($checkboxesDeshabilitadosForm5) echo "disabled"; ?>
+                                    <?php if ($valor_variable) echo "checked"; ?>>
+                                <?= $labels831  [$i] ?>
+                            </label><br>
+                            <?php endfor; ?>
 
-					<div class="btn-group" role="group" aria-label="">
-							<button type="submit" name="831" value="" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Evaluar</button>
-						</div>
-						<?php echo isset($alert831) ? $alert831 : ''; ?>
-						<!--Salto de parrafo 2.1.2-->
-					</div>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="831" value="" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert831) ? $alert831 : ''; ?>
+                            <!--Salto de parrafo 2.1.2-->
+                        </div>
+                    </form>
 
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 
-						<h6 class="display-15">8.3.2. Difusión y capacitación sobre el Código de ética </h6></p>
-						<hr class="my-2">
-						<?php
+                    <form method="POST" enctype="multipart/form-data">
+                        <h6 class="display-15">8.3.2. Difusión y capacitación sobre el Código de ética </h6>
+                        </p>
+                        <hr class="my-2">
+                        <div class="form-group">
+                            <?php
 						
 						$labels832= [
 							'a) Acciones de capacitación a sus servidores públicos sobre el Código de Ética.',
@@ -936,32 +1059,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								${"opcion{$i}_form{$valueCheckNames832[$i]}"} = $_SESSION[$valueCheckNames832[$i]] ?? false;
 							}
 						?>
-						<?php for ($i = 0; $i < $opciones['check832']; $i++) : ?>
-							<?php 
+                            <?php for ($i = 0; $i < $opciones['check832']; $i++) : ?>
+                            <?php 
 								$valor_variable = ${"opcion{$i}_form{$valueCheckNames832[$i]}"};
 							?>
-								<label>
-										<input type="checkbox" name="<?= $valueCheckNames832[$i] ?>" value="<?= $valueCheckNames832[$i] ?>" <?php if ($checkboxesDeshabilitadosForm6) echo "disabled"; ?> <?php if ($valor_variable) echo "checked"; ?>>
-										<?= $labels832[$i] ?>
-								</label><br>
-						<?php endfor; ?>
+                            <label>
+                                <input type="checkbox" name="<?= $valueCheckNames832[$i] ?>"
+                                    value="<?= $valueCheckNames832[$i] ?>"
+                                    <?php if ($checkboxesDeshabilitadosForm6) echo "disabled"; ?>
+                                    <?php if ($valor_variable) echo "checked"; ?>>
+                                <?= $labels832[$i] ?>
+                            </label><br>
+                            <?php endfor; ?>
 
-						<div class="btn-group" role="group" aria-label="">
-								<button type="submit" name="832" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
-							</div>
-							<?php echo isset($alert832) ? $alert832 : ''; ?>
-							<!--Salto de parrafo 2.1.2-->
-						</div>
+                            <div class="btn-group" role="group" aria-label="">
+                                <button type="submit" name="832" value="" class="btn btn-success"
+                                    <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
+                            </div>
+                            <?php echo isset($alert832) ? $alert832 : ''; ?>
+                            <!--Salto de parrafo 2.1.2-->
+                        </div>
+                    </form>
 
-				</form>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div></br>
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></br>
 
 
-			
 
-		
-	<?php include("../Includes/footer.php"); ?>
+
+
+<?php include("../Includes/footer.php"); ?>

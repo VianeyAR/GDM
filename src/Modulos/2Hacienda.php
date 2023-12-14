@@ -6,6 +6,7 @@
 	// session_unset();
 	include("../../funciones.php");
 	$alerta = '';
+	include("../../pdf.php");
 
 
 if (isset($_POST['registrarNuevoFormulario'])) {
@@ -1035,13 +1036,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-warning">Registro nuevo</button>
-		</form>
+	
+                   	
+	</form>
 			
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="guardarFormulario" value="" class="btn btn-warning">Guardar Formulario</button>
-		</form>
+	
+                  	
+	</form>
 			
     </div>
 	
@@ -1129,8 +1134,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert211) ? $alert211 : ''; ?>
 							<!--Salto de parrafo 2.1.1-->
 						</div>
+							</form>
+							<form action="2Hacienda.php" method="post" enctype="multipart/form-data">
 
-
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+						<form method="POST" enctype="multipart/form-data">
 						<p>
 							<h6 class="display-15 text-center"><b>2.1.2 Reglamento municipal de catastro</b></h6></p>
 						<hr class="my-2">
@@ -1166,7 +1181,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert212) ? $alert212 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
 						</div>
+							</form>
+							<form action="2Hacienda.php" method="post" enctype="multipart/form-data">
 
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+						<form method="POST" enctype="multipart/form-data">
 						<p>
 							<h6 class="display-15 text-center"><b>2.1.3 Sistema de información catastral</b></h6></p>
 						<hr class="my-2">
@@ -1200,8 +1226,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert213) ? $alert213 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
 						</div>
+							</form>
 
-					</form>
+					
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+					
 
 				</div>
 			</div>
@@ -1249,6 +1287,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 							<?php echo isset($alert214) ? $alert214 : ''; ?>
 						</div>
+					
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					
 					<form method="POST" enctype="multipart/form-data">
@@ -1285,6 +1334,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 								<?php echo isset($alert215) ? $alert215 : ''; ?>
 						</div>
+					
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data">
 						<div class="form-group">
@@ -1321,6 +1381,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									</div>
 									<?php echo isset($alert216) ? $alert216 : ''; ?>
 						</div>
+					
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data">
 						<div class="form-group">
@@ -1356,7 +1427,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 										</div>
 											<?php echo isset($alert217) ? $alert217 : ''; ?>
 						</div>
-					</form>
+					
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+					
 				</div>
 			</div>
 		</div>
@@ -1420,8 +1502,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<button type="submit" name="221" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
 						</div>
 							<?php echo isset($alert221) ? $alert221 : ''; ?>
+						</div>
+						</form>
+						<form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+						<form method="POST" enctype="multipart/form-data">
 						<h6 class="display-15">2.2.2 Armonización contable</h6></p>
 						<hr class="my-2">
+						<div class="form-group">
 							<?php
 								
 								$labels222 = [
@@ -1447,8 +1542,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<button type="submit" name="222" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Evaluar</button>
 						</div>
 						<?php echo isset($alert222) ? $alert222 : ''; ?>
+							</div>
+						<form>
+						<form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+						<form method="POST" enctype="multipart/form-data">
 						<h6 class="display-15">2.2.3 Cuenta Pública </h6></p>
 						<hr class="my-2">
+						<div class="form-group">
 						<?php
 							
 							$labels223 = [
@@ -1477,7 +1585,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert223) ? $alert223 : ''; ?>
 					</div>
-				</form>
+					</form>
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 			</div>
 		</div>
 	</div>
@@ -1524,6 +1642,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 							<?php echo isset($alert224) ? $alert224 : ''; ?>
 					</div>
+				
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data">
 					<div class="form-group">
@@ -1560,7 +1689,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert225) ? $alert225 : ''; ?>
 					</div>
-				</form>
+					</form>
+				
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
 			</div>
 		</div>
 	</div>
@@ -1625,7 +1766,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 							<?php echo isset($alert231) ? $alert231 : ''; ?>
 					</div>
-				</form>
+					</form>
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
 			</div>
 		</div>
 	</div>
@@ -1674,6 +1826,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 								<?php echo isset($alert232) ? $alert232 : ''; ?>
 					</div>
+				
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data">
 					<div class="form-group">
@@ -1708,6 +1871,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 									<?php echo isset($alert233) ? $alert233 : ''; ?>
 						</div>
+					
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data">
 						<div class="form-group">
@@ -1745,8 +1919,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									<button type="submit" name="234" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado16) echo "disabled"; ?>>Evaluar</button>
 								</div>
 									<?php echo isset($alert234) ? $alert234 : ''; ?>
-					</div>
-				</form>
+					</div></form>
+				
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
 			</div>
 		</div>
 	</div>
@@ -1812,9 +1997,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<button type="submit" name="241" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado17) echo "disabled"; ?>>Evaluar</button>
 						</div>
 							<?php echo isset($alert241) ? $alert241 : ''; ?>
+							</div>
+							<form>
+							<form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+								<input type="file" name="pdf_file" id="pdf_file">
+								<br>
+								<label for="nuevo_nombre">Nuevo nombre:</label>
+								<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+								<br>
+								<input type="submit" value="Subir PDF" name="subirpdf">
+								</form>
+								</br>
+						<form method="POST" enctype="multipart/form-data">
 
 						<h6 class="display-15">2.4.2 Inventario de bienes muebles e inmuebles</h6></p>
 						<hr class="my-2">
+						<div class="form-group">
 							<?php
 								
 								$labels242 = [
@@ -1841,8 +2040,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<button type="submit" name="242" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado18) echo "disabled"; ?>>Evaluar</button>
 						</div>
 							<?php echo isset($alert242) ? $alert242 : ''; ?>
-					</div>
-				</form>
+					</div></form>
+				
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
 			</div>
 		</div>
 	</div>
@@ -1889,8 +2099,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 									<button type="submit" name="243" value="Agregar" class="btn btn-success" <?php if ($botonDeshabilitado19) echo "disabled"; ?>>Evaluar</button>
 								</div>
 									<?php echo isset($alert243) ? $alert243 : ''; ?>
-					</div>
-				</form>
+					</div></form>
+				
+                    <form action="2Hacienda.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
 			</div>
 		</div>
 	</div>

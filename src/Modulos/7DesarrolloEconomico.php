@@ -4,6 +4,7 @@ include("../../bd.php");
 // session_unset();
 include("../../funciones.php");
 $alerta = '';
+include("../../pdf.php");
 
 
 
@@ -607,13 +608,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-danger">Registro nuevo</button>
-		</form>
+	
+                 	
+	</form>
 			
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="guardarFormulario" value="" class="btn btn-danger">Guardar Formulario</button>
-		</form>
+	
+                    	
+	</form>
 			
     </div>
 	
@@ -701,6 +706,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							</div>
 							<?php echo isset($alert711) ? $alert711 : ''; ?>
 						</div>
+					
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data" >
 						<p>
@@ -750,6 +766,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							</div>
 							<?php echo isset($alert712) ? $alert712 : ''; ?>
 						</div>
+					
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data" >
 						<p>
@@ -797,6 +824,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							</div>
 							<?php echo isset($alert713) ? $alert713 : ''; ?>
 						</div>
+					
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 			</div>
 		</div>
@@ -850,6 +888,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						<?php echo isset($alert714) ? $alert714 : ''; ?>
 			
 					</div>
+				
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -922,6 +971,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						</div>
 						<?php echo isset($alert721) ? $alert721 : ''; ?>
 					</div>
+				
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -971,6 +1031,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						</div>
 						<?php echo isset($alert722) ? $alert722 : ''; ?>
 					</div>
+				
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1023,6 +1094,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 						<?php echo isset($alert723) ? $alert723 : ''; ?>
 			
 					</div>
+				
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1094,6 +1176,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							</div>
 							<?php echo isset($alert731) ? $alert731 : ''; ?>
 						</div>
+					
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data" >
 						<p>
@@ -1142,6 +1235,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							</div>
 							<?php echo isset($alert732) ? $alert732 : ''; ?>
 						</div>
+					
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 					<form method="POST" enctype="multipart/form-data" >
 						<p>
@@ -1189,6 +1293,17 @@ if (isset($_POST['registrarNuevoFormulario'])) {
 							</div>
 							<?php echo isset($alert733) ? $alert733 : ''; ?>
 						</div>
+					
+                    <form action="7DesarrolloEconomico.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 			</div>
 		</div>

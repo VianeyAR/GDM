@@ -6,6 +6,7 @@
 	// session_unset();
 	include("../../funciones.php");
 	$alerta = '';
+	include("../../pdf.php");
 
 
 if (isset($_POST['registrarNuevoFormulario'])) {
@@ -1079,13 +1080,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div class="btn-group" role="group" aria-label="">
 	<form method="POST" enctype="multipart/form-data">
 	<button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-warning">Registro nuevo</button>
-	</form>
+
+</form>
 		
 </div>
 	<div class="btn-group" role="group" aria-label="">
 	<form method="POST" enctype="multipart/form-data">
 	<button type="submit" name="guardarFormulario" value="" class="btn btn-warning">Guardar Formulario</button>
-	</form>
+
+                 	
+</form>
 		
 </div>
 
@@ -1168,9 +1172,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 							<?php echo isset($alert311) ? $alert311 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
-						</div>
+						</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
 
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
 
+						<form method="POST" enctype="multipart/form-data">
 						<h6 class="display-15">3.1.2 Emisión de licencias de construcción</h6></p>
 						<hr class="my-2">
 						<div class="form-group">
@@ -1201,8 +1216,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 							<?php echo isset($alert312) ? $alert312 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
-						</div>
+						</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
 
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+
+							<form method="POST" enctype="multipart/form-data">
 						<h6 class="display-15">3.1.3 Unidad responsable de la planeación urbana</h6></p>
 						<hr class="my-2">
 						<div class="form-group">
@@ -1233,9 +1259,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert313) ? $alert313 : ''; ?>
 						<!--Salto de parrafo 2.1.2-->
-					</div>
+					</div> </form>
 				
-				</form>
+				
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+				
 			</div>
 		</div>
 	</div>
@@ -1300,12 +1337,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 
 					
+				
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				</div>
 		</div>
 	</div>
 	</div>
-	</div></div></br>
+	</div></br>
 
 	<!--Tema 2 -- Planeacion-->
 
@@ -1362,7 +1410,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert321) ? $alert321 : ''; ?>
 						<!--Salto de parrafo 2.1.2-->
-					</div>
+					</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 						
 						<h6 class="display-15">3.2.2 Programa de Ordenamiento Ecológico Local </h6></p>
 						<hr class="my-2">
@@ -1397,7 +1457,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert322) ? $alert322 : ''; ?>
 						<!--Salto de parrafo 2.1.2-->
-					</div>
+					</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 
 						<h6 class="display-15">3.2.3 Acciones para la implementación del Ordenamiento Ecológico</h6></p>
@@ -1431,7 +1503,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert323) ? $alert323 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
 						</div>
-				</form>
+				
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+					</form>
 			</div>
 		</div>
 	</div>
@@ -1486,7 +1569,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php echo isset($alert324) ? $alert324 : ''; ?>
 					</div>
 
-						</form>
+				
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>		
+				</form>
 
 
 		</div>
@@ -1556,7 +1650,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 							<?php echo isset($alert331) ? $alert331 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
-						</div>
+						</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 
 						<h6 class="display-15">3.3.2 Unidad de protección civil</h6></p>
@@ -1593,7 +1699,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 							<?php echo isset($alert332) ? $alert332 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
-						</div>
+						</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 
 
@@ -1627,7 +1745,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							</div>
 							<?php echo isset($alert333) ? $alert333 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
-						</div>
+						</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 
 
@@ -1662,7 +1792,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 								<?php echo isset($alert334) ? $alert334 : ''; ?>
 								<!--Salto de parrafo 2.1.2-->
-							</div>
+							</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 						
 						
@@ -1698,7 +1840,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert335) ? $alert335 : ''; ?>
 							<!--Salto de parrafo 2.1.2-->
 						</div>
-				</form>
+				
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
+					</form>
 			</div>
 		</div>
 	</div>
@@ -1751,6 +1904,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<?php echo isset($alert336) ? $alert336 : ''; ?>
 						</div>
 
+					
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 					</form>
 				</div>
 			</div>
@@ -1816,7 +1980,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 								<?php echo isset($alert341) ? $alert341 : ''; ?>
 								<!--Salto de parrafo 2.1.2-->
-							</div>
+							</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 
 						<h6 class="display-15">3.4.2 Gobernanza metropolitana</h6></p>
@@ -1850,7 +2026,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert342) ? $alert342 : ''; ?>
 						<!--Salto de parrafo 2.1.2-->
-					</div>
+					</div></form>
+						<form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+							<input type="file" name="pdf_file" id="pdf_file">
+							<br>
+							<label for="nuevo_nombre">Nuevo nombre:</label>
+							<input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+							<br>
+							<input type="submit" value="Subir PDF" name="subirpdf">
+							</form>
+							</br>
+							
+							<form method="POST" enctype="multipart/form-data">
 
 
 						<h6 class="display-15">3.4.3 Programa de la zona metropolitana</h6></p>
@@ -1888,6 +2076,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<!--Salto de parrafo 2.1.2-->
 					</div>
 
+				
+                    <form action="8GobiernoAbierto.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			
 			</div>

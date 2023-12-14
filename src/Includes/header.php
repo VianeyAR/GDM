@@ -15,6 +15,9 @@ session_start();  // Asegúrate de tener esto al inicio de tu script
     <title>GDM</title>
     <link rel="stylesheet" href="../../assets/css/styles.css"  />
     <link rel="stylesheet" href="../../assets/css/modulos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    
   
     
    

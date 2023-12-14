@@ -6,6 +6,7 @@ include("../../bd.php");
 // session_unset();
 include("../../funciones.php");
 $alerta = '';
+include("../../pdf.php");
 
 if (isset($_POST['registrarNuevoFormulario'])) {
 
@@ -589,13 +590,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-success">Registro nuevo</button>
-		</form>
+	
+                   	
+	</form>
 			
     </div>
 		<div class="btn-group" role="group" aria-label="">
 		<form method="POST" enctype="multipart/form-data">
         <button type="submit" name="guardarFormulario" value="" class="btn btn-success">Guardar Formulario</button>
-		</form>
+	
+                  	
+	</form>
 			
     </div>
 	
@@ -681,11 +686,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="511" value="" class="btn btn-success" <?php if ($botonDeshabilitado1) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert511) ? $alert511 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -736,11 +750,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="512" value="" class="btn btn-success" <?php if ($botonDeshabilitado2) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert512) ? $alert512 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -808,11 +831,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="521" value="" class="btn btn-success" <?php if ($botonDeshabilitado3) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert521) ? $alert521 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -861,11 +893,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="522" value="" class="btn btn-success" <?php if ($botonDeshabilitado4) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert522) ? $alert522 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -910,11 +951,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="523" value="" class="btn btn-success" <?php if ($botonDeshabilitado5) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert523) ? $alert523 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -959,11 +1009,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="524" value="" class="btn btn-success" <?php if ($botonDeshabilitado6) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert524) ? $alert524 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1035,11 +1094,20 @@ sustentables</h2></p>
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="531" value="" class="btn btn-success" <?php if ($botonDeshabilitado7) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert531) ? $alert531 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1083,11 +1151,20 @@ sustentables</h2></p>
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="532" value="" class="btn btn-success" <?php if ($botonDeshabilitado8) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert532) ? $alert532 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1132,11 +1209,20 @@ sustentables</h2></p>
 						<div class="btn-group" role="group" aria-label="">
 							<button type="submit" name="533" value="" class="btn btn-success" <?php if ($botonDeshabilitado9) echo "disabled"; ?>>Evaluar</button>
 						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-						</div>
+						
 						<?php echo isset($alert533) ? $alert533 : ''; ?>
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1189,6 +1275,17 @@ sustentables</h2></p>
 						<?php echo isset($alert534) ? $alert534 : ''; ?>
 			
 					</div>
+				
+                    <form action="5MedioAmbiente.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>

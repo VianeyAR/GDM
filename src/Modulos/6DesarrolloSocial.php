@@ -5,6 +5,7 @@ include("../../bd.php");
 // session_unset();
 include("../../funciones.php");
 $alerta = '';
+include("../../pdf.php");
 
 
 if (isset($_POST['registrarNuevoFormulario'])) {
@@ -846,13 +847,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div class="btn-group" role="group" aria-label="">
 	<form method="POST" enctype="multipart/form-data">
 	<button type="submit" name="registrarNuevoFormulario" value="" class="btn btn-danger">Registro nuevo</button>
-	</form>
+
+                  	
+</form>
 		
 </div>
 	<div class="btn-group" role="group" aria-label="">
 	<form method="POST" enctype="multipart/form-data">
 	<button type="submit" name="guardarFormulario" value="" class="btn btn-danger">Guardar Formulario</button>
-	</form>
+
+                 	
+</form>
 		
 </div>
 
@@ -937,6 +942,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert611) ? $alert611 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -986,6 +1002,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert612) ? $alert612 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1033,6 +1060,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert613) ? $alert613 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1105,6 +1143,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert621) ? $alert621 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1156,6 +1205,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert622) ? $alert622 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1204,6 +1264,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert623) ? $alert623 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1279,6 +1350,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert631) ? $alert631 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1328,6 +1410,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert632) ? $alert632 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1396,6 +1489,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert641) ? $alert641 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1451,6 +1555,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert642) ? $alert642 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1504,6 +1619,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert643) ? $alert643 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1550,6 +1676,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert644) ? $alert644 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1624,6 +1761,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert651) ? $alert651 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1676,6 +1824,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert652) ? $alert652 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
@@ -1749,6 +1908,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert661) ? $alert661 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 				<form method="POST" enctype="multipart/form-data" >
 					<p>
@@ -1799,6 +1969,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						</div>
 						<?php echo isset($alert662) ? $alert662 : ''; ?>
 					</div>
+				
+                    <form action="6DesarrolloSocail.php" method="post" enctype="multipart/form-data">
+
+                        <input type="file" name="pdf_file" id="pdf_file">
+                        <br>
+                        <label for="nuevo_nombre">Nuevo nombre:</label>
+                        <input type="text" name="nuevo_nombre" placeholder="No. Indicador_Año">
+                        <br>
+                        <input type="submit" value="Subir PDF" name="subirpdf">
+                    </form>
+                    </br>
 				</form>
 			</div>
 		</div>
